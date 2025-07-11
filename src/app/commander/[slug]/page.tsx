@@ -2,20 +2,25 @@ import { commanders } from "@/app/data/commanders";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-// ✅ Wajib
+// ✅ Diperlukan agar tidak async dynamic params
 export const dynamicParams = false;
 
+// ✅ Diperlukan untuk Static Generation
 export async function generateStaticParams() {
   return commanders.map((commander) => ({
     slug: commander.slug,
   }));
 }
 
-export default function CommanderDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// ✅ Proper typing
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+// ✅ Fungsi page (tidak async, typing jelas)
+export default function CommanderDetailPage({ params }: PageProps) {
   const commander = commanders.find(
     (c) => c.slug.toLowerCase() === params.slug.toLowerCase()
   );
