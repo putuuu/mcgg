@@ -7,7 +7,7 @@ const features = [
   { title: "Hero", href: "/hero" },
   { title: "Synergy", href: "/sinergi" },
   { title: "Equipment", href: "/equipment" },
-  { title: "Gogo Card", href: "/gogocard" },
+  { title: "Gogo Card", href: "/gogo-card" },
   { title: "Guide", href: "/guide" },
 ];
 
