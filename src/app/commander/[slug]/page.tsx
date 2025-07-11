@@ -1,6 +1,6 @@
 import { commanders } from "@/app/data/commanders";
-import { notFound } from "next/navigation";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export default function CommanderDetailPage({
   params,
