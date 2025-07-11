@@ -2,13 +2,11 @@ import { commanders } from "@/app/data/commanders";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
-export default function CommanderDetailPage({ params }: Props) {
+export default function CommanderDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const commander = commanders.find(
     (c) => c.slug === params.slug.toLowerCase()
   );
@@ -31,31 +29,29 @@ export default function CommanderDetailPage({ params }: Props) {
         </div>
 
         <div className="flex-1 space-y-4">
-          <div className="space-y-2">
-            <h2 className="text-xl font-semibold mt-4">Skills</h2>
-            {commander.skills.map((skill, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-100 rounded-lg p-3 flex gap-4 items-start"
-              >
-                <Image
-                  src={skill.icon}
-                  alt={skill.name}
-                  width={48}
-                  height={48}
-                  className="rounded"
-                />
-                <div>
-                  <h3 className="font-bold text-base">{skill.name}</h3>
-                  <p className="text-sm text-gray-600">{skill.description}</p>
-                </div>
+          <h2 className="text-xl font-semibold mt-4">Skills</h2>
+          {commander.skills.map((skill, idx) => (
+            <div
+              key={idx}
+              className="bg-gray-100 rounded-lg p-3 flex gap-4 items-start"
+            >
+              <Image
+                src={skill.icon}
+                alt={skill.name}
+                width={48}
+                height={48}
+                className="rounded"
+              />
+              <div>
+                <h3 className="font-bold text-base">{skill.name}</h3>
+                <p className="text-sm text-gray-600">{skill.description}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <p className="text-gray-700 mt-4">{commander.description}</p>
+      <p className="text-gray-700 mt-6">{commander.description}</p>
     </div>
   );
 }
