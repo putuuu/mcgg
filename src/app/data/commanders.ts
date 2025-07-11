@@ -884,7 +884,7 @@ export const commanders: Commander[] = [
         icon: "/images/commander/kaboom1.png",
         name: "Johnny, Go!",
         description:
-          "add a 3-Gold Johnny with a random Synegy from Johnson's Synergy Pool(only includes Synergies with maximum activation count above 6) to your Shop. Johnny's skill \"Spanner Spin\": Fling a wrench at the area with the most enemies, dealing DMG and stunning them for 0.5/0.7/1s. Johnny doesn't cost Gold. After getting your first Johnny, you set all Johnnies in the Shop to the same Synergy.",
+          "add a 3-Gold Johnny with a random Synegy from Johnson's Synergy Pool(only includes Synergies with maximum activation count above 6) to your Shop. Johnny's skill Spanner Spin: Fling a wrench at the area with the most enemies, dealing DMG and stunning them for 0.5/0.7/1s. Johnny doesn't cost Gold. After getting your first Johnny, you set all Johnnies in the Shop to the same Synergy.",
       },
       {
         level: 2,
