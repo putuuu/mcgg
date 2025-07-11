@@ -33,9 +33,7 @@ export const commanders: Commander[] = [
         icon: "/images/commander/lancelot1.png",
         name: "Golden Legacy",
         description:
-          "No longer earns Interest. Starting from I/II/III and subsequently stages, gain 2/2/3 bonus Gold each round." +
-          "\n" +
-          "At the end of each round, all Gold is consumed to upgrade Lancelot.",
+          "No longer earns Interest. Starting from I/II/III and subsequently stages, gain 2/2/3 bonus Gold each round. At the end of each round, all Gold is consumed to upgrade Lancelot.",
       },
       {
         level: 2,
@@ -529,7 +527,7 @@ export const commanders: Commander[] = [
         icon: "/images/commander/rya1.png",
         name: "Budding Blossom",
         description:
-          "Usable after Stage III. Rya Select a Hero without a Blessing and grants them a random Blessing. \nCan be used 1 time(s). \nBlessing: The blessed Hero contributes +1 to their Role or Faction Synergy Count.",
+          "Usable after Stage III. Rya Select a Hero without a Blessing and grants them a random Blessing. Can be used 1 time(s). Blessing: The blessed Hero contributes +1 to their Role or Faction Synergy Count.",
       },
       {
         level: 2,
@@ -775,7 +773,7 @@ export const commanders: Commander[] = [
         icon: "/images/commander/pao1.png",
         name: "Dragon's Gift",
         description:
-          "Usable after Round III-1 begins. Choose one of four permanent buffs:\n8% Attack Speed.\n15 Hybrid DEF.\n9% Hybrid ATK.\n400 HP.",
+          "Usable after Round III-1 begins. Choose one of four permanent buffs: 8% Attack Speed. 15 Hybrid DEF. 9% Hybrid ATK. 400 HP.",
       },
       {
         level: 2,
@@ -857,7 +855,7 @@ export const commanders: Commander[] = [
         icon: "/images/commander/brown1.png",
         name: "Reinforce",
         description:
-          "Select a piece of Equipment to enhance with one of the following effects. Can be used 2 time(s).\nEach piece of Equipment can only be enhance once.\nMight: Increases Hybrid ATK by 6%.\nGigantify: Increases Max HP by 6%.",
+          "Select a piece of Equipment to enhance with one of the following effects. Can be used 2 time(s). Each piece of Equipment can only be enhance once. Might: Increases Hybrid ATK by 6%. Gigantify: Increases Max HP by 6%.",
       },
       {
         level: 2,
@@ -912,7 +910,7 @@ export const commanders: Commander[] = [
         icon: "/images/commander/dubi1.png",
         name: "Dubi's Gift",
         description:
-          "Obtained Equipment - Fluffy's Rage.\nThe carrier leaves a Fluffy behind each time their location changes. The Fluffy will explode and stun enemy Heroes in the same row and column for 0.5s",
+          "Obtained Equipment - Fluffy's Rage. The carrier leaves a Fluffy behind each time their location changes. The Fluffy will explode and stun enemy Heroes in the same row and column for 0.5s",
       },
       {
         level: 2,

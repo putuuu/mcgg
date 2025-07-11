@@ -26,7 +26,7 @@ export default function CommanderCard({ commander }: { commander: Commander }) {
           <strong>Skill 2:</strong> {commander.skills[1]?.name}
         </p>{" "}
         <p style={{ fontSize: "0.85rem", margin: "0.25rem 0" }}>
-          "{commander.sdescription}"
+          {commander.sdescription}
         </p>
         <Link
           href={`/commander/${commander.id}`}
