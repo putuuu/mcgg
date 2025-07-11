@@ -38,11 +38,11 @@ const headerStyle = {
   color: "#fff",
 };
 
-const navStyle = {
-  marginTop: "0.5rem",
+const navStyle: React.CSSProperties = {
+  marginTop: "10px",
   display: "flex",
-  flexWrap: "wrap",
-  gap: "0.75rem",
+  flexWrap: "wrap", // ✅ sekarang sudah valid
+  gap: "10px",
 };
 
 const mainStyle = {
