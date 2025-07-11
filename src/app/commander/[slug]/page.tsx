@@ -1,13 +1,15 @@
+import { commanders } from "@/app/data/commanders";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { commanders } from "../../data/commanders";
 
-export default async function CommanderDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const commander = commanders.find((c) => c.id.toString() === params.id);
+type Props = {
+  params: { slug: string };
+};
+
+export default function CommanderDetailPage({ params }: Props) {
+  const commander = commanders.find(
+    (c) => c.slug === params.slug.toLowerCase()
+  );
 
   if (!commander) return notFound();
 
@@ -27,8 +29,6 @@ export default async function CommanderDetailPage({
         </div>
 
         <div className="flex-1 space-y-4">
-          <p className="text-gray-700">{commander.description}</p>
-
           <div className="space-y-2">
             <h2 className="text-xl font-semibold mt-4">Skills</h2>
             {commander.skills.map((skill, idx) => (
@@ -52,6 +52,8 @@ export default async function CommanderDetailPage({
           </div>
         </div>
       </div>
+
+      <p className="text-gray-700 mt-4">{commander.description}</p>
     </div>
   );
 }

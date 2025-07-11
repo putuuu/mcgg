@@ -9,6 +9,7 @@ export interface CommanderSkill {
 export interface Commander {
   id: number;
   name: string;
+  slug: string;
   type: string;
   image: string;
   skills: CommanderSkill[];
@@ -20,6 +21,7 @@ export const commanders: Commander[] = [
   {
     id: 1,
     name: "Lancelot",
+    slug: "lancelot",
     type: "Resource",
     image: "/images/commander/Hero45057.png",
     description:
@@ -48,6 +50,7 @@ export const commanders: Commander[] = [
   {
     id: 2,
     name: "Kagura",
+    slug: "kagura",
     type: "Survival",
     image: "/images/commander/Hero45206.png",
     description:
@@ -75,6 +78,7 @@ export const commanders: Commander[] = [
   {
     id: 3,
     name: "Aamon",
+    slug: "aamon",
     type: "Strategy",
     image: "/images/commander/Hero45246.png",
     description:
@@ -102,6 +106,7 @@ export const commanders: Commander[] = [
   {
     id: 4,
     name: "Chou",
+    slug: "chou",
     type: "Resource",
     image: "/images/commander/Hero47011.png",
     description:
@@ -128,6 +133,7 @@ export const commanders: Commander[] = [
   {
     id: 5,
     name: "Wanwan",
+    slug: "wanwan",
     type: "Combat",
     image: "/images/commander/Hero47021.png",
     description:
@@ -155,6 +161,7 @@ export const commanders: Commander[] = [
   {
     id: 6,
     name: "Nana",
+    slug: "nana",
     type: "Survival",
     image: "/images/commander/Hero47031.png",
     description:
@@ -182,6 +189,7 @@ export const commanders: Commander[] = [
   {
     id: 7,
     name: "Ling",
+    slug: "ling",
     type: "Combat",
     image: "/images/commander/Hero47041.png",
     description:
@@ -210,6 +218,7 @@ export const commanders: Commander[] = [
   {
     id: 8,
     name: "Layla",
+    slug: "layla",
     type: "Combat",
     image: "/images/commander/Hero47051.png",
     description:
@@ -238,6 +247,7 @@ export const commanders: Commander[] = [
   {
     id: 9,
     name: "Vale",
+    slug: "vale",
     type: "Strategy",
     image: "/images/commander/Hero47061.png",
     description:
@@ -266,6 +276,7 @@ export const commanders: Commander[] = [
   {
     id: 10,
     name: "Zilong",
+    slug: "zilong",
     type: "Combat",
     image: "/images/commander/Hero47071.png",
     description:
@@ -294,6 +305,7 @@ export const commanders: Commander[] = [
   {
     id: 11,
     name: "Fanny",
+    slug: "fanny",
     type: "Combat",
     image: "/images/commander/Hero47081.png",
     description:
@@ -322,6 +334,7 @@ export const commanders: Commander[] = [
   {
     id: 12,
     name: "Angela",
+    slug: "angela",
     type: "Survival",
     image: "/images/commander/Hero47091.png",
     description:
@@ -350,6 +363,7 @@ export const commanders: Commander[] = [
   {
     id: 13,
     name: "Moskov",
+    slug: "moskov",
     type: "Strategy",
     image: "/images/commander/Hero47111.png",
     description:
@@ -378,6 +392,7 @@ export const commanders: Commander[] = [
   {
     id: 14,
     name: "Guinevere",
+    slug: "guinevere",
     type: "Resource",
     image: "/images/commander/Hero47121.png",
     description:
@@ -405,6 +420,7 @@ export const commanders: Commander[] = [
   {
     id: 15,
     name: "Lukas",
+    slug: "lukas",
     type: "Combat",
     image: "/images/commander/Hero47131.png",
     description:
@@ -433,6 +449,7 @@ export const commanders: Commander[] = [
   {
     id: 16,
     name: "Harper",
+    slug: "harper",
     type: "Survival",
     image: "/images/commander/Hero45011.png",
     description:
@@ -460,6 +477,7 @@ export const commanders: Commander[] = [
   {
     id: 17,
     name: "Eggie",
+    slug: "eggie",
     type: "Strategy",
     image: "/images/commander/Hero45081.png",
     description:
@@ -487,6 +505,7 @@ export const commanders: Commander[] = [
   {
     id: 18,
     name: "Bersi",
+    slug: "bersi",
     type: "Combat",
     image: "/images/commander/Hero45181.png",
     description:
@@ -514,6 +533,7 @@ export const commanders: Commander[] = [
   {
     id: 19,
     name: "Rya",
+    slug: "rya",
     type: "Strategy",
     image: "/images/commander/Hero45221.png",
     description:
@@ -541,6 +561,7 @@ export const commanders: Commander[] = [
   {
     id: 20,
     name: "Lylia",
+    slug: "lylia",
     type: "Strategy",
     image: "/images/commander/Hero45236.png",
     description:
@@ -569,6 +590,7 @@ export const commanders: Commander[] = [
   {
     id: 21,
     name: "Popol and Kupa",
+    slug: "popolkupa",
     type: "Resource",
     image: "/images/commander/Hero45148.png",
     description:
@@ -596,6 +618,7 @@ export const commanders: Commander[] = [
   {
     id: 22,
     name: "Miya",
+    slug: "miya",
     type: "Combat",
     image: "/images/commander/Hero47141.png",
     description:
@@ -624,6 +647,7 @@ export const commanders: Commander[] = [
   {
     id: 23,
     name: "Ragnar",
+    slug: "ragnar",
     type: "Survival",
     image: "/images/commander/Hero45041.png",
     description:
@@ -652,6 +676,7 @@ export const commanders: Commander[] = [
   {
     id: 24,
     name: "Eva",
+    slug: "eva",
     type: "Strategy",
     image: "/images/commander/Hero45061.png",
     description:
@@ -680,6 +705,7 @@ export const commanders: Commander[] = [
   {
     id: 25,
     name: "Abe",
+    slug: "abe",
     type: "Survival",
     image: "/images/commander/Hero45071.png",
     description:
@@ -706,6 +732,7 @@ export const commanders: Commander[] = [
   {
     id: 26,
     name: "Mavis",
+    slug: "mavis",
     type: "Survival",
     image: "/images/commander/Hero45101.png",
     description:
@@ -732,6 +759,7 @@ export const commanders: Commander[] = [
   {
     id: 27,
     name: "Harley",
+    slug: "harley",
     type: "Strategy",
     image: "/images/commander/Hero45125.png",
     description:
@@ -760,6 +788,7 @@ export const commanders: Commander[] = [
   {
     id: 28,
     name: "Pao",
+    slug: "pao",
     type: "Combat",
     image: "/images/commander/Hero45151.png",
     description:
@@ -787,6 +816,7 @@ export const commanders: Commander[] = [
   {
     id: 29,
     name: "Yuki",
+    slug: "yuki",
     type: "Combat",
     image: "/images/commander/Hero45161.png",
     description:
@@ -814,6 +844,7 @@ export const commanders: Commander[] = [
   {
     id: 30,
     name: "Connie",
+    slug: "connie",
     type: "Strategy",
     image: "/images/commander/Hero45171.png",
     description:
@@ -842,6 +873,7 @@ export const commanders: Commander[] = [
   {
     id: 31,
     name: "Brown",
+    slug: "brown",
     type: "Combat",
     image: "/images/commander/Hero45191.png",
     description:
@@ -869,6 +901,7 @@ export const commanders: Commander[] = [
   {
     id: 32,
     name: "Johnson",
+    slug: "johnson",
     type: "Combat",
     image: "/images/commander/Hero45216.png",
     description:
@@ -897,6 +930,7 @@ export const commanders: Commander[] = [
   {
     id: 33,
     name: "Dubi",
+    slug: "dubi",
     type: "Combat",
     image: "/images/commander/Hero45251.png",
     description:
@@ -924,6 +958,7 @@ export const commanders: Commander[] = [
   {
     id: 34,
     name: "Asta",
+    slug: "asta",
     type: "Resource",
     image: "/images/commander/Hero45261.png",
     description:
@@ -952,6 +987,7 @@ export const commanders: Commander[] = [
   {
     id: 35,
     name: "Aurora",
+    slug: "aurora",
     type: "Resource",
     image: "/images/commander/Hero47151.png",
     description:
@@ -979,6 +1015,7 @@ export const commanders: Commander[] = [
   {
     id: 36,
     name: "Karina",
+    slug: "karina",
     type: "Combat",
     image: "/images/commander/Hero47161.png",
     description:

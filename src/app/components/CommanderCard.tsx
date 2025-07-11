@@ -29,7 +29,7 @@ export default function CommanderCard({ commander }: { commander: Commander }) {
           {commander.sdescription}
         </p>
         <Link
-          href={`/commander/${commander.id}`}
+          href={`/commander/${commander.slug}`}
           style={{
             fontSize: "0.8rem",
             color: "#4f46e5",
