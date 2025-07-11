@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { commanders } from "../data/commanders";
 import CommanderCard from "../components/CommanderCard";
+import type { CSSProperties } from "react";
 
 const CommanderPage = () => {
   const [selectedType, setSelectedType] = useState("All");
@@ -40,7 +41,7 @@ const CommanderPage = () => {
     </main>
   );
 };
-const titleStyle = {
+const titleStyle: CSSProperties = {
   textAlign: "center",
   fontSize: "2rem",
   marginBottom: "1rem",
