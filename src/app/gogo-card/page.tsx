@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { cards } from "../data/cards";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 export default function GogoCardPage() {
   const [filter, setFilter] = useState<string | null>(null);
@@ -15,11 +16,7 @@ export default function GogoCardPage() {
 
   return (
     <main style={{ padding: "2rem" }}>
-      <h1
-        style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem" }}
-      >
-        Gogo Cards
-      </h1>
+      <h1 style={titleStyle}>Gogo Cards</h1>
 
       {/* Filter */}
       <div className="filter-bar">
@@ -51,13 +48,7 @@ export default function GogoCardPage() {
         {filteredCards.map((card) => (
           <div
             key={card.id}
-            style={{
-              background: "rgba(255,255,255,0.1)",
-              borderRadius: "12px",
-              padding: "1rem",
-              textAlign: "center",
-              backdropFilter: "blur(6px)",
-            }}
+            className={`gogo-card ${card.category.toLowerCase()}`}
           >
             <Image
               src={card.image}
@@ -67,7 +58,7 @@ export default function GogoCardPage() {
               style={{ marginBottom: "0.5rem", borderRadius: "8px" }}
             />
             <h3>{card.name}</h3>
-            <p style={{ fontSize: "0.8rem", color: "#ccc" }}>
+            <p style={{ fontSize: "0.8rem", color: "#ddd" }}>
               {card.description}
             </p>
           </div>
@@ -76,3 +67,8 @@ export default function GogoCardPage() {
     </main>
   );
 }
+const titleStyle: CSSProperties = {
+  textAlign: "center",
+  fontSize: "2rem",
+  marginBottom: "1rem",
+};

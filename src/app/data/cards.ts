@@ -2,7 +2,7 @@ export const cards = [
   {
     id: 62,
     name: "Doomsworn's Blessing",
-    category: "Orange",
+    category: "Blue",
     image: "/images/cards/GOGO_Icon_62.png",
     description:
       "Get a Doomsworn Magic Crystal, a Blade of Despair, and Hylos.",
@@ -10,7 +10,7 @@ export const cards = [
   {
     id: 1401,
     name: "Golden Era",
-    category: "Orange",
+    category: "Purple",
     image: "/images/cards/GOGO_Icon_14.png",
     description:
       "Get 5 free Shop refresh(es) each time you upgradde Commander Level.",
