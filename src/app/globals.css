@@ -1,25 +1,290 @@
-/* app/globals.css */
-
-body {
+/* ===== GLOBAL RESET ===== */
+* {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f7f7f7;
-  color: #222;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
 }
 
 a {
-  color: #4f46e5;
+  color: inherit;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: url("/RAtlas_Common_Bg3_MC.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  min-height: 100vh;
 }
 
-h1 {
+/* ===== HEADER ===== */
+.site-header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+
+.header-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
   font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
 }
 
-ul {
-  padding-left: 1.5rem;
+.site-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.site-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== DROPDOWN (desktop + mobile compatible) ===== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav-dropdown summary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-dropdown[open] summary {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Dropdown content style */
+.nav-dropdown .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.nav-dropdown .dropdown-content a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.nav-dropdown .dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .site-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown summary {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-dropdown .dropdown-content {
+    position: static;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .site-nav a {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .site-nav:not(.open) {
+    display: none;
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+}
+.home-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+
+  background-color: rgba(25, 25, 25, 0.5); /* lebih gelap dari sebelumnya */
+  color: #f8f9fa;
+
+  border-radius: 1rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6b21a8;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .home-title {
+    font-size: 3rem;
+  }
+}
+
+.home-description {
+  color: #d1d5db;
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .link-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .link-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.link-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05); /* semi transparan */
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.link-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mcnc-button {
+  display: inline-block;
+  margin-top: 2.5rem;
+  background: linear-gradient(to right, #9333ea, #ec4899);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mcnc-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filter-chip {
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(255, 215, 0, 0.3); /* keemasan lembut */
+  background: rgba(0, 0, 0, 0.4); /* kontras di tengah background */
+  color: #fdf6e3; /* putih kekuningan */
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.2);
+}
+
+.filter-chip:hover {
+  background: rgba(255, 215, 0, 0.15);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.filter-chip.active {
+  background: #d4af37; /* gold */
+  color: #000;
+  border-color: #d4af37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* gelap lembut di atas gambar */
+  z-index: -1;
 }

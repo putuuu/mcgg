@@ -1,52 +1,29 @@
 import { Commander } from "../data/commanders";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./CommanderCard.module.css";
 
 export default function CommanderCard({ commander }: { commander: Commander }) {
   return (
-    <div style={cardStyle}>
-      <Image
-        src={commander.image}
-        alt={commander.name}
-        width={120}
-        height={80}
-        className="rounded-xl"
-        style={{ objectFit: "fill", width: "120px", height: "160px" }}
-      />
+    <div className={`group ${styles.card}`}>
+      <Link href={`/commander/${commander.slug}`}>
+        <div className={styles.imageContainer}>
+          <Image
+            src={commander.image}
+            alt={commander.name}
+            fill
+            style={{ objectFit: "fill", borderRadius: "12px" }}
+          />
+        </div>
 
-      <div>
-        <h3 style={{ margin: "0.25rem 0" }}>{commander.name}</h3>
-        <p style={{ fontSize: "0.85rem", margin: "0.25rem 0" }}>
-          <strong>Type:</strong> {commander.type}
-        </p>
-        <p style={{ fontSize: "0.85rem", margin: "0.25rem 0" }}>
-          <strong>Skill 1:</strong> {commander.skills[0]?.name}
-        </p>{" "}
-        <p style={{ fontSize: "0.85rem", margin: "0.25rem 0" }}>
-          <strong>Skill 2:</strong> {commander.skills[1]?.name}
-        </p>{" "}
-        <p style={{ fontSize: "0.85rem", margin: "0.25rem 0" }}>
-          {commander.sdescription}
-        </p>
-        <Link
-          href={`/commander/${commander.slug}`}
-          style={{
-            fontSize: "0.8rem",
-            color: "#4f46e5",
-            textDecoration: "underline",
-          }}
-        >
-          View Details
-        </Link>
-      </div>
+        <div className={styles.overlayContainer}>
+          <h3 className={styles.overlayName}>{commander.name}</h3>
+          <p className={styles.overlayType}>{commander.type}</p>
+          <p className={styles.overlayDesc}>"{commander.sdescription}"</p>
+        </div>
+
+        {/* Bisa tambahkan tombol di sini jika mau */}
+      </Link>
     </div>
   );
 }
-
-const cardStyle = {
-  width: "300px",
-  background: "white",
-  padding: "1rem",
-  borderRadius: "8px",
-  boxShadow: "0 0 6px rgba(0,0,0,0.08)",
-};

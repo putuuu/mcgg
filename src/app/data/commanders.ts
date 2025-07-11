@@ -32,14 +32,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/lancelot1.png",
+        icon: "/images/commanderSkill/lancelot1.png",
         name: "Golden Legacy",
         description:
           "No longer earns Interest. Starting from I/II/III and subsequently stages, gain 2/2/3 bonus Gold each round. At the end of each round, all Gold is consumed to upgrade Lancelot.",
       },
       {
         level: 2,
-        icon: "/images/commander/lancelot2.png",
+        icon: "/images/commanderSkill/lancelot2.png",
         type: "Passive",
         name: "Golden Blade",
         description:
@@ -61,14 +61,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/kagura1.png",
+        icon: "/images/commanderSkill/kagura1.png",
         name: "Shield Umbrella",
         description:
           "During Preparation Stage, you can select a Hero to gain Shield. When that Hero's HP first drops below 50% in battle, they gain a Shield equal to 60% of their Max  HP.",
       },
       {
         level: 2,
-        icon: "/images/commander/kagura2.png",
+        icon: "/images/commanderSkill/kagura2.png",
         type: "Passive",
         name: "Yin Yang Gathering",
         description: "Shield value increases to 100% of Max HP.",
@@ -89,14 +89,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/aamon1.png",
+        icon: "/images/commanderSkill/aamon1.png",
         name: "Blade of Resonance",
         description:
           "When a Hero reaches 2-Star, you'll get 1 Shard(s). 7 Shard(s) will be automatically converted into 1 Mirror Device(s). You can obtain up to 3 Mirror Devices.",
       },
       {
         level: 2,
-        icon: "/images/commander/aamon2.png",
+        icon: "/images/commanderSkill/aamon2.png",
         type: "Passive",
         name: "Skybreaker Blade",
         description: "Gain 8 extra Gold each time a Mirror Device is created.",
@@ -117,14 +117,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/chou1.png",
+        icon: "/images/commanderSkill/chou1.png",
         name: "Warrior's Honor",
         description: "Gain 1 Gold after winning a round.",
       },
       {
         level: 2,
         type: "Passive",
-        icon: "/images/commander/chou2.png",
+        icon: "/images/commanderSkill/chou2.png",
         name: "Win or Lose",
         description: "Additionally, gain 2 gold after losing a round.",
       },
@@ -144,14 +144,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/wanwan1.png",
+        icon: "/images/commanderSkill/wanwan1.png",
         name: "Tiger Pounce",
         description:
           "The first time an enemy Hero's HP drops belo 30%, Wanwan attacks the enemy Hero with the lowest HP 20 time(s), dealing 120/220/320/400 Physical DMG depending on the current stage.",
       },
       {
         level: 2,
-        icon: "/images/commander/wanwan2.png",
+        icon: "/images/commanderSkill/wanwan2.png",
         type: "Passive",
         name: "Reinforcement",
         description: "Gain 1 Gold when killing an enemy Hero, up to 3 times.",
@@ -172,13 +172,13 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/nana1.png",
+        icon: "/images/commanderSkill/nana1.png",
         name: "Molina's Blessing",
         description: "Nana avoids her first death, surviving with 1 HP",
       },
       {
         level: 2,
-        icon: "/images/commander/nana2.png",
+        icon: "/images/commanderSkill/nana2.png",
         type: "Passive",
         name: "Molina's Gift",
         description:
@@ -200,14 +200,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/ling1.png",
+        icon: "/images/commanderSkill/ling1.png",
         name: "Showdown",
         description:
           "Creates a Dueling Ring on the Chessboard that lasts for 25s. When the battle starts, the allied Hero in this ring will drag the farthest enemy Hero into the ring and fight with only Basic ATKs. The allied Hero in the Dueling Ring gain 50% extra ATK Speed.",
       },
       {
         level: 2,
-        icon: "/images/commander/ling2.png",
+        icon: "/images/commanderSkill/ling2.png",
         type: "Passive",
         name: "Transcendent Stance",
         description:
@@ -229,14 +229,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/layla1.png",
+        icon: "/images/commanderSkill/layla1.png",
         name: "Hologram: Destruction Rush",
         description:
           "Layla generates a hologram that emits lasers to penetrate enemies, dealing 400 Physical DMG, and increasing ATK speed by 3% each round.",
       },
       {
         level: 2,
-        icon: "/images/commander/layla2.png",
+        icon: "/images/commanderSkill/layla2.png",
         type: "Passive",
         name: "Hologram: Synergy Freedom",
         description:
@@ -258,14 +258,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/vale1.png",
+        icon: "/images/commanderSkill/vale1.png",
         name: "updraft",
         description:
           "Select a Hero, then refresh the Shop to display Heroes that share at least one Synergy with the selected Hero, and also get 1 free Hero purchase from this refreshed Shop. Gain 1 skill charge(s) at the start of Rounds I-1 and II-1.",
       },
       {
         level: 2,
-        icon: "/images/commander/vale2.png",
+        icon: "/images/commanderSkill/vale2.png",
         type: "Passive",
         name: "Shifting Wind",
         description:
@@ -287,14 +287,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/zilong1.png",
+        icon: "/images/commanderSkill/zilong1.png",
         name: "Great Dragon Spear",
         description:
           "Obtain the Great Dragon Spear at the start of the match: Each Basic ATK has 16% chance to attack 2 additional time(s). You can purchase up to 1 effects from the Shop to enhance the Great Dragon Spear. Trait include: Draco Serenity: Become immune to control for 25s and recover 12% HP based on damage dealt. Golden Clutch: Each Basic ATK has 5% chance to grant 1 Gold. Great Dragon Guard: When HP drops below 30% gain a Shield equal to 40% of Max HP. (If this hasn't been triggered and fatal damage is taken, the Shield will be granted).",
       },
       {
         level: 2,
-        icon: "/images/commander/zilong2.png",
+        icon: "/images/commanderSkill/zilong2.png",
         type: "Passive",
         name: "Dragon's Roar",
         description:
@@ -316,14 +316,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/fanny1.png",
+        icon: "/images/commanderSkill/fanny1.png",
         name: "Blade Dancer",
         description:
           "Fanny will spawn a Hero Launcher outside the battlefield. After 13 rounds construction, you can drag a Hero onto the Launcher. When the battle starts, the Hero on the Launcher joins the fight.",
       },
       {
         level: 2,
-        icon: "/images/commander/fanny2.png",
+        icon: "/images/commanderSkill/fanny2.png",
         type: "Passive",
         name: "Heart of the Blade",
         description:
@@ -345,14 +345,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/angela1.png",
+        icon: "/images/commanderSkill/angela1.png",
         name: "Love's Protection",
         description:
           "Select an allied hero to protect, increase their Mana Regen to 180% and granting a Shield equal to 20% of Max HP.",
       },
       {
         level: 2,
-        icon: "/images/commander/angela2.png",
+        icon: "/images/commanderSkill/angela2.png",
         type: "Passive",
         name: "Ripples of Love",
         description:
@@ -374,14 +374,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/moskov1.png",
+        icon: "/images/commanderSkill/moskov1.png",
         name: "Power of Shadow",
         description:
           "Creates a Shadow Field on the side of the Battle Area. Place the designated 1-Gold, 2-Gold, 3-Gold, and 4 Gold Heroes one by one to complete the ritual. Then place a Hero in it to gain Power of Shadows, enhancing their Hybrid ATK by 22% and HP by 22%. Each time you place a corresponding Hero to complete the ritual, you get a refund of their cost plus additional 1 Gold.",
       },
       {
         level: 2,
-        icon: "/images/commander/moskov2.png",
+        icon: "/images/commanderSkill/moskov2.png",
         type: "Passive",
         name: "Dark Star",
         description:
@@ -403,14 +403,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/guinevere1.png",
+        icon: "/images/commanderSkill/guinevere1.png",
         name: "Super Magic",
         description:
           "When refreshing the Shop, there's a 14% chance to find 1 free Hero(es).",
       },
       {
         level: 2,
-        icon: "/images/commander/guinevere2.png",
+        icon: "/images/commanderSkill/guinevere2.png",
         type: "Passive",
         name: "Mystic Evolution",
         description: "Chance to finding free Hero(es) increases to 26%.",
@@ -431,14 +431,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/lukas1.png",
+        icon: "/images/commanderSkill/lukas1.png",
         name: "Unleash the Beast",
         description:
           "Generate a statue on the battlefield. When battle starts, it unleashes Shockwave Blast before vanishing. Shockwave Blast: Deals Physical DMG equal to 20% of target's Max HP to enemies in medium range and stuns them for 1s.",
       },
       {
         level: 2,
-        icon: "/images/commander/lukas2.png",
+        icon: "/images/commanderSkill/lukas2.png",
         type: "Passive",
         name: "Frenzy",
         description:
@@ -460,14 +460,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/harper1.png",
+        icon: "/images/commanderSkill/harper1.png",
         name: "Victory Contract",
         description:
           "Upon winning, Harper gains a shield that reduces damage received by 1. The shield disappears after taking damage and can stack up to 5 time(s). (During combat, damage predictions shown in the player list will display the reduced values.)",
       },
       {
         level: 2,
-        icon: "/images/commander/harper2.png",
+        icon: "/images/commanderSkill/harper2.png",
         type: "Passive",
         name: "Warrior's Will",
         description: "Harper takes 1 less Commander DMG",
@@ -488,14 +488,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/eggie1.png",
+        icon: "/images/commanderSkill/eggie1.png",
         name: "Fortune",
         description:
           "Unlocks at 7 Capacity. Grants 1 Equipment Loot Chest(s) when used.",
       },
       {
         level: 2,
-        icon: "/images/commander/eggie2.png",
+        icon: "/images/commanderSkill/eggie2.png",
         type: "Passive",
         name: "Lucky Streak",
         description: "Get 1 additional Magic Crystal Loot Chest(s).",
@@ -516,14 +516,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/bersi1.png",
+        icon: "/images/commanderSkill/bersi1.png",
         name: "Back from the Dead",
         description:
           "During the Preparation Stage, select an allied Hero. WHen they are defeated, they revive once with 30% HP.",
       },
       {
         level: 2,
-        icon: "/images/commander/bersi2.png",
+        icon: "/images/commanderSkill/bersi2.png",
         type: "Passive",
         name: "Bersi's Blessing",
         description: "After revival, the Hero gains 80 Hybrid DEF boost.",
@@ -544,14 +544,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/rya1.png",
+        icon: "/images/commanderSkill/rya1.png",
         name: "Budding Blossom",
         description:
           "Usable after Stage III. Rya Select a Hero without a Blessing and grants them a random Blessing. Can be used 1 time(s). Blessing: The blessed Hero contributes +1 to their Role or Faction Synergy Count.",
       },
       {
         level: 2,
-        icon: "/images/commander/rya2.png",
+        icon: "/images/commanderSkill/rya2.png",
         type: "Passive",
         name: "Dawn's Gift",
         description: "The Active Skill becomes usable after Stage II.",
@@ -572,14 +572,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/tharz1.png",
+        icon: "/images/commanderSkill/lylia1.png",
         name: "Go, Tharz!",
         description:
           "Can be used after Capacity reaches 8: The Shop can't be used later on and you immediately gain 1 Hero(es) from the highest-cost Heroes deployed. Upon winning a round, gain 1 more. if that Hero is sold out in the Shared Hero Pool, gain the next highest cost Hero instead.",
       },
       {
         level: 2,
-        icon: "/images/commander/tharz2.png",
+        icon: "/images/commanderSkill/lylia2.png",
         type: "Passive",
         name: "Party Time!",
         description:
@@ -601,14 +601,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/popol1.png",
+        icon: "/images/commanderSkill/popol1.png",
         name: "Copy Trap",
         description:
           "During the Preparation Stage, a movable Copy Trap will be generated on your side of the battlefield. When an enemy Hero steps into the trap, obtain their 1-Star version, up to 1 time(s) per round.",
       },
       {
         level: 2,
-        icon: "/images/commander/popol2.png",
+        icon: "/images/commanderSkill/popol2.png",
         type: "Passive",
         name: "Hunter's Mark",
         description: "Generate 1 extra Copy Trap(s) from Round II-3.",
@@ -629,14 +629,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/miya1.png",
+        icon: "/images/commanderSkill/miya1.png",
         name: "Lunar Longbow",
         description:
           "Choose an allied Hero for coordinated attacks. After every 6 Basic ATK(s) of the chosen Hero, Miya rapidly fires 5 arrow(s) at enemies, each dealing Physical DMG equal to 8% of the target's Max HP.",
       },
       {
         level: 2,
-        icon: "/images/commander/miya2.png",
+        icon: "/images/commanderSkill/miya2.png",
         type: "Passive",
         name: "Moonshade Arrow",
         description:
@@ -658,14 +658,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/ragnar1.png",
+        icon: "/images/commanderSkill/ragnar1.png",
         name: "Heal",
         description:
           "Commander restores 3 HP immediately. Cooldown: 5 Round(s)",
       },
       {
         level: 2,
-        icon: "/images/commander/ragnar2.png",
+        icon: "/images/commanderSkill/ragnar2.png",
         type: "Passive",
         name: "Recovery",
         description:
@@ -687,14 +687,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/eva1.png",
+        icon: "/images/commanderSkill/eva1.png",
         name: "Blessing",
         description:
           "When at least one Synergy with a count of 6 or more is activated, all allied Heroes' Hybrid ATK inreased by 10%",
       },
       {
         level: 2,
-        icon: "/images/commander/eva2.png",
+        icon: "/images/commanderSkill/eva2.png",
         type: "Passive",
         name: "Supplication",
         description:
@@ -716,14 +716,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/abe1.png",
+        icon: "/images/commanderSkill/abe1.png",
         name: "Anger",
         description: "Deal an extra 2 Commander DMG upon victory.",
       },
       {
         level: 2,
         type: "Passive",
-        icon: "/images/commander/abe2.png",
+        icon: "/images/commanderSkill/abe2.png",
         name: "Attack & Defend",
         description: "Gain 1 Shield for every 6 Commander DMG dealt.",
       },
@@ -743,14 +743,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/mavis1.png",
+        icon: "/images/commanderSkill/mavis1.png",
         name: "Gathering Strength",
         description: "Starting from Stage III, each win restores 2 HP.",
       },
       {
         level: 2,
         type: "Passive",
-        icon: "/images/commander/mavis2.png",
+        icon: "/images/commanderSkill/mavis2.png",
         name: "A Matter of Life or Death",
         description: "When another Commander is defeated, restores 4 HP.",
       },
@@ -770,14 +770,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/buss1.png",
+        icon: "/images/commanderSkill/harley1.png",
         name: "Midas Touch",
         description:
           "Available from Round II-4. Resets the Shop 1 time(s), filling it with 3 5-Gold Hero(es).",
       },
       {
         level: 2,
-        icon: "/images/commander/buss2.png",
+        icon: "/images/commanderSkill/harley2.png",
         type: "Passive",
         name: "Gold! Gold! Gold!",
         description:
@@ -799,14 +799,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/pao1.png",
+        icon: "/images/commanderSkill/pao1.png",
         name: "Dragon's Gift",
         description:
           "Usable after Round III-1 begins. Choose one of four permanent buffs: 8% Attack Speed. 15 Hybrid DEF. 9% Hybrid ATK. 400 HP.",
       },
       {
         level: 2,
-        icon: "/images/commander/pao2.png",
+        icon: "/images/commanderSkill/pao2.png",
         type: "Passive",
         name: "Dragon's Fury",
         description: "Increases buff effect by 100%",
@@ -827,14 +827,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/yuki1.png",
+        icon: "/images/commanderSkill/yuki1.png",
         name: "Charming",
         description:
           "Can be used starting from Round II-1. Choose a Hero to cast Charm on two adjacent allies at the start of each Round. Charmed allies sacrifice themselves to strengthen the caster, granting the caster 25% of their combined Hybrid ATK.",
       },
       {
         level: 2,
-        icon: "/images/commander/yuki2.png",
+        icon: "/images/commanderSkill/yuki2.png",
         type: "Passive",
         name: "Infinite Charm",
         description: "Additionally, gain 40% of the target's HP.",
@@ -855,14 +855,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/connie1.png",
+        icon: "/images/commanderSkill/connie1.png",
         name: "I Want all of Them!",
         description:
           "During Go Go Box Rounds 2 and 3, after all players have made their selections, choose one additional Hero from the unselected ones.",
       },
       {
         level: 2,
-        icon: "/images/commander/connie2.png",
+        icon: "/images/commanderSkill/connie2.png",
         type: "Passive",
         name: "Unrestricted",
         description:
@@ -884,14 +884,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Active",
-        icon: "/images/commander/brown1.png",
+        icon: "/images/commanderSkill/brown1.png",
         name: "Reinforce",
         description:
           "Select a piece of Equipment to enhance with one of the following effects. Can be used 2 time(s). Each piece of Equipment can only be enhance once. Might: Increases Hybrid ATK by 6%. Gigantify: Increases Max HP by 6%.",
       },
       {
         level: 2,
-        icon: "/images/commander/brown2.png",
+        icon: "/images/commanderSkill/brown2.png",
         type: "Passive",
         name: "Blazzing Soul",
         description: "Gain 2 extra use(s)",
@@ -912,7 +912,7 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/kaboom1.png",
+        icon: "/images/commanderSkill/johnson1.png",
         name: "Johnny, Go!",
         description:
           "add a 3-Gold Johnny with a random Synegy from Johnson's Synergy Pool(only includes Synergies with maximum activation count above 6) to your Shop. Johnny's skill Spanner Spin: Fling a wrench at the area with the most enemies, dealing DMG and stunning them for 0.5/0.7/1s. Johnny doesn't cost Gold. After getting your first Johnny, you set all Johnnies in the Shop to the same Synergy.",
@@ -920,7 +920,7 @@ export const commanders: Commander[] = [
       {
         level: 2,
         type: "Passive",
-        icon: "/images/commander/kaboom2.png",
+        icon: "/images/commanderSkill/johnson2.png",
         name: "Transform!",
         description:
           "When battle stars, Johnny charges toward the area with the most enemies, dealing Magic DMG equal to 10% of his Max HP to surrounding enemies. Johnny is immune to crowd control while transformed.",
@@ -941,14 +941,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/dubi1.png",
+        icon: "/images/commanderSkill/dubi1.png",
         name: "Dubi's Gift",
         description:
           "Obtained Equipment - Fluffy's Rage. The carrier leaves a Fluffy behind each time their location changes. The Fluffy will explode and stun enemy Heroes in the same row and column for 0.5s",
       },
       {
         level: 2,
-        icon: "/images/commander/dubi2.png",
+        icon: "/images/commanderSkill/dubi2.png",
         type: "Passive",
         name: "Awaken! Dubi's Wrath",
         description: "Enemies hit by Fluffy take 10% extra damage for 2s.",
@@ -969,14 +969,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/asta1.png",
+        icon: "/images/commanderSkill/asta1.png",
         name: "Astral Blessing - Gold",
         description:
           "When a player is eleminated, gain 12% Gold based on their Lineup value.",
       },
       {
         level: 2,
-        icon: "/images/commander/asta2.png",
+        icon: "/images/commanderSkill/asta2.png",
         type: "Passive",
         name: "Astral Blessing - Hero",
         description:
@@ -998,14 +998,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/aurora1.png",
+        icon: "/images/commanderSkill/aurora1.png",
         name: "Frost Treasure",
         description:
           "At the start of each round, Aurora freezes your shop. If you don't purchase any Heroes in a round, you'll gain 2 Frost Energy. When Frost Energy reaches 6, it grants random rewards worth no less than 7 Gold, then begins accumulating again.",
       },
       {
         level: 2,
-        icon: "/images/commander/aurora2.png",
+        icon: "/images/commanderSkill/aurora2.png",
         type: "Passive",
         name: "Icy Blessing",
         description: "Icrease Frost Energy gained to 3.",
@@ -1026,14 +1026,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commander/aurora1.png",
+        icon: "/images/commanderSkill/aurora1.png",
         name: "Shadow Twinblades",
         description:
           "Gain Shadow Twinblades at the start: When an enemy Hero adjacent to the carrier has HP below 15%, Karina executes the target.",
       },
       {
         level: 2,
-        icon: "/images/commander/aurora2.png",
+        icon: "/images/commanderSkill/aurora2.png",
         type: "Passive",
         name: "Twinblades Evolution",
         description:
