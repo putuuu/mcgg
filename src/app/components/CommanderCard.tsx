@@ -1,18 +1,16 @@
 import { Commander } from "../data/commanders";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function CommanderCard({ commander }: { commander: Commander }) {
   return (
     <div style={cardStyle}>
-      <img
+      <Image
         src={commander.image}
         alt={commander.name}
-        style={{
-          width: "120px",
-          height: "90px",
-          objectFit: "cover",
-          borderRadius: "6px",
-        }}
+        width={120}
+        height={160}
+        className="rounded-xl object-full"
       />
       <div>
         <h3 style={{ margin: "0.25rem 0" }}>{commander.name}</h3>

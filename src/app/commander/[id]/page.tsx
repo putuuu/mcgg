@@ -1,78 +1,63 @@
-import { commanders } from "../../data/commanders";
+// src/app/commander/[id]/page.tsx
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import { commanders } from "../../data/commanders";
 
-export default function CommanderDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const commanderId = parseInt(params.id);
-  const commander = commanders.find((c) => c.id === commanderId);
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default function CommanderDetailPage({ params }: PageProps) {
+  const commander = commanders.find(
+    (c) => c.name.toLowerCase() === params.id.toLowerCase()
+  );
 
   if (!commander) return notFound();
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-      {/* Top section: image + skills */}
-      <div style={{ display: "flex", gap: "2rem" }}>
-        {/* Left: Commander image */}
-        <div>
-          <img
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">{commander.name}</h1>
+
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Gambar Commander */}
+        <div className="w-full md:w-1/3">
+          <Image
             src={commander.image}
             alt={commander.name}
-            style={{
-              width: "293px",
-              height: "404px",
-              objectFit: "fill",
-              borderRadius: "10px",
-            }}
+            width={300}
+            height={400}
+            className="rounded-xl object-cover"
           />
         </div>
 
-        {/* Right: Skill list */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-          }}
-        >
-          {commander.skills.map((skill, idx) => (
-            <div
-              key={idx}
-              style={{
-                display: "flex",
-                gap: "0.75rem",
-                background: "#f4f4f4",
-                padding: "0.75rem",
-                borderRadius: "8px",
-              }}
-            >
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                style={{ width: "48px", height: "48px", borderRadius: "6px" }}
-              />
-              <div>
-                <p style={{ margin: 0 }}>
-                  <strong>
-                    Lv.{skill.level} - {skill.name}
-                  </strong>{" "}
-                  ({skill.type})
-                </p>
-                <p style={{ fontSize: "0.9rem", margin: 0 }}>
-                  {skill.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+        {/* Skill dan Deskripsi */}
+        <div className="flex-1 space-y-4">
+          <p className="text-gray-700">{commander.description}</p>
 
-      {/* Bottom: Description */}
-      <div>
-        <p>{commander.description}</p>
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold mt-4">Skills</h2>
+            {commander.skills.map((skill, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-100 rounded-lg p-3 flex gap-4 items-start"
+              >
+                <Image
+                  src={skill.icon}
+                  alt={skill.name}
+                  width={48}
+                  height={48}
+                  className="rounded"
+                />
+                <div>
+                  <h3 className="font-bold text-base">{skill.name}</h3>
+                  <p className="text-sm text-gray-600">{skill.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
