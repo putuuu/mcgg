@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 
 type Props = {
-  params: { slug: string };
+  params: {
+    slug: string;
+  };
 };
 
 export default function CommanderDetailPage({ params }: Props) {
