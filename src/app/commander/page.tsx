@@ -46,23 +46,6 @@ const titleStyle = {
   marginBottom: "1rem",
 };
 
-const filterContainerStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "0.5rem",
-  justifyContent: "center",
-  marginBottom: "2rem",
-};
-
-const filterButtonStyle: React.CSSProperties = {
-  padding: "0.5rem 1rem",
-  borderRadius: "6px",
-  border: "none",
-  cursor: "pointer",
-  fontSize: "0.9rem",
-  transition: "all 0.2s",
-};
-
 const gridStyle: React.CSSProperties = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
