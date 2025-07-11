@@ -1,18 +1,13 @@
-// src/app/commander/[id]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { commanders } from "../../data/commanders";
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
-
-export default function CommanderDetailPage({ params }: PageProps) {
-  const commander = commanders.find(
-    (c) => c.name.toLowerCase() === params.id.toLowerCase()
-  );
+export default async function CommanderDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const commander = commanders.find((c) => c.id.toString() === params.id);
 
   if (!commander) return notFound();
 
@@ -21,7 +16,6 @@ export default function CommanderDetailPage({ params }: PageProps) {
       <h1 className="text-3xl font-bold mb-4">{commander.name}</h1>
 
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Gambar Commander */}
         <div className="w-full md:w-1/3">
           <Image
             src={commander.image}
@@ -32,7 +26,6 @@ export default function CommanderDetailPage({ params }: PageProps) {
           />
         </div>
 
-        {/* Skill dan Deskripsi */}
         <div className="flex-1 space-y-4">
           <p className="text-gray-700">{commander.description}</p>
 

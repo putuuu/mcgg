@@ -9,9 +9,11 @@ export default function CommanderCard({ commander }: { commander: Commander }) {
         src={commander.image}
         alt={commander.name}
         width={120}
-        height={160}
-        className="rounded-xl object-full"
+        height={80}
+        className="rounded-xl"
+        style={{ objectFit: "fill", width: "120px", height: "160px" }}
       />
+
       <div>
         <h3 style={{ margin: "0.25rem 0" }}>{commander.name}</h3>
         <p style={{ fontSize: "0.85rem", margin: "0.25rem 0" }}>
