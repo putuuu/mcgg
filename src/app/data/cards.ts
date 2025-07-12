@@ -10,7 +10,7 @@ export const cards = [
   {
     id: 1401,
     name: "Golden Era",
-    category: "Orange ",
+    category: "Orange",
     image: "/images/cards/GOGO_Icon_14.png",
     description:
       "Get 5 free Shop refresh(es) each time you upgradde Commander Level.",
