@@ -2,7 +2,7 @@ export const cards = [
   {
     id: 62,
     name: "Doomsworn's Blessing",
-    category: "Blue",
+    category: "Orange",
     image: "/images/cards/GOGO_Icon_62.png",
     description:
       "Get a Doomsworn Magic Crystal, a Blade of Despair, and Hylos.",
@@ -10,7 +10,7 @@ export const cards = [
   {
     id: 1401,
     name: "Golden Era",
-    category: "Purple",
+    category: "Orange ",
     image: "/images/cards/GOGO_Icon_14.png",
     description:
       "Get 5 free Shop refresh(es) each time you upgradde Commander Level.",
@@ -827,7 +827,7 @@ export const cards = [
       "Get a random 4-Gold Hero. This Hero gains 25% DMG and 1000 HP permanently.",
   },
   {
-    id: 1020,
+    id: 1120,
     name: "Northern Vale's Badge",
     category: "Purple",
     image: "/images/cards/GOGO_Icon_1120.png",
@@ -1026,10 +1026,10 @@ export const cards = [
     description: "Get 14 Commander EXP.",
   },
   {
-    id: 2008,
+    id: 2015,
     name: "Solid Alliance I",
     category: "Blue",
-    image: "/images/cards/GOGO_Icon_2008.png",
+    image: "/images/cards/GOGO_Icon_2015.png",
     description:
       "For every 1 active Synergy, allied Heroes gain 3% Hybrid ATK.",
   },
