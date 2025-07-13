@@ -7,16 +7,32 @@ import type { CSSProperties } from "react";
 
 export default function GogoCardPage() {
   const [filter, setFilter] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const categories = [...new Set(cards.map((card) => card.category))];
 
-  const filteredCards = filter
-    ? cards.filter((card) => card.category === filter)
-    : cards;
+  const filteredCards = cards.filter((card) => {
+    const matchFilter = !filter || card.category === filter;
+    const matchSearch = card.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    return matchFilter && matchSearch;
+  });
 
   return (
     <main style={{ padding: "2rem" }}>
       <h1 style={titleStyle}>Gogo Cards</h1>
+
+      {/* Search */}
+      <div style={searchContainer}>
+        <input
+          type="text"
+          placeholder="Search Gogo Card..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={searchInput}
+        />
+      </div>
 
       {/* Filter */}
       <div className="filter-bar">
@@ -38,13 +54,7 @@ export default function GogoCardPage() {
       </div>
 
       {/* Cards */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-          gap: "1rem",
-        }}
-      >
+      <div style={cardGridStyle}>
         {filteredCards.map((card) => (
           <div
             key={card.id}
@@ -68,8 +78,32 @@ export default function GogoCardPage() {
     </main>
   );
 }
+
+// === Styles ===
 const titleStyle: CSSProperties = {
   textAlign: "center",
   fontSize: "2rem",
   marginBottom: "1rem",
+};
+
+const searchContainer: CSSProperties = {
+  textAlign: "center",
+  marginBottom: "1rem",
+};
+
+const searchInput: CSSProperties = {
+  padding: "0.5rem 1rem",
+  borderRadius: "9999px",
+  border: "1px solid rgba(255,255,255,0.3)",
+  background: "rgba(255,255,255,0.1)",
+  color: "white",
+  width: "100%",
+  maxWidth: "400px",
+  backdropFilter: "blur(8px)",
+};
+
+const cardGridStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
+  gap: "1rem",
 };
