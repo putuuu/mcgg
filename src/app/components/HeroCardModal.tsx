@@ -30,7 +30,14 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
         </button>
 
         <div className={styles.left}>
-          <img src={hero.image} alt={hero.name} className={styles.heroImage} />
+          <Image
+            src={hero.image}
+            alt={hero.name}
+            width={64}
+            height={64}
+            className={styles.heroImage}
+            // className={styles.skillIcon}
+          />
         </div>
 
         <div className={styles.right}>

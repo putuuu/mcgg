@@ -15,7 +15,14 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
       <div className={`hero-card-inner ${flipped ? "flipped" : ""}`}>
         {/* Front Side */}
         <div className="hero-card-face hero-card-front">
-          <img src={hero.image} alt={hero.name} className="hero-image" />
+          <Image
+            src={hero.image}
+            alt={hero.name}
+            className="hero-image"
+            width={64}
+            height={64}
+            // className={styles.skillIcon}
+          />
           <h3>{hero.name}</h3>
           <p style={{ color: "#facc15", margin: "0.25rem 0" }}>{hero.cost}🪙</p>
           <p style={{ fontSize: "0.75rem", color: "#aaa" }}>
