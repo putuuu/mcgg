@@ -16,11 +16,12 @@ const SynergyCardModal: React.FC<Props> = ({ synergy, onClose }) => {
     if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
       onClose();
     }
+    [onClose];
   };
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [onClose]);
+  }, [handleClickOutside]);
 
   return (
     <div className={styles.overlay}>
