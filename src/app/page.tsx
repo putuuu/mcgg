@@ -4,8 +4,7 @@ import Link from "next/link";
 
 const features = [
   { title: "Commander", href: "/commander" },
-  { title: "Hero", href: "/hero" },
-  { title: "Synergy", href: "/sinergi" },
+  { title: "Hero", href: "/synergyhero" },
   { title: "Equipment", href: "/equipment" },
   { title: "Gogo Card", href: "/gogo-card" },
   { title: "Guide", href: "/guide" },

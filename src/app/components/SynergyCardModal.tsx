@@ -1,0 +1,54 @@
+"use client";
+
+import React, { useRef, useEffect } from "react";
+import { Synergy } from "../data/sinergi";
+import styles from "./SynergyCardModal.module.css";
+
+interface Props {
+  synergy: Synergy;
+  onClose: () => void;
+}
+
+const SynergyCardModal: React.FC<Props> = ({ synergy, onClose }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className={styles.overlay}>
+      <div className={styles.modal} ref={modalRef}>
+        <button className={styles.closeButton} onClick={onClose}>
+          ×
+        </button>
+
+        <div className={styles.header}>
+          <img src={synergy.icon} alt={synergy.name} className={styles.icon} />
+          <h2 className={styles.name}>{synergy.name}</h2>
+        </div>
+
+        <p className={styles.description}>{synergy.description}</p>
+
+        <div className={styles.effects}>
+          <h3>Effects</h3>
+          <ul>
+            {synergy.effects.map((effect, index) => (
+              <li key={index}>
+                <strong>{effect.units} units:</strong> {effect.effect}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SynergyCardModal;

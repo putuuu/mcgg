@@ -379,7 +379,7 @@ body::before {
 
 .hero-image {
   width: 100px;
-  height: 100px;
+  height: 1px;
   object-fit: cover;
   border-radius: 8px;
   margin: 0 auto 0.5rem;
@@ -388,4 +388,22 @@ body::before {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1rem;
+}
+
+.synergy-card {
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.2s ease;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.synergy-card td img:hover {
+  transform: none !important;
+  box-shadow: none !important;
 }

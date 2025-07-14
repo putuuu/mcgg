@@ -28,8 +28,7 @@ export default function Header() {
           <details className="nav-dropdown">
             <summary>Season 2 ▾</summary>
             <div className="dropdown-content">
-              <Link href="/hero">Hero</Link>
-              <Link href="/sinergi">Synergy</Link>
+              <Link href="/synergyhero">Sinergi & Hero</Link>
               <Link href="/equipment">Equipment</Link>
             </div>
           </details>

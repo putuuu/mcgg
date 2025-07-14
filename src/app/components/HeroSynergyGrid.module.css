@@ -1,0 +1,131 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 1rem;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 1rem;
+  max-width: 720px;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.left {
+  flex-shrink: 0;
+}
+
+.hero-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.right {
+  flex: 1;
+}
+
+.heroName {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.shortDesc {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.stats p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.skillSection {
+  margin-top: 1rem;
+}
+
+.skill {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.skillIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+}
+
+.skillDesc {
+  font-size: 0.9rem;
+  color: #eee;
+}
+
+/* 🔁 RESPONSIVE */
+@media (max-width: 600px) {
+  .modal {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .hero-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 72px;
+    cursor: pointer;
+  }
+  .hero-name {
+    font-size: 0.7rem;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .skill {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skillIcon {
+    width: 40px;
+    height: 40px;
+  }
+  .hero-grid-cell {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+}

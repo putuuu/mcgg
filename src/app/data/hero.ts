@@ -83,7 +83,7 @@ export const heroes: Hero[] = [
     },
     synergies: {
       faction: "Doomsworn",
-      roles: ["Defender"],
+      roles: ["Dauntless"],
     },
   },
   {
@@ -193,7 +193,7 @@ export const heroes: Hero[] = [
     },
     synergies: {
       faction: "Northern Vale",
-      roles: ["Bruiser"],
+      roles: ["Defender"],
     },
   },
   {
@@ -347,7 +347,7 @@ export const heroes: Hero[] = [
     },
     synergies: {
       faction: "Dragon Altar",
-      roles: ["Weapon Master"],
+      roles: ["Swordsman"],
     },
   },
 ];

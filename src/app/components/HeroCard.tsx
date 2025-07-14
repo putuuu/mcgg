@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { Hero } from "../data/hero";
+import type { CSSProperties } from "react";
 
 interface HeroCardProps {
   hero: Hero;

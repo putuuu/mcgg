@@ -62,3 +62,10 @@
   font-size: 0.75rem;
   margin: 0.5rem 0 0 0;
 }
+/* Nonaktifkan hover di perangkat sentuh (mobile) */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover .overlayContainer {
+    height: 60px; /* tetap pada ukuran default */
+    justify-content: flex-start; /* default, bukan center */
+  }
+}
