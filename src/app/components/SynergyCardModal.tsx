@@ -1,8 +1,7 @@
 "use client";
-
-import React, { useRef, useEffect } from "react";
-import { Synergy } from "../data/sinergi";
+import React, { useEffect, useRef, useCallback } from "react";
 import styles from "./SynergyCardModal.module.css";
+import { Synergy } from "../data/sinergi";
 import Image from "next/image";
 
 interface Props {
@@ -12,15 +11,21 @@ interface Props {
 
 const SynergyCardModal: React.FC<Props> = ({ synergy, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const handleClickOutside = (e: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-      onClose();
-    }
-    [onClose];
-  };
+
+  const handleClickOutside = useCallback(
+    (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [handleClickOutside]);
 
   return (
