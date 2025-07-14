@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import { Synergy } from "../data/sinergi";
 import styles from "./SynergyCardModal.module.css";
+import Image from "next/image";
 
 interface Props {
   synergy: Synergy;
@@ -30,7 +31,15 @@ const SynergyCardModal: React.FC<Props> = ({ synergy, onClose }) => {
         </button>
 
         <div className={styles.header}>
-          <img src={synergy.icon} alt={synergy.name} className={styles.icon} />
+          <Image
+            src={synergy.icon}
+            alt={synergy.name}
+            title={synergy.name}
+            className={styles.icon}
+            width={64}
+            height={64}
+            // className={styles.skillIcon}
+          />
           <h2 className={styles.name}>{synergy.name}</h2>
         </div>
 

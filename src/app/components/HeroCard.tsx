@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import type { Hero } from "../data/hero";
 import type { CSSProperties } from "react";
+import Image from "next/image";
 
 interface HeroCardProps {
   hero: Hero;
@@ -26,14 +27,16 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
 
         {/* Back Side */}
         <div className="hero-card-face hero-card-back">
-          <img
+          <Image
             src={hero.skill.icon}
             alt={hero.skill.name}
+            title={hero.skill.name}
+            width={64}
+            height={64}
             style={{
-              width: 64,
-              height: 64,
               margin: "0 auto 0.5rem",
               display: "block",
+              cursor: "pointer",
             }}
           />
 

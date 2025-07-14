@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import styles from "./HeroCardModal.module.css";
 import { Hero } from "../data/hero";
+import Image from "next/image";
 
 interface Props {
   hero: Hero;
@@ -48,10 +49,13 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
           <div className={styles.skillSection}>
             <h3>Skill</h3>
             <div className={styles.skill}>
-              <img
+              <Image
                 src={hero.skill.icon}
                 alt={hero.skill.name}
-                className={styles.skillIcon}
+                title={hero.skill.name}
+                width={64}
+                height={64}
+                // className={styles.skillIcon}
               />
               <div>
                 <strong>{hero.skill.name}</strong>
