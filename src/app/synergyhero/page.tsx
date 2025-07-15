@@ -10,7 +10,7 @@ const SynergyHeroPage = () => {
       >
         Synergy Overview
       </h1>
-      <section className={styles.aboutSection}>
+      <div className={styles.aboutSection}>
         <strong>Blessing of Embers is here!</strong>
         <br />
         <p>The war between the divine and demonic is about to ignite!</p>
@@ -22,7 +22,7 @@ const SynergyHeroPage = () => {
         <p>until now</p>
 
         <p>The final battle has begun</p>
-      </section>
+      </div>
 
       <HeroSynergyGrid />
     </main>

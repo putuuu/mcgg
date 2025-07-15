@@ -1,64 +1,126 @@
 .aboutPage {
-  padding: 2rem;
-  max-width: 1200px;
+  /* padding: 2rem; */
+  /* max-width: 800px; */
   margin: auto;
+  justify-content: center;
   color: #f3f3f3;
 }
 
-.aboutTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
 .aboutSection {
+  text-align: center;
+  max-width: 1200px;
   background: rgba(0, 0, 0, 0.3);
+  margin: auto;
   padding: 1.5rem;
   border-radius: 1rem;
   line-height: 1.6;
-  /* max-width: 800px; */
-  text-align: center;
   /* backdrop-filter: blur(6px); */
-  padding: 2rem;
 }
 
-.disclaimer {
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
-  color: #ccc;
+.tableOuter {
+  padding-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.roadmapSection {
-  margin-top: 3rem;
+
+.tableWrapper {
+  overflow-x: auto;
   background: rgba(0, 0, 0, 0.3);
-  padding: 1.5rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  max-width: 1200px;
+  width: 100%;
 }
 
-.roadmapTitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #fff;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 800px;
 }
 
-.roadmapList {
-  list-style: "🔥 ";
-  padding-left: 1.5rem;
-  line-height: 1.7;
-  color: #ddd;
-}
-
-.backLink {
+.tableHeader {
+  padding: 0.5rem;
   text-align: center;
-  margin-top: 3rem;
-  font-size: 0.95rem;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.backLink a {
-  color: #ffc107;
-  text-decoration: none;
-  font-weight: bold;
+.tableCell {
+  padding: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.backLink a:hover {
-  text-decoration: underline;
+.icon {
+  border-radius: 6px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.synergyName {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.roleCell {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.heroGridCell {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.heroIconWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 72px;
+  cursor: pointer;
+}
+
+.heroImage {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.heroName {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  text-align: center;
+  word-break: break-word;
+}
+.firstColumn {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .heroImage {
+    width: 48px;
+    height: 48px;
+  }
+
+  .heroIconWrapper {
+    width: 64px;
+  }
+
+  .heroName {
+    font-size: 0.7rem;
+  }
 }
