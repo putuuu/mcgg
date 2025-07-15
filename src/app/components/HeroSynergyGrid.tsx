@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { heroes } from "../data/hero";
 import { synergies, Synergy } from "../data/sinergi";
 import HeroCardModal from "./HeroCardModal";
