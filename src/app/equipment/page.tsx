@@ -23,7 +23,7 @@ export default function GogoCardPage() {
 
   return (
     <main style={{ padding: "2rem" }}>
-      <h1 style={titleStyle}>Gogo Cards</h1>
+      <h1 style={titleStyle}>Equipment</h1>
 
       {/* Search */}
       <div style={searchContainer}>

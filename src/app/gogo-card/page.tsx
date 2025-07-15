@@ -63,8 +63,8 @@ export default function GogoCardPage() {
             <Image
               src={card.image}
               alt={card.name}
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               loading="lazy"
               style={{ marginBottom: "0.5rem", borderRadius: "8px" }}
             />

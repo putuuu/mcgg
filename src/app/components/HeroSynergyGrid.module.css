@@ -1,167 +1,107 @@
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
+.tableOuter {
+  padding-top: 2rem;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 999;
-  padding: 1rem;
 }
-.container {
-  max-width: 1800px;
-  margin: 0 auto;
+
+.tableWrapper {
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.75rem;
   padding: 1rem;
+  max-width: 1200px;
+  width: 100%;
 }
+
 .table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+  min-width: 800px;
 }
-th,
-td {
-  padding: 6px;
+
+.tableHeader {
+  padding: 0.5rem;
   text-align: center;
   vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-th {
-  font-size: 0.9rem;
+.tableCell {
+  padding: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-td img {
-  width: 64px;
-  height: 64px;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-.modal {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  border-radius: 1rem;
-  max-width: 720px;
-  width: 100%;
-  padding: 2rem;
-  position: relative;
-  display: flex;
-  gap: 2rem;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-}
-
-.closeButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: white;
+.icon {
+  border-radius: 6px;
+  object-fit: cover;
   cursor: pointer;
 }
 
-.left {
-  flex-shrink: 0;
+.synergyName {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
 }
 
-.hero-image {
+.roleCell {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.heroGridCell {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.heroIconWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 72px;
-  height: 72px;
+  cursor: pointer;
+}
+
+.heroImage {
+  width: 64px;
+  height: 64px;
   border-radius: 6px;
   object-fit: cover;
-}
-
-.right {
-  flex: 1;
 }
 
 .heroName {
   font-size: 0.8rem;
   margin-top: 4px;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  text-align: center;
+  word-break: break-word;
+}
+.firstColumn {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.shortDesc {
-  font-size: 0.95rem;
-  color: #ccc;
-  margin-bottom: 1rem;
-}
-
-.stats p {
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-}
-
-.skillSection {
-  margin-top: 1rem;
-}
-
-.skill {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.skillIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: 6px;
-}
-
-.skillDesc {
-  font-size: 0.9rem;
-  color: #eee;
-}
-
-/* 🔁 RESPONSIVE */
-@media (max-width: 600px) {
-  .modal {
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1rem;
-  }
+/* Responsive */
+@media (max-width: 768px) {
   .table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
   }
 
-  td img {
+  .heroImage {
     width: 48px;
     height: 48px;
   }
-  .hero-icon-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 72px;
-    cursor: pointer;
+
+  .heroIconWrapper {
+    width: 64px;
   }
-  .hero-name {
+
+  .heroName {
     font-size: 0.7rem;
-    text-align: center;
-    word-break: break-word;
-  }
-
-  .right {
-    width: 100%;
-  }
-
-  .skill {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .skillIcon {
-    width: 40px;
-    height: 40px;
-  }
-  .hero-grid-cell {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
   }
 }

@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { heroes } from "../data/hero";
 import { synergies, Synergy } from "../data/sinergi";
 import HeroCardModal from "./HeroCardModal";
-import Image from "next/image";
 import SynergyCardModal from "./SynergyCardModal";
+import Image from "next/image";
+import styles from "./HeroSynergyGrid.module.css";
 
 const factions = synergies.filter((s) => s.type === "Faction");
 const roles = synergies.filter((s) => s.type === "Role");
@@ -19,143 +20,99 @@ const HeroSynergyTable = () => {
   const getHeroById = (id: number) => heroes.find((h) => h.id === id);
 
   return (
-    <div style={{ overflowX: "auto", padding: "1rem" }}>
-      <table
-        className="synergy-card"
-        style={{
-          width: "100%",
-          borderCollapse: "collapse",
-          tableLayout: "fixed",
-        }}
-      >
-        <thead>
-          <tr>
-            <th
-              style={{
-                padding: "0.5rem",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-              }}
-            >
-              Faction / Role
-            </th>
-            {factions.map((faction) => (
-              <th
-                key={faction.id}
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  textAlign: "center",
-                }}
-              >
-                <Image
-                  src={faction.icon}
-                  alt={faction.name}
-                  title={faction.name}
-                  width={28}
-                  height={28}
-                  style={{
-                    borderRadius: "6px",
-                    objectFit: "cover",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => setSelectedSynergy(faction)}
-                />
-                <div style={{ fontSize: ".9rem" }}>{faction.name}</div>
+    <div className={styles.tableOuter}>
+      <div className={styles.tableWrapper}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th className={`${styles.tableHeader} ${styles.firstColumn}`}>
+                Faction / Role
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {roles.map((role) => (
-            <tr key={role.id}>
-              <td
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  textAlign: "center",
-                  fontWeight: "bold",
-                }}
-              >
-                <div
+              {factions.map((faction, index) => (
+                <th
+                  key={faction.id}
+                  className={`${styles.tableHeader} ${styles.factionCell}`}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "0.5rem",
+                    borderLeft:
+                      index === 0
+                        ? "none"
+                        : "1px solid rgba(255, 255, 255, 0.15)",
                   }}
                 >
                   <Image
-                    src={role.icon}
-                    alt={role.name}
+                    src={faction.icon}
+                    alt={faction.name}
+                    title={faction.name}
                     width={28}
                     height={28}
-                    style={{
-                      borderRadius: "6px",
-                      objectFit: "cover",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => setSelectedSynergy(role)}
+                    className={styles.icon}
+                    onClick={() => setSelectedSynergy(faction)}
                   />
-                </div>
-                <div style={{ fontSize: ".9rem" }}>{role.name}</div>
-              </td>
+                  <div className={styles.synergyName}>{faction.name}</div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {roles.map((role) => (
+              <tr key={role.id}>
+                <td className={`${styles.tableCell} ${styles.firstColumn}`}>
+                  <div className={styles.roleCell}>
+                    <Image
+                      src={role.icon}
+                      alt={role.name}
+                      width={28}
+                      height={28}
+                      className={styles.icon}
+                      onClick={() => setSelectedSynergy(role)}
+                    />
+                  </div>
+                  <div className={styles.synergyName}>{role.name}</div>
+                </td>
+                {factions.map((faction, index) => {
+                  const matchedHeroes = heroes.filter(
+                    (hero) =>
+                      hero.synergies.faction === faction.name &&
+                      hero.synergies.roles.includes(role.name)
+                  );
 
-              {factions.map((faction) => {
-                const matchedHeroes = heroes.filter(
-                  (hero) =>
-                    hero.synergies.faction === faction.name &&
-                    hero.synergies.roles.includes(role.name)
-                );
-
-                return (
-                  <td
-                    key={`${role.name}-${faction.name}`}
-                    style={{
-                      padding: "0.5rem",
-                      border: "1px solid rgba(255, 255, 255, 0.1)",
-                      textAlign: "center",
-                    }}
-                  >
-                    <div
+                  return (
+                    <td
+                      key={`${role.name}-${faction.name}`}
+                      className={styles.tableCell}
                       style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
-                        gap: "4px",
+                        borderLeft:
+                          index === 0
+                            ? "none"
+                            : "1px solid rgba(255, 255, 255, 0.08)",
                       }}
                     >
-                      {matchedHeroes.map((hero) => (
-                        <div
-                          key={hero.id}
-                          style={{
-                            cursor: "pointer",
-                            textAlign: "center",
-                            width: "60px", // Sebelumnya 72px → dikecilkan
-                          }}
-                          onClick={() => openModal(hero.id)}
-                        >
-                          <Image
-                            src={hero.image}
-                            alt={hero.name}
-                            width={64} // sebelumnya 56
-                            height={64}
-                            style={{
-                              borderRadius: "6px",
-                              objectFit: "cover",
-                            }}
-                          />
-                          <div style={{ fontSize: "0.8rem" }}>{hero.name}</div>{" "}
-                          {/* Ukuran font juga dikecilkan */}
-                        </div>
-                      ))}
-                    </div>
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                      <div className={styles.heroGridCell}>
+                        {matchedHeroes.map((hero) => (
+                          <div
+                            key={hero.id}
+                            className={styles.heroIconWrapper}
+                            onClick={() => openModal(hero.id)}
+                          >
+                            <Image
+                              src={hero.image}
+                              alt={hero.name}
+                              width={64}
+                              height={64}
+                              className={styles.heroImage}
+                            />
+                            <div className={styles.heroName}>{hero.name}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {selectedHero !== null && (
         <HeroCardModal hero={getHeroById(selectedHero)!} onClose={closeModal} />

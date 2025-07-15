@@ -62,55 +62,6 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* ===== DROPDOWN (desktop + mobile compatible) ===== */
-.nav-dropdown {
-  position: relative;
-}
-
-.nav-dropdown summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 0.5rem 0.75rem;
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
-
-.nav-dropdown summary:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.nav-dropdown[open] summary {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* Dropdown content style */
-.nav-dropdown .dropdown-content {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: calc(100% + 2px);
-  left: 0;
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  min-width: 160px;
-  z-index: 100;
-}
-
-.nav-dropdown .dropdown-content a {
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: white;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
-
-.nav-dropdown .dropdown-content a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 /* ===== MOBILE MENU ===== */
 .mobile-menu-button {
   display: none;

@@ -18,10 +18,12 @@ export default function AboutPage() {
 
         <p>
           This website is developed and maintained by{" "}
-          <strong>Khoceng Orenzzz</strong>, a passionate fan of Magic Chess Go
-          Go and the auto-battler genre.
+          <strong>Khoceng Orenzzz</strong>.
         </p>
-
+        <br />
+        <p>
+          Big Thanks to <strong>Klinik KB 24 Jam</strong>.
+        </p>
         <p className={styles.disclaimer}>
           <em>
             Disclaimer: This is a fan-made website and is not affiliated with

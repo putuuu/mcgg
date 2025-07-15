@@ -258,7 +258,7 @@ a.secondary {
 
 .carouselImage {
   width: 25%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3.5 / 4;
   object-fit: fill;
   border-radius: 12px;
 }
