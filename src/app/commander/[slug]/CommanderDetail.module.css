@@ -136,3 +136,28 @@
   line-height: 1.6;
   color: #e5e7eb;
 }
+.navButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.backButton {
+  font-size: 1rem;
+  color: #0070f3;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.arrowButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.arrow {
+  font-size: 1rem;
+  color: #0070f3;
+  text-decoration: none;
+}

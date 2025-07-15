@@ -392,6 +392,8 @@ body::before {
 
 .synergy-card {
   border-radius: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 1rem;
   text-align: center;
   backdrop-filter: blur(8px);
@@ -406,4 +408,8 @@ body::before {
 .synergy-card td img:hover {
   transform: none !important;
   box-shadow: none !important;
+}
+.synergy-cell {
+  padding: 6px;
+  text-align: center;
 }

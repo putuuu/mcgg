@@ -9,7 +9,33 @@
   z-index: 999;
   padding: 1rem;
 }
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+th,
+td {
+  padding: 6px;
+  text-align: center;
+  vertical-align: middle;
+}
 
+th {
+  font-size: 0.9rem;
+}
+
+td img {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
 .modal {
   background: rgba(0, 0, 0, 0.8);
   color: white;
@@ -51,7 +77,8 @@
 }
 
 .heroName {
-  font-size: 1.75rem;
+  font-size: 0.8rem;
+  margin-top: 4px;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -95,7 +122,16 @@
     padding: 1.5rem;
     gap: 1rem;
   }
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
+  td img {
+    width: 48px;
+    height: 48px;
+  }
   .hero-icon-wrapper {
     display: flex;
     flex-direction: column;

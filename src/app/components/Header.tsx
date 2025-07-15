@@ -23,8 +23,8 @@ export default function Header() {
         </button>
 
         <nav className={`site-nav ${isMobileNavOpen ? "open" : ""}`}>
-          <Link href="/">Home</Link>
-
+          {/* <Link href="/">Home</Link> */}
+          <Link href="/commander">Commander</Link>
           <details className="nav-dropdown">
             <summary>Season 2 ▾</summary>
             <div className="dropdown-content">
@@ -33,7 +33,7 @@ export default function Header() {
             </div>
           </details>
 
-          <Link href="/commander">Commander</Link>
+          {/* <Link href="/commander">Commander</Link> */}
           <Link href="/gogo-card">Gogo Card</Link>
           <Link href="/guide">Guide</Link>
           <Link href="/mcnc">MCNC</Link>

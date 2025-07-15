@@ -36,7 +36,7 @@ const HeroSynergyTable = () => {
                 border: "1px solid rgba(255, 255, 255, 0.1)",
               }}
             >
-              Role \ Faction
+              Faction / Role
             </th>
             {factions.map((faction) => (
               <th
@@ -51,8 +51,8 @@ const HeroSynergyTable = () => {
                   src={faction.icon}
                   alt={faction.name}
                   title={faction.name}
-                  width={56}
-                  height={56}
+                  width={28}
+                  height={28}
                   style={{
                     borderRadius: "6px",
                     objectFit: "cover",
@@ -60,6 +60,7 @@ const HeroSynergyTable = () => {
                   }}
                   onClick={() => setSelectedSynergy(faction)}
                 />
+                <div style={{ fontSize: ".9rem" }}>{faction.name}</div>
               </th>
             ))}
           </tr>
@@ -86,8 +87,8 @@ const HeroSynergyTable = () => {
                   <Image
                     src={role.icon}
                     alt={role.name}
-                    width={56}
-                    height={56}
+                    width={28}
+                    height={28}
                     style={{
                       borderRadius: "6px",
                       objectFit: "cover",
@@ -96,6 +97,7 @@ const HeroSynergyTable = () => {
                     onClick={() => setSelectedSynergy(role)}
                   />
                 </div>
+                <div style={{ fontSize: ".9rem" }}>{role.name}</div>
               </td>
 
               {factions.map((faction) => {
@@ -128,18 +130,22 @@ const HeroSynergyTable = () => {
                           style={{
                             cursor: "pointer",
                             textAlign: "center",
-                            width: "72px", // atur ukuran tetap
+                            width: "60px", // Sebelumnya 72px → dikecilkan
                           }}
                           onClick={() => openModal(hero.id)}
                         >
                           <Image
                             src={hero.image}
                             alt={hero.name}
-                            width={72}
-                            height={72}
-                            style={{ borderRadius: "6px", objectFit: "cover" }}
+                            width={48} // sebelumnya 56
+                            height={48}
+                            style={{
+                              borderRadius: "6px",
+                              objectFit: "cover",
+                            }}
                           />
-                          <div style={{ fontSize: "1rem" }}>{hero.name}</div>
+                          <div style={{ fontSize: "0.75rem" }}>{hero.name}</div>{" "}
+                          {/* Ukuran font juga dikecilkan */}
                         </div>
                       ))}
                     </div>

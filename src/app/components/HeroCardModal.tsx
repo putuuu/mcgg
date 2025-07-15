@@ -49,6 +49,9 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
 
           <div className={styles.stats}>
             <p>
+              <strong>Cost :</strong> {hero.cost}🟡
+            </p>
+            <p>
               <strong>Initial Mana:</strong> {hero.mana.initial}
             </p>
             <p>
