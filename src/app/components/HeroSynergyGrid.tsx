@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { heroes } from "../data/hero";
 import { synergies, Synergy } from "../data/sinergi";
 import HeroCardModal from "./HeroCardModal";
@@ -137,14 +137,14 @@ const HeroSynergyTable = () => {
                           <Image
                             src={hero.image}
                             alt={hero.name}
-                            width={48} // sebelumnya 56
-                            height={48}
+                            width={64} // sebelumnya 56
+                            height={64}
                             style={{
                               borderRadius: "6px",
                               objectFit: "cover",
                             }}
                           />
-                          <div style={{ fontSize: "0.75rem" }}>{hero.name}</div>{" "}
+                          <div style={{ fontSize: "0.8rem" }}>{hero.name}</div>{" "}
                           {/* Ukuran font juga dikecilkan */}
                         </div>
                       ))}

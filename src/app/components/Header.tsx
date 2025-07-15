@@ -25,14 +25,8 @@ export default function Header() {
         <nav className={`site-nav ${isMobileNavOpen ? "open" : ""}`}>
           {/* <Link href="/">Home</Link> */}
           <Link href="/commander">Commander</Link>
-          <details className="nav-dropdown">
-            <summary>Season 2 ▾</summary>
-            <div className="dropdown-content">
-              <Link href="/synergyhero">Sinergi & Hero</Link>
-              <Link href="/equipment">Equipment</Link>
-            </div>
-          </details>
-
+          <Link href="/synergyhero">Sinergi & Hero</Link>
+          <Link href="/equipment">Equipment</Link>
           {/* <Link href="/commander">Commander</Link> */}
           <Link href="/gogo-card">Gogo Card</Link>
           <Link href="/guide">Guide</Link>

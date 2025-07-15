@@ -1,0 +1,61 @@
+.aboutPage {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  color: #f3f3f3;
+}
+
+.aboutTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.aboutSection {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  line-height: 1.6;
+  backdrop-filter: blur(6px);
+}
+
+.disclaimer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.roadmapSection {
+  margin-top: 3rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.roadmapTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.roadmapList {
+  list-style: "🔥 ";
+  padding-left: 1.5rem;
+  line-height: 1.7;
+  color: #ddd;
+}
+
+.backLink {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+}
+
+.backLink a {
+  color: #ffc107;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.backLink a:hover {
+  text-decoration: underline;
+}
