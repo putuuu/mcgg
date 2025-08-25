@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback } from "react";
 import styles from "./HeroCardModal.module.css";
-import { Hero } from "../../data/hero";
+import { Hero } from "../../data/s3/hero";
 import Image from "next/image";
 
 interface Props {
@@ -45,21 +45,20 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
 
         <div className={styles.right}>
           <h2 className={styles.heroName}>{hero.name}</h2>
-          <p className={styles.shortDesc}>{hero.skill.sdescription}</p>
 
           <div className={styles.stats}>
             <p>
               <strong>Cost :</strong> {hero.cost}🟡
             </p>
-            <p>
+            {/* <p>
               <strong>Initial Mana:</strong> {hero.mana.initial}
             </p>
             <p>
-              <strong>Mana Cap:</strong> {hero.mana.max}
-            </p>
+              <strong>Mana Cap:</strong> {hero.attributes.starStats.manaStats.}
+            </p> */}
           </div>
 
-          <div className={styles.skillSection}>
+          {/* <div className={styles.skillSection}>
             <h3>Skill</h3>
             <div className={styles.skill}>
               <Image
@@ -75,7 +74,7 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
                 <p className={styles.skillDesc}>{hero.skill.description}</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
