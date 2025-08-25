@@ -2,7 +2,6 @@ import { Commander } from "../../data/commanders";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./CommanderCard.module.css";
-import { lazy } from "react";
 
 export default function CommanderCard({ commander }: { commander: Commander }) {
   return (
