@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { heroes } from "../../data/hero";
-import { synergies, Synergy } from "../../data/sinergi";
+import { synergies, Synergy } from "../../data/s3/sinergi";
 import HeroCardModal from "./HeroCardModal";
 import SynergyCardModal from "./SynergyCardModal";
 import Image from "next/image";
