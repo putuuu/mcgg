@@ -15,12 +15,12 @@ export default function MCNCRules() {
         <li>
           <strong>Venue:</strong> {mcncRules.venue}
         </li>
-        <li>
+        {/* <li>
           <strong>Registration Fee:</strong> {mcncRules.registration}
         </li>
         <li>
           <strong>Prize Pool:</strong> {mcncRules.prizePool}
-        </li>
+        </li> */}
       </ul>
       <br />
       <h2>Point System</h2>

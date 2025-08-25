@@ -391,6 +391,7 @@ a.secondary {
 }
 
 .heroImageLarge {
+  object-position: top;
   width: 64px;
   height: 64px;
   border-radius: 12px;

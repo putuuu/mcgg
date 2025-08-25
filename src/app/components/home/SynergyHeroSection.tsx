@@ -1,13 +1,13 @@
 "use client";
 
 import styles from "../../page.module.css";
-import { synergies } from "../../data/sinergi";
-import { heroes } from "../../data/hero";
+import { synergies } from "../../data/s3/sinergi";
+import { heroes } from "../../data/s3/hero";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const selected = ["Dawnbringer", "Doomsworn", "Emberlord"];
+const selected = ["Shadowcell", "Starwing", "Luminexus"];
 
 export default function SynergyHeroSection() {
   const filtered = synergies.filter((s) => selected.includes(s.name));

@@ -72,6 +72,7 @@
   height: 72px;
   border-radius: 6px;
   object-fit: cover;
+  object-position: top;
 }
 
 .heroName {

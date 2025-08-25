@@ -1056,14 +1056,14 @@ export const commanders: Commander[] = [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commanderSkill/aurora1.png",
+        icon: "/images/commanderSkill/karina1.png",
         name: "Shadow Twinblades",
         description:
           "Gain Shadow Twinblades at the start: When an enemy Hero adjacent to the carrier has HP below 20%, Karina executes the target.",
       },
       {
         level: 2,
-        icon: "/images/commanderSkill/aurora2.png",
+        icon: "/images/commanderSkill/karina2.png",
         type: "Passive",
         name: "Twinblades Evolution",
         description:

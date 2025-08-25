@@ -17,8 +17,8 @@ export const mcncRules = {
   mode: "Squad Mode (4v4), up to 20 Teams",
   banned: "No banned commander or synergy (subject to change)",
   venue: "Online - MCNC Stream Channels (YouTube, TikTok, Facebook)",
-  registration: "Rp 2.500.000 / team",
-  prizePool: "Rp 50.000.000",
+  // registration: "Rp 2.500.000 / team",
+  // prizePool: "Rp 50.000.000",
   pointSystem: [
     "1st place: 8 pts",
     "2nd place: 6 pts",
@@ -38,9 +38,9 @@ export const mcncRules = {
         "Each team plays every other team once",
         "2 matches per team per day",
         "Top teams qualify to Regular Season",
-        "Rp 250.000 from down payment becomes qualifier prize pool",
-        "Qualified teams pay remaining Rp 1.500.000",
-        "Non-qualified teams get Rp 1.000.000 refund",
+        // "Rp 250.000 from down payment becomes qualifier prize pool",
+        // "Qualified teams pay remaining Rp 1.500.000",
+        // "Non-qualified teams get Rp 1.000.000 refund",
       ],
     },
     {
