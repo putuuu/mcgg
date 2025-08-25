@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useCallback } from "react";
 import styles from "./SynergyCardModal.module.css";
-import { Synergy } from "../data/sinergi";
+import { Synergy } from "../../data/sinergi";
 import Image from "next/image";
 
 interface Props {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback } from "react";
 import styles from "./HeroCardModal.module.css";
-import { Hero } from "../data/hero";
+import { Hero } from "../../data/hero";
 import Image from "next/image";
 
 interface Props {

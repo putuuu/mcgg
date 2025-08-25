@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "../page.module.css";
-import { commanders } from "../data/commanders";
+import styles from "../../page.module.css";
+import { commanders } from "../../data/commanders";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -49,6 +49,7 @@ export default function CommanderCarousel() {
             >
               <Image
                 src={current.image}
+                loading="lazy"
                 alt={current.name}
                 width={400}
                 height={300}

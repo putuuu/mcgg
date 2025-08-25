@@ -78,13 +78,6 @@ export const cards = [
       "Allied Heroes gain 25% Physical ATK. Each Hero permanently gains an extra 1% for every enemy they personaally kill.",
   },
   {
-    id: 26,
-    name: "Opening Promotion",
-    category: "Orange",
-    image: "/images/cards/GOGO_Icon_26.png",
-    description: "The first Hero purchase each round is free. Get 2 Gold.",
-  },
-  {
     id: 802,
     name: "Vault Upgrade+",
     category: "Orange",

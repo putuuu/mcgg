@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { commanders } from "../data/commanders";
-import CommanderCard from "../components/CommanderCard";
+import CommanderCard from "../components/commander/CommanderCard";
 import type { CSSProperties } from "react";
 
 const CommanderPage = () => {

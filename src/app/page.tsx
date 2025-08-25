@@ -1,10 +1,10 @@
 // pages/index.tsx
-import HeroSection from "./components/HeroSection";
-import FeatureSection from "./components/FeatureSection";
-import CommanderPreview from "./components/CommanderPreview";
-import SynergyHeroSection from "./components/SynergyHeroSection";
-import GogoCardPreview from "./components/GogoCardPreview";
-import MCNCSection from "./components/MCNCSection";
+import HeroSection from "./components/home/HeroSection";
+import FeatureSection from "./components/home/FeatureSection";
+import CommanderPreview from "./components/home/CommanderPreview";
+import SynergyHeroSection from "./components/home/SynergyHeroSection";
+import GogoCardPreview from "./components/home/GogoCardPreview";
+import MCNCSection from "./components/home/MCNCSection";
 
 export default function HomePage() {
   return (

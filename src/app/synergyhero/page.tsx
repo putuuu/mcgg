@@ -1,5 +1,5 @@
 import React from "react";
-import HeroSynergyGrid from "../components/HeroSynergyGrid";
+import HeroSynergyGrid from "../components/synergyhero/HeroSynergyGrid";
 import styles from "./page.module.css";
 
 const SynergyHeroPage = () => {

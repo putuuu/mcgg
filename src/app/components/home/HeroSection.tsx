@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import styles from "../page.module.css";
+import styles from "../../page.module.css";
 
 export default function HeroSection() {
   return (

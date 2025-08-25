@@ -1,0 +1,143 @@
+.card {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+  max-width: 900px;
+  /* backdrop-filter: blur(6px); */
+  color: #f3f3f3;
+}
+
+.card h1,
+.card h2 {
+  margin-bottom: 1rem;
+}
+
+.quote {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #ffc107;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bracket {
+  margin-top: 1rem;
+  line-height: 2;
+}
+
+.winner {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #00ffcc;
+}
+.mcncPage {
+  padding: 2rem;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tabList {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.active {
+  background: #ff4081;
+  color: white;
+  border: none;
+}
+
+.tabContent {
+  animation: fadeIn 0.3s ease-in;
+}
+.bracketSection {
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.bracketContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  min-width: 800px;
+}
+
+.bracketColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.matchBox {
+  width: 180px;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.team {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.vs {
+  color: #aaa;
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+}
+
+.winner {
+  color: #00ff9c;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

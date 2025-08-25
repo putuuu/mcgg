@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Equipment } from "../data/equipment";
+import { Equipment } from "../../data/equipment";
 import styles from "./EquipmentCard.module.css";
 import Image from "next/image";
 
@@ -17,6 +17,7 @@ const EquipmentCard: React.FC<Props> = ({ item }) => {
         alt={item.name}
         width={80}
         height={80}
+        loading="lazy"
         className={styles.icon}
       />
       <h3 className={styles.name}>{item.name}</h3>

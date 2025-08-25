@@ -60,7 +60,7 @@ export const commanders: Commander[] = [
     skills: [
       {
         level: 1,
-        type: "Passive",
+        type: "active",
         icon: "/images/commanderSkill/kagura1.png",
         name: "Shield Umbrella",
         description:
@@ -71,7 +71,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/kagura2.png",
         type: "Passive",
         name: "Yin Yang Gathering",
-        description: "Shield value increases to 100% of Max HP.",
+        description: "Shield value increases to 125% of Max HP.",
       },
     ],
   },
@@ -182,7 +182,7 @@ export const commanders: Commander[] = [
         type: "Passive",
         name: "Molina's Gift",
         description:
-          "Receive 2 Equipment Chest(s) and 5 Gold upon taking DMG for the first time.",
+          "Receive 2 Equipment Chest(s) and 3 Gold upon taking DMG for the first time.",
       },
     ],
   },
@@ -232,7 +232,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/layla1.png",
         name: "Hologram: Destruction Rush",
         description:
-          "Layla generates a hologram that emits lasers to penetrate enemies, dealing 400 Physical DMG, and increasing ATK speed by 3% each round.",
+          "Layla generates a hologram that emits lasers to penetrate enemies, dealing 330 Physical DMG, and increasing ATK speed by 3% each round.",
       },
       {
         level: 2,
@@ -269,7 +269,7 @@ export const commanders: Commander[] = [
         type: "Passive",
         name: "Shifting Wind",
         description:
-          "Gain 1 additional charge(s) at the start of Round II-1 and III-1.",
+          "Gain 1 additional charge(s) at the start of Round III-1 and IV-1.",
       },
     ],
   },
@@ -290,7 +290,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/zilong1.png",
         name: "Great Dragon Spear",
         description:
-          "Obtain the Great Dragon Spear at the start of the match: Each Basic ATK has 16% chance to attack 2 additional time(s). You can purchase up to 1 effects from the Shop to enhance the Great Dragon Spear. Trait include: Draco Serenity: Become immune to control for 25s and recover 12% HP based on damage dealt. Golden Clutch: Each Basic ATK has 5% chance to grant 1 Gold. Great Dragon Guard: When HP drops below 30% gain a Shield equal to 40% of Max HP. (If this hasn't been triggered and fatal damage is taken, the Shield will be granted).",
+          "Obtain the Great Dragon Spear at the start of the match: Each Basic ATK has 16% chance to attack 2 additional time(s). You can purchase up to 1 effects from the Shop to enhance the Great Dragon Spear. Trait include: Draco Serenity: Become immune to control for 25s and recover 12% HP based on damage dealt. Gold Bandit: Each Basic ATK has 5% chance to grant 1 Gold. Great Dragon Guard: When HP drops below 30% gain a Shield equal to 40% of Max HP. (If this hasn't been triggered and fatal damage is taken, the Shield will be granted).",
       },
       {
         level: 2,
@@ -319,7 +319,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/fanny1.png",
         name: "Blade Dancer",
         description:
-          "Fanny will spawn a Hero Launcher outside the battlefield. After 13 rounds construction, you can drag a Hero onto the Launcher. When the battle starts, the Hero on the Launcher joins the fight.",
+          "Fanny construct a Hero Launcher outside the battlefield. It takes 13 round(s) to complete and grants 6 Gold upon completion. Then, you can drag a Hero onto the Launcher, and the Hero will join the fight when battle starts.",
       },
       {
         level: 2,
@@ -327,7 +327,7 @@ export const commanders: Commander[] = [
         type: "Passive",
         name: "Heart of the Blade",
         description:
-          "The Hero Launcher will be completed after 6 rounds, and the launched Hero gains 45% extra HP.",
+          "The Hero Launcher will be completes in only 4 rounds, and the launched Hero gains 45% extra HP.",
       },
     ],
   },
@@ -377,7 +377,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/moskov1.png",
         name: "Power of Shadow",
         description:
-          "Creates a Shadow Field on the side of the Battle Area. Place the designated 1-Gold, 2-Gold, 3-Gold, and 4 Gold Heroes one by one to complete the ritual. Then place a Hero in it to gain Power of Shadows, enhancing their Hybrid ATK by 22% and HP by 22%. Each time you place a corresponding Hero to complete the ritual, you get a refund of their cost plus additional 1 Gold.",
+          "Creates a Shadow Field on the side of the Battle Area. Place the designated 1-Gold, 2-Gold, 3-Gold, and 4 Gold Heroes one by one to complete the ritual. Then place a Hero in it to gain Power of Shadows, enhancing their Hybrid ATK by 22% and HP by 22%. Each time you place a corresponding Hero to complete the ritual, you get a refund of their cost plus additional 2 Gold.",
       },
       {
         level: 2,
@@ -532,12 +532,12 @@ export const commanders: Commander[] = [
   },
   {
     id: 19,
-    name: "Rya",
-    slug: "rya",
+    name: "Lunox",
+    slug: "lunox",
     type: "Strategy",
     image: "/images/commander/Hero45221.png",
     description:
-      "Rya can be activated once after Stage II to grant a random Blessing to a Hero without one. This Blessing adds +1 to one of the Hero’s synergies (Role or Faction), potentially helping you reach key synergy breakpoints. However, once blessed, the Hero cannot be sold without losing the effect. Because each Hero has two synergies, the Blessing may not always boost the synergy you were aiming for. This makes Rya a high-skill commander that requires sharp adaptability and long-term planning. A wrong decision can limit your comp path, but a well-placed Blessing can unlock powerful synergy spikes or complete difficult trait combos.",
+      "Lunox can be activated once after Stage II to grant a random Blessing to a Hero without one. This Blessing adds +1 to one of the Hero’s synergies (Role or Faction), potentially helping you reach key synergy breakpoints. However, once blessed, the Hero cannot be sold without losing the effect. Because each Hero has two synergies, the Blessing may not always boost the synergy you were aiming for. This makes Rya a high-skill commander that requires sharp adaptability and long-term planning. A wrong decision can limit your comp path, but a well-placed Blessing can unlock powerful synergy spikes or complete difficult trait combos.",
     sdescription:
       "Grants one-time synergy Blessing. Requires adaptability in case the boosted synergy isn't the optimal one.",
     skills: [
@@ -545,16 +545,17 @@ export const commanders: Commander[] = [
         level: 1,
         type: "Active",
         icon: "/images/commanderSkill/rya1.png",
-        name: "Budding Blossom",
+        name: "Power of Chaos",
         description:
-          "Usable after Stage III. Rya Select a Hero without a Blessing and grants them a random Blessing. Can be used 1 time(s). Blessing: The blessed Hero contributes +1 to their Role or Faction Synergy Count.",
+          "Usable after Stage II. Select a Hero without a Blessing and grants them a random Blessing. Can be used 1 time(s). Blessing: The Hero with the Blessing effect adds 1 count to their Role or Faction Synergy.",
       },
       {
         level: 2,
         icon: "/images/commanderSkill/rya2.png",
         type: "Passive",
-        name: "Dawn's Gift",
-        description: "The Active Skill becomes usable after Stage II.",
+        name: "Power of Order",
+        description:
+          "After Lunox casts her skill, gain 4 random Hero(es) from the Synergy it grants (affected by current Shop refresh probabilities).",
       },
     ],
   },
@@ -729,30 +730,59 @@ export const commanders: Commander[] = [
       },
     ],
   },
+  // {
+  //   id: 26,
+  //   name: "Mavis",
+  //   slug: "mavis",
+  //   type: "Survival",
+  //   image: "/images/commander/Hero45101.png",
+  //   description:
+  //     "Starting from Stage III, Mavis restores 2 HP after each victory. Additionally, whenever another Commander is eliminated, you regain 4 HP. Mavis enables strong late-game scaling for players willing to lose early. By surviving to Stage III, you unlock healing that lets you outlast opponents and punish them for every lost player. This commander fits best in fast 8/9 strategies, where you take early damage in exchange for a massive comeback window. Ideal for players who enjoy high-risk, high-reward tempo.",
+  //   sdescription:
+  //     "Restores HP after wins and eliminations from Stage III onward. Built for late-game comeback strategies.",
+  //   skills: [
+  //     {
+  //       level: 1,
+  //       type: "Passive",
+  //       icon: "/images/commanderSkill/mavis1.png",
+  //       name: "Gathering Strength",
+  //       description: "Starting from Stage III, each win restores 2 HP.",
+  //     },
+  //     {
+  //       level: 2,
+  //       type: "Passive",
+  //       icon: "/images/commanderSkill/mavis2.png",
+  //       name: "A Matter of Life or Death",
+  //       description: "When another Commander is defeated, restores 4 HP.",
+  //     },
+  //   ],
+  // }
   {
     id: 26,
-    name: "Mavis",
-    slug: "mavis",
-    type: "Survival",
-    image: "/images/commander/Hero45101.png",
+    name: "Alice",
+    slug: "alice",
+    type: "Strategy",
+    image: "/images/commander/Hero45125.png",
     description:
-      "Starting from Stage III, Mavis restores 2 HP after each victory. Additionally, whenever another Commander is eliminated, you regain 4 HP. Mavis enables strong late-game scaling for players willing to lose early. By surviving to Stage III, you unlock healing that lets you outlast opponents and punish them for every lost player. This commander fits best in fast 8/9 strategies, where you take early damage in exchange for a massive comeback window. Ideal for players who enjoy high-risk, high-reward tempo.",
+      "Starting from Round II-4, Harley can refresh the Shop once, replacing it with three random 5-Gold Heroes. The number of 5-Gold Heroes shown increases to 5 with skill upgrades — allowing massive late-game potential and instant access to high-impact units. Harley is a mid-to-late game commander that enables powerful transitions. The strength lies not just in acquiring top-tier Heroes, but also in how well the player can adapt their comp based on what they get. Harley favors players who are flexible and comfortable shifting strategies on the fly. Whether stabilizing at Level 8 or chasing a perfect synergy finish at Level 9, Harley can single-handedly define your win condition.",
     sdescription:
-      "Restores HP after wins and eliminations from Stage III onward. Built for late-game comeback strategies.",
+      "Replaces Shop with 5-cost Heroes. Enables powerful late-game transitions for adaptive players.",
     skills: [
       {
         level: 1,
         type: "Passive",
-        icon: "/images/commanderSkill/mavis1.png",
-        name: "Gathering Strength",
-        description: "Starting from Stage III, each win restores 2 HP.",
+        icon: "/images/commanderSkill/alice1.png",
+        name: "Abyssl Gaze",
+        description:
+          "Alice grants abyssal power to an allied Hero. After reaching 2-Star, the next time you obtain them will strengthen them immediately by increasing their Max HP by 8% and Hybrid ATK by 8%, up to 12 time(s).",
       },
       {
         level: 2,
+        icon: "/images/commanderSkill/alice2.png",
         type: "Passive",
-        icon: "/images/commanderSkill/mavis2.png",
-        name: "A Matter of Life or Death",
-        description: "When another Commander is defeated, restores 4 HP.",
+        name: "Crimson Grace",
+        description:
+          "Attribute boosts increased to 15% Max HP and 20% Hybrid ATK.",
       },
     ],
   },
@@ -1001,7 +1031,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/aurora1.png",
         name: "Frost Treasure",
         description:
-          "At the start of each round, Aurora freezes your shop. If you don't purchase any Heroes in a round, you'll gain 2 Frost Energy. When Frost Energy reaches 6, it grants random rewards worth no less than 7 Gold, then begins accumulating again.",
+          "At the start of each round, Aurora freezes your shop. If you don't purchase any Heroes in a round, you'll gain 2 Frost Energy. When Frost Energy reaches 6, it grants random rewards worth no less than 6 Gold, then begins accumulating again.",
       },
       {
         level: 2,
@@ -1029,7 +1059,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/aurora1.png",
         name: "Shadow Twinblades",
         description:
-          "Gain Shadow Twinblades at the start: When an enemy Hero adjacent to the carrier has HP below 15%, Karina executes the target.",
+          "Gain Shadow Twinblades at the start: When an enemy Hero adjacent to the carrier has HP below 20%, Karina executes the target.",
       },
       {
         level: 2,
@@ -1037,7 +1067,7 @@ export const commanders: Commander[] = [
         type: "Passive",
         name: "Twinblades Evolution",
         description:
-          "After Karina executes the target, the carrier's DMG is increased by 1%, up to 35%.",
+          "After Karina executes the target, the carrier's DMG is increased by 2%, up to 36%.",
       },
     ],
   },

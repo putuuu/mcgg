@@ -94,16 +94,16 @@ export const synergies: Synergy[] = [
       },
       {
         units: 4,
-        effect: "Share 20% HP, 50% Hybrid ATK.",
+        effect: "Share 20% HP, 45% Hybrid ATK.",
       },
       {
         units: 6,
-        effect: "Share 20% HP, 70% Hybrid ATK.",
+        effect: "Share 20% HP, 65% Hybrid ATK.",
       },
       {
         units: 10,
         effect:
-          "Share 30% HP, 120% Hybrid ATK. When an Emberlord Hero dies, they will resurrect and restore 30% HP.",
+          "Share 30% HP, 110% Hybrid ATK. When an Emberlord Hero dies, they will resurrect and restore 30% HP.",
       },
     ],
   },
@@ -228,12 +228,12 @@ export const synergies: Synergy[] = [
     effects: [
       {
         units: 2,
-        effect: "Grant 25% extra DMG and reduce DMG taken by 10%.",
+        effect: "Grant 20% extra DMG and reduce DMG taken by 10%.",
       },
       {
         units: 3,
         effect:
-          "Grant 35% extra DMG and reduce DMG taken by 10%. Add 1 count to all other Synergies of the Hero with Blessing effect.",
+          "Grant 30% extra DMG and reduce DMG taken by 10%. Add 1 count to all other Synergies of the Hero with Blessing effect.",
       },
     ],
   },
@@ -249,12 +249,12 @@ export const synergies: Synergy[] = [
       {
         units: 2,
         effect:
-          "Obtain Exorcist's Seal (Basic). When an Exorcist Hero dies, they deal 100%/120%/140% Skill DMG of the Hero they transformed into based on their own Star level.",
+          "Obtain Exorcist's Seal (Basic). When an Exorcist Hero dies, they deal 100%/135%/185% Skill DMG of the Hero they transformed into based on their own Star level.",
       },
       {
         units: 4,
         effect:
-          "Obtain Exorcist's Seal (Advanced). When an Exorcist Hero dies, they deal 115%/135%/155% Skill DMG of the Hero they transformed into based on their own Star level.",
+          "Obtain Exorcist's Seal (Advanced). When an Exorcist Hero dies, they deal 115%/150%/200% Skill DMG of the Hero they transformed into based on their own Star level.",
       },
     ],
   },

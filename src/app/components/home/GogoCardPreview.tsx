@@ -2,9 +2,9 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { cards } from "../data/cards";
+import { cards } from "../../data/cards";
 import { useRouter } from "next/navigation";
-import styles from "../page.module.css";
+import styles from "../../page.module.css";
 
 export default function GogoCardSection() {
   const router = useRouter();

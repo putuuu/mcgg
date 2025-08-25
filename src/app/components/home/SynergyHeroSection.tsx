@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "../page.module.css";
-import { synergies } from "../data/sinergi";
-import { heroes } from "../data/hero";
+import styles from "../../page.module.css";
+import { synergies } from "../../data/sinergi";
+import { heroes } from "../../data/hero";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -52,6 +52,7 @@ export default function SynergyHeroSection() {
                 width={48}
                 height={48}
                 className={styles.synergyIconCenter}
+                loading="lazy"
               />
               <h3 className={styles.synergyName}>{synergy.name}</h3>
               <p className={styles.synergyDesc}>{synergy.description}</p>
@@ -67,6 +68,7 @@ export default function SynergyHeroSection() {
                       height={64}
                       className={styles.heroImageLarge}
                       onClick={handleHeroClick}
+                      loading="lazy"
                     />
                     <span className={styles.heroName}>{hero.name}</span>
                   </div>

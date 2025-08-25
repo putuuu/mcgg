@@ -501,7 +501,7 @@ export const equipments: Equipment[] = [
     attribute: ["+15% Hybrid ATK"],
     passive: "Thundergod's Spear",
     pdesc:
-      "8s after battle starts, 5 lightning bolts strike to deal 300 + 10% Hybrid ATK True DMG to random enemy(ies). Provide Equipment with 1 stack after each win to increase the number of lightning bolts by 1.",
+      "8s after battle starts, 5 lightning bolts strike to deal 300 + 15% Hybrid ATK True DMG to random enemy(ies). Provide Equipment with 1 stack after each win to increase the number of lightning bolts by 1.",
   },
   {
     id: 48,
