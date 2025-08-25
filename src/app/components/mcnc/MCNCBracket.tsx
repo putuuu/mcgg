@@ -7,14 +7,14 @@ export default function MCNCBracket() {
       <div className={styles.bracketContainer}>
         {playoffBracket.map((round, i) => (
           <div key={i} className={styles.bracketColumn}>
-            <h3>{round.round}</h3>
+            {/* <h3>{round.round}</h3>
             {round.matches.map((match) => (
               <div key={match.id} className={styles.matchBox}>
                 <div className={styles.team}>{match.teamA}</div>
                 <div className={styles.vs}>vs</div>
                 <div className={styles.team}>{match.teamB}</div>
               </div>
-            ))}
+            ))} */}
           </div>
         ))}
       </div>
