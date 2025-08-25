@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { cards } from "../data/cards";
+import { cards } from "../data/s3/cards";
 import Image from "next/image";
 import type { CSSProperties } from "react";
 

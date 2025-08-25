@@ -10,15 +10,15 @@ export default function AboutPage() {
 
       <section className={styles.aboutSection}>
         <p>
-          <strong>Magic Chess Go Go</strong> is a strategic 4v4 auto-battler
-          game that combines synergies, heroes, equipment, and tactical
-          planning. This site is built to help players explore content and
-          optimize their strategy.
+          <strong>Magic Chess Go Go</strong> is a strategic auto-battler game
+          that combines synergies, heroes, equipment, and tactical planning.
+          This site is built to help players explore content and optimize their
+          strategy.
         </p>
 
         <p>
           This website is developed and maintained by{" "}
-          <strong>Khoceng Orenzzz</strong>.
+          <strong>Khoceng Orenzzz</strong> and <strong>Brms</strong>.
         </p>
         <br />
         <p>

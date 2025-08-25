@@ -535,7 +535,7 @@ export const commanders: Commander[] = [
     name: "Lunox",
     slug: "lunox",
     type: "Strategy",
-    image: "/images/commander/Hero45221.png",
+    image: "/images/commander/Hero45226.png",
     description:
       "Lunox can be activated once after Stage II to grant a random Blessing to a Hero without one. This Blessing adds +1 to one of the Hero’s synergies (Role or Faction), potentially helping you reach key synergy breakpoints. However, once blessed, the Hero cannot be sold without losing the effect. Because each Hero has two synergies, the Blessing may not always boost the synergy you were aiming for. This makes Rya a high-skill commander that requires sharp adaptability and long-term planning. A wrong decision can limit your comp path, but a well-placed Blessing can unlock powerful synergy spikes or complete difficult trait combos.",
     sdescription:
@@ -762,7 +762,7 @@ export const commanders: Commander[] = [
     name: "Alice",
     slug: "alice",
     type: "Strategy",
-    image: "/images/commander/Hero45125.png",
+    image: "/images/commander/Hero45105.png",
     description:
       "Starting from Round II-4, Harley can refresh the Shop once, replacing it with three random 5-Gold Heroes. The number of 5-Gold Heroes shown increases to 5 with skill upgrades — allowing massive late-game potential and instant access to high-impact units. Harley is a mid-to-late game commander that enables powerful transitions. The strength lies not just in acquiring top-tier Heroes, but also in how well the player can adapt their comp based on what they get. Harley favors players who are flexible and comfortable shifting strategies on the fly. Whether stabilizing at Level 8 or chasing a perfect synergy finish at Level 9, Harley can single-handedly define your win condition.",
     sdescription:

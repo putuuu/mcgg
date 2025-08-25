@@ -50,15 +50,9 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
             <p>
               <strong>Cost :</strong> {hero.cost}🟡
             </p>
-            {/* <p>
-              <strong>Initial Mana:</strong> {hero.mana.initial}
-            </p>
-            <p>
-              <strong>Mana Cap:</strong> {hero.attributes.starStats.manaStats.}
-            </p> */}
           </div>
 
-          {/* <div className={styles.skillSection}>
+          <div className={styles.skillSection}>
             <h3>Skill</h3>
             <div className={styles.skill}>
               <Image
@@ -74,7 +68,7 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
                 <p className={styles.skillDesc}>{hero.skill.description}</p>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

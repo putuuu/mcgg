@@ -43,8 +43,8 @@ const HeroSynergyTable = () => {
                     src={faction.icon}
                     alt={faction.name}
                     title={faction.name}
-                    width={28}
-                    height={28}
+                    width={48}
+                    height={48}
                     className={styles.icon}
                     onClick={() => setSelectedSynergy(faction)}
                   />
@@ -61,8 +61,8 @@ const HeroSynergyTable = () => {
                     <Image
                       src={role.icon}
                       alt={role.name}
-                      width={28}
-                      height={28}
+                      width={48}
+                      height={48}
                       className={styles.icon}
                       onClick={() => setSelectedSynergy(role)}
                     />

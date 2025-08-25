@@ -30,7 +30,7 @@ export default function Header() {
           {/* <Link href="/commander">Commander</Link> */}
           <Link href="/gogo-card">Gogo Card</Link>
           <Link href="/guide">Guide</Link>
-          <Link href="/mcnc">MCNC</Link>
+          {/* <Link href="/mcnc">MCNC</Link> */}
           <Link href="/about">About</Link>
         </nav>
       </div>
