@@ -11,10 +11,17 @@ import { heroes, Hero } from "../data/s3/hero";
 import { synergies, Synergy } from "../data/s3/sinergi";
 import Image from "next/image";
 
+// ===== Draggable Data Type =====
+interface HeroDraggableData {
+  hero: Hero;
+  source: "board" | "pool";
+  index?: number;
+}
+
 // ===== Draggable Component =====
-interface DraggableProps<T> {
+interface DraggableProps {
   id: string;
-  data: T;
+  data: HeroDraggableData;
   children: (props: {
     attributes: Record<string, unknown>;
     listeners: Record<string, unknown>;
@@ -24,9 +31,12 @@ interface DraggableProps<T> {
   }) => React.ReactNode;
 }
 
-function Draggable<T>({ id, data, children }: DraggableProps<T>) {
+function Draggable({ id, data, children }: DraggableProps) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({ id, data });
+    useDraggable({
+      id,
+      data,
+    });
   return (
     <>
       {children({ attributes, listeners, setNodeRef, transform, isDragging })}
@@ -87,32 +97,23 @@ export default function SynergyBuilder() {
   // Handle drag end
   const handleDragEnd = (event: DragEndEvent) => {
     const { over, active } = event;
-    const hero = (
-      active.data.current as { hero: Hero; source: string; index?: number }
-    )?.hero;
-    const source = (
-      active.data.current as { hero: Hero; source: string; index?: number }
-    )?.source;
-    const fromIndex = (
-      active.data.current as { hero: Hero; source: string; index?: number }
-    )?.index;
-
-    if (!hero) return;
+    const data = active.data.current as HeroDraggableData;
+    if (!data?.hero) return;
 
     const next = [...board];
 
     if (over?.id.toString().startsWith("cell-")) {
       const idx = parseInt(over.id.toString().replace("cell-", ""), 10);
       if (!Number.isNaN(idx)) {
-        if (source === "pool") next[idx] = { ...hero };
-        else if (source === "board" && fromIndex !== undefined) {
-          next[fromIndex] = null;
-          next[idx] = hero;
+        if (data.source === "pool") next[idx] = { ...data.hero };
+        else if (data.source === "board" && data.index !== undefined) {
+          next[data.index] = null;
+          next[idx] = data.hero;
         }
         setBoard(next);
       }
-    } else if (!over && source === "board" && fromIndex !== undefined) {
-      next[fromIndex] = null;
+    } else if (!over && data.source === "board" && data.index !== undefined) {
+      next[data.index] = null;
       setBoard(next);
     }
   };
@@ -148,7 +149,7 @@ export default function SynergyBuilder() {
         </p>
 
         <DndContext onDragEnd={handleDragEnd}>
-          {/* Board + Synergies */}
+          {/* Board + Active Synergies */}
           <div className="flex gap-6 w-full max-w-6xl">
             {/* Board */}
             <div className="flex-1 bg-gray-800/60 p-4 rounded-md flex justify-center">
@@ -194,6 +195,7 @@ export default function SynergyBuilder() {
                                     className="object-cover object-top rounded"
                                   />
                                 </div>
+
                                 {/* Hover Panel */}
                                 <div className="absolute z-50 hidden group-hover:block left-24 top-0 w-64 bg-gray-900/95 text-white rounded-md shadow-lg p-3">
                                   <div className="flex items-center gap-2 mb-2">
@@ -298,6 +300,7 @@ export default function SynergyBuilder() {
             </div>
           </div>
 
+          {/* Filters & Hero Pool */}
           {/* Filters */}
           <div className="mt-6 w-full max-w-4xl bg-gray-800/40 p-3 rounded-md">
             <div className="flex items-center gap-4 justify-center">
