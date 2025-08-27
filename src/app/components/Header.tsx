@@ -2,71 +2,57 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FaChevronDown } from "react-icons/fa";
 
 export default function Header() {
-  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
 
   return (
-    <header className="bg-black/60 sticky top-0 z-50 backdrop-blur-md">
-      <div className="max-w-[960px] mx-auto flex justify-between items-center p-4">
-        {/* Logo / Title */}
-        <Link href="/" className="text-xl font-bold text-white">
-          MCGG
+    <header className="sticky top-0 z-50 bg-black/50 backdrop-blur-md">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <Link href="/" className="text-2xl font-bold text-yellow-300">
+          GGG
         </Link>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileNavOpen(!isMobileNavOpen)}
-        >
-          {isMobileNavOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
+        <ul className="flex gap-6 font-medium items-center relative">
+          <li>
+            <Link href="/commander" className="hover:text-yellow-400">
+              Commander
+            </Link>
+          </li>
 
-        {/* Navigation */}
-        <nav
-          className={`flex flex-col md:flex-row md:items-center md:gap-4 absolute md:static top-full left-0 w-full md:w-auto bg-black/80 md:bg-transparent transition-all duration-200 ${
-            isMobileNavOpen ? "flex" : "hidden md:flex"
-          }`}
-        >
-          <Link
-            href="/commander"
-            className="px-3 py-2 rounded-md text-white hover:bg-white/10 transition"
-          >
-            Commander
-          </Link>
-          <Link
-            href="/synergyhero"
-            className="px-3 py-2 rounded-md text-white hover:bg-white/10 transition"
-          >
-            Sinergi & Hero
-          </Link>
-          <Link
-            href="/equipment"
-            className="px-3 py-2 rounded-md text-white hover:bg-white/10 transition"
-          >
-            Equipment
-          </Link>
-          <Link
-            href="/gogo-card"
-            className="px-3 py-2 rounded-md text-white hover:bg-white/10 transition"
-          >
-            Gogo Card
-          </Link>
-          <Link
-            href="/guide"
-            className="px-3 py-2 rounded-md text-white hover:bg-white/10 transition"
-          >
-            Guide
-          </Link>
-          <Link
-            href="/about"
-            className="px-3 py-2 rounded-md text-white hover:bg-white/10 transition"
-          >
-            About
-          </Link>
-        </nav>
-      </div>
+          <li className="relative group">
+            <button className="px-3 py-2">Data</button>
+            <ul className="absolute left-0 mt-1 w-40 bg-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <li className="px-4 py-2 hover:bg-gray-700">
+                <a href="/synergyhero">Sinergi Hero</a>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-700">
+                <a href="/equipment">Equipment</a>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-700">
+                <a href="/gogo-card">Gogo Card</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <Link href="/builder" className="hover:text-yellow-400">
+              Synergy Builder
+            </Link>
+          </li>
+          <li>
+            <Link href="/guide" className="hover:text-yellow-400">
+              Guide
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" className="hover:text-yellow-400">
+              About
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

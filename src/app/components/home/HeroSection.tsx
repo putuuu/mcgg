@@ -17,19 +17,19 @@ export default function HeroSection() {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 text-center">
-          Level Up Your Magic Chess Journey
+          Go Go Guide
         </h1>
-
+        <p className="text-lg md:text-xl text-gray-200 text-center">
+          Level Up Your Magic Chess Journey{" "}
+        </p>
         <p className="text-lg md:text-xl text-gray-200 mb-6 text-center">
           Guides, strategies, and tips for{" "}
           <span className="font-semibold text-yellow-400">4v4 and solo</span>{" "}
           play.
         </p>
-
         <p className="text-xl md:text-2xl font-semibold text-indigo-400 mb-8 text-center">
           From beginner to pro, we’ve got you covered.
         </p>
-
         {/* CTA Buttons */}
         <div className="flex justify-center gap-4">
           <Link

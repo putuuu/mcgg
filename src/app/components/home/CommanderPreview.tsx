@@ -49,7 +49,7 @@ export default function CommanderCarousel() {
                 src={current.image}
                 alt={current.name}
                 fill
-                className="object-cover rounded-xl"
+                className="object-fill rounded-xl"
               />
             </div>
 
