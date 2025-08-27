@@ -14,7 +14,7 @@ export default function GogoCardSection() {
   useAnimationFrame((t, delta) => {
     if (!isPaused) {
       // geser per frame, delta ms → jadi px
-      let move = (x.get() - delta * 0.03) % -2000; // adjust speed & loop panjang
+      const move = (x.get() - delta * 0.03) % -2000; // adjust speed & loop panjang
       x.set(move);
     }
   });
