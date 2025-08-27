@@ -6,6 +6,8 @@ import {
   DragEndEvent,
   useDraggable,
   useDroppable,
+  DraggableAttributes,
+  DraggableSyntheticListeners,
 } from "@dnd-kit/core";
 import { heroes, Hero } from "../data/s3/hero";
 import { synergies, Synergy } from "../data/s3/sinergi";
@@ -19,16 +21,18 @@ interface HeroDraggableData {
 }
 
 // ===== Draggable Component =====
+interface DraggableChildrenProps {
+  attributes: DraggableAttributes;
+  listeners: DraggableSyntheticListeners;
+  setNodeRef: (node: HTMLElement | null) => void;
+  transform: { x: number; y: number } | null;
+  isDragging: boolean;
+}
+
 interface DraggableProps {
   id: string;
   data: HeroDraggableData;
-  children: (props: {
-    attributes: Record<string, unknown>;
-    listeners: Record<string, unknown>;
-    setNodeRef: (node: HTMLElement | null) => void;
-    transform: { x: number; y: number } | null;
-    isDragging: boolean;
-  }) => React.ReactNode;
+  children: (props: DraggableChildrenProps) => React.ReactNode;
 }
 
 function Draggable({ id, data, children }: DraggableProps) {
@@ -37,6 +41,7 @@ function Draggable({ id, data, children }: DraggableProps) {
       id,
       data,
     });
+
   return (
     <>
       {children({ attributes, listeners, setNodeRef, transform, isDragging })}
