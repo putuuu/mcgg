@@ -8,13 +8,13 @@ import {
 import Image from "next/image";
 import { Hero } from "../../data/s3/hero";
 
-interface DraggableChildrenProps {
-  attributes: DraggableAttributes;
-  listeners: DraggableSyntheticListeners;
-  setNodeRef: (node: HTMLElement | null) => void;
-  transform: { x: number; y: number } | null;
-  isDragging: boolean;
-}
+// interface DraggableChildrenProps {
+//   attributes: DraggableAttributes;
+//   listeners: DraggableSyntheticListeners;
+//   setNodeRef: (node: HTMLElement | null) => void;
+//   transform: { x: number; y: number } | null;
+//   isDragging: boolean;
+// }
 
 interface DraggableHeroProps {
   id: string;

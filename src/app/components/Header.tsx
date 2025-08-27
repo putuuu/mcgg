@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+// import { FaChevronDown } from "react-icons/fa";
 
 export default function Header() {
-  const [toolsOpen, setToolsOpen] = useState(false);
+  // const [toolsOpen, setToolsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-black/50 backdrop-blur-md">

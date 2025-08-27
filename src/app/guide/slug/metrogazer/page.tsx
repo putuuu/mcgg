@@ -3,7 +3,6 @@ import { Board } from "../../../components/builder/Board";
 import { ActiveSynergyList } from "../../../components/builder/ActiveSynergyList";
 import { synergies, Synergy } from "../../../data/s3/sinergi";
 import { useMemo } from "react";
-import Image from "next/image";
 
 export default function GuidePage() {
   const board = guideData.fixedBoard ?? Array(21).fill(null);

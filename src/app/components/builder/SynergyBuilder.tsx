@@ -11,7 +11,6 @@ import {
 } from "@dnd-kit/core";
 import { heroes, Hero } from "../../data/s3/hero";
 import { synergies, Synergy } from "../../data/s3/sinergi";
-import Image from "next/image";
 import { Board } from "./Board";
 import { ActiveSynergyList } from "./ActiveSynergyList";
 import { Filters } from "./Filters";
