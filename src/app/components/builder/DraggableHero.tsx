@@ -2,8 +2,8 @@
 import React from "react";
 import {
   useDraggable,
-  DraggableAttributes,
-  DraggableSyntheticListeners,
+  // DraggableAttributes,
+  // DraggableSyntheticListeners,
 } from "@dnd-kit/core";
 import Image from "next/image";
 import { Hero } from "../../data/s3/hero";

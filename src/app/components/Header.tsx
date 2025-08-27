@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+// import { useState } from "react";
 // import { FaChevronDown } from "react-icons/fa";
 
 export default function Header() {
