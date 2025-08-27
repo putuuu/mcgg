@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { equipments } from "../data/equipment";
 import Image from "next/image";
-import type { CSSProperties } from "react";
 
 export default function GogoCardPage() {
   const [filter, setFilter] = useState<string | null>(null);
@@ -22,24 +21,28 @@ export default function GogoCardPage() {
   });
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1 style={titleStyle}>Equipment</h1>
+    <main className="p-8">
+      <h1 className="text-center text-3xl mb-4">Equipment</h1>
 
       {/* Search */}
-      <div style={searchContainer}>
+      <div className="text-center mb-4">
         <input
           type="text"
           placeholder="Search Gogo Card..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          style={searchInput}
+          className="px-4 py-2 rounded-full border border-white/30 bg-white/10 text-white w-full max-w-md backdrop-blur-md"
         />
       </div>
 
       {/* Filter */}
-      <div className="filter-bar">
+      <div className="flex flex-wrap justify-center gap-2 mb-6">
         <button
-          className={`filter-chip ${filter === null ? "active" : ""}`}
+          className={`px-4 py-2 rounded-full transition-colors ${
+            filter === null
+              ? "bg-blue-500 text-white"
+              : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+          }`}
           onClick={() => setFilter(null)}
         >
           All
@@ -47,7 +50,11 @@ export default function GogoCardPage() {
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`filter-chip ${filter === cat ? "active" : ""}`}
+            className={`px-4 py-2 rounded-full transition-colors ${
+              filter === cat
+                ? "bg-blue-500 text-white"
+                : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+            }`}
             onClick={() => setFilter(cat)}
           >
             {cat}
@@ -56,52 +63,28 @@ export default function GogoCardPage() {
       </div>
 
       {/* Cards */}
-      <div style={cardGridStyle}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {filteredCards.map((equipment) => (
           <div
             key={equipment.id}
-            className="gogo-card"
-            style={{
-              borderRadius: "16px",
-              padding: "1rem",
-              textAlign: "center",
-              color: "#fff",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem",
-              // backdropFilter: "blur(6px)",
-            }}
+            className="gogo-card rounded-2xl p-4 text-center text-white shadow-lg flex flex-col gap-2 
+             bg-black/50 backdrop-blur-md border border-white/10"
           >
             <Image
               src={equipment.icon}
               alt={equipment.name}
               width={64}
               height={64}
-              style={{ margin: "0 auto", borderRadius: "12px" }}
+              className="mx-auto rounded-xl"
             />
-            <h3 style={{ fontSize: "1rem", fontWeight: "bold" }}>
-              {equipment.name}
-            </h3>
-            {/* <p style={{ fontSize: "0.75rem", opacity: 0.7 }}>
-              {equipment.category}
-            </p> */}
+            <h3 className="text-base font-bold">{equipment.name}</h3>
 
             {equipment.special && (
-              <p style={{ fontSize: "0.75rem", color: "gold" }}>
-                ⭐ {equipment.special}
-              </p>
+              <p className="text-sm text-yellow-300">⭐ {equipment.special}</p>
             )}
 
             {equipment.attribute.length > 0 && (
-              <ul
-                style={{
-                  fontSize: "0.75rem",
-                  padding: 0,
-                  margin: 0,
-                  listStyle: "none",
-                }}
-              >
+              <ul className="text-sm p-0 m-0 list-none">
                 {equipment.attribute.map((attr, index) => (
                   <li key={index}>• {attr}</li>
                 ))}
@@ -109,16 +92,9 @@ export default function GogoCardPage() {
             )}
 
             {equipment.passive && (
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  padding: "0.5rem",
-                  borderRadius: "8px",
-                  fontSize: "0.75rem",
-                }}
-              >
+              <div className="bg-white/5 p-2 rounded-lg text-sm">
                 <strong>{equipment.passive}</strong>
-                <p style={{ marginTop: "0.25rem" }}>{equipment.pdesc}</p>
+                <p className="mt-1">{equipment.pdesc}</p>
               </div>
             )}
           </div>
@@ -127,32 +103,3 @@ export default function GogoCardPage() {
     </main>
   );
 }
-
-// === Styles ===
-const titleStyle: CSSProperties = {
-  textAlign: "center",
-  fontSize: "2rem",
-  marginBottom: "1rem",
-};
-
-const searchContainer: CSSProperties = {
-  textAlign: "center",
-  marginBottom: "1rem",
-};
-
-const searchInput: CSSProperties = {
-  padding: "0.5rem 1rem",
-  borderRadius: "9999px",
-  border: "1px solid rgba(255,255,255,0.3)",
-  background: "rgba(255,255,255,0.1)",
-  color: "white",
-  width: "100%",
-  maxWidth: "400px",
-  backdropFilter: "blur(8px)",
-};
-
-const cardGridStyle: CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-  gap: "1rem",
-};

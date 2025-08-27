@@ -6,12 +6,11 @@ import { synergies, Synergy } from "../../data/s3/sinergi";
 import HeroCardModal from "./HeroCardModal";
 import SynergyCardModal from "./SynergyCardModal";
 import Image from "next/image";
-import styles from "./HeroSynergyGrid.module.css";
 
 const factions = synergies.filter((s) => s.type === "Faction");
 const roles = synergies.filter((s) => s.type === "Role");
 
-const HeroSynergyTable = () => {
+const HeroSynergyGrid = () => {
   const [selectedHero, setSelectedHero] = useState<number | null>(null);
   const [selectedSynergy, setSelectedSynergy] = useState<Synergy | null>(null);
 
@@ -20,35 +19,35 @@ const HeroSynergyTable = () => {
   const getHeroById = (id: number) => heroes.find((h) => h.id === id);
 
   return (
-    <div className={styles.tableOuter}>
-      <div className={styles.tableWrapper}>
-        <table className={styles.table}>
+    <div className="pt-8 w-full flex justify-center">
+      <div className="overflow-x-auto bg-black/30 rounded-xl p-4 max-w-[1200px] w-full">
+        <table className="w-full border-collapse table-fixed min-w-[800px]">
           <thead>
             <tr>
-              <th className={`${styles.tableHeader} ${styles.firstColumn}`}>
+              <th className="p-2 text-center align-middle border-b border-white/20 border-r">
                 Faction / Role
               </th>
               {factions.map((faction, index) => (
                 <th
                   key={faction.id}
-                  className={`${styles.tableHeader} ${styles.factionCell}`}
+                  className="p-2 text-center align-middle border-b border-white/20"
                   style={{
                     borderLeft:
-                      index === 0
-                        ? "none"
-                        : "1px solid rgba(255, 255, 255, 0.15)",
+                      index === 0 ? "none" : "1px solid rgba(255,255,255,0.15)",
                   }}
                 >
-                  <Image
-                    src={faction.icon}
-                    alt={faction.name}
-                    title={faction.name}
-                    width={48}
-                    height={48}
-                    className={styles.icon}
-                    onClick={() => setSelectedSynergy(faction)}
-                  />
-                  <div className={styles.synergyName}>{faction.name}</div>
+                  <div className="flex flex-col items-center justify-center">
+                    <Image
+                      src={faction.icon}
+                      alt={faction.name}
+                      title={faction.name}
+                      width={48}
+                      height={48}
+                      className="rounded-md object-cover cursor-pointer"
+                      onClick={() => setSelectedSynergy(faction)}
+                    />
+                    <div className="text-sm mt-1">{faction.name}</div>
+                  </div>
                 </th>
               ))}
             </tr>
@@ -56,18 +55,18 @@ const HeroSynergyTable = () => {
           <tbody>
             {roles.map((role) => (
               <tr key={role.id}>
-                <td className={`${styles.tableCell} ${styles.firstColumn}`}>
-                  <div className={styles.roleCell}>
+                <td className="p-2 text-center align-middle border-t border-white/10 border-r">
+                  <div className="flex justify-center gap-2">
                     <Image
                       src={role.icon}
                       alt={role.name}
                       width={48}
                       height={48}
-                      className={styles.icon}
+                      className="rounded-md object-cover cursor-pointer"
                       onClick={() => setSelectedSynergy(role)}
                     />
                   </div>
-                  <div className={styles.synergyName}>{role.name}</div>
+                  <div className="text-sm mt-1">{role.name}</div>
                 </td>
                 {factions.map((faction, index) => {
                   const matchedHeroes = heroes.filter(
@@ -75,33 +74,34 @@ const HeroSynergyTable = () => {
                       hero.synergies.faction === faction.name &&
                       hero.synergies.roles.includes(role.name)
                   );
-
                   return (
                     <td
                       key={`${role.name}-${faction.name}`}
-                      className={styles.tableCell}
+                      className="p-2 text-center align-middle border-t border-white/10"
                       style={{
                         borderLeft:
                           index === 0
                             ? "none"
-                            : "1px solid rgba(255, 255, 255, 0.08)",
+                            : "1px solid rgba(255,255,255,0.08)",
                       }}
                     >
-                      <div className={styles.heroGridCell}>
+                      <div className="flex flex-wrap justify-center gap-1.5">
                         {matchedHeroes.map((hero) => (
                           <div
                             key={hero.id}
-                            className={styles.heroIconWrapper}
+                            className="flex flex-col items-center w-[72px] cursor-pointer"
                             onClick={() => openModal(hero.id)}
                           >
                             <Image
                               src={hero.image}
                               alt={hero.name}
-                              width={64}
-                              height={64}
-                              className={styles.heroImage}
+                              width={72}
+                              height={72}
+                              className="w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-md object-cover object-top"
                             />
-                            <div className={styles.heroName}>{hero.name}</div>
+                            <div className="text-[11px] sm:text-xs mt-1 text-center break-words">
+                              {hero.name}
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -127,4 +127,4 @@ const HeroSynergyTable = () => {
   );
 };
 
-export default HeroSynergyTable;
+export default HeroSynergyGrid;

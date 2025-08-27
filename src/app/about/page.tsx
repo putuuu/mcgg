@@ -1,14 +1,17 @@
 "use client";
 
-import styles from "./page.module.css";
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <main className={styles.aboutPage}>
-      <h1 className={styles.aboutTitle}>About This Website</h1>
+    <main className="p-8 max-w-3xl mx-auto text-gray-100">
+      {/* Title */}
+      <h1 className="text-center text-4xl font-bold mb-8">
+        About This Website
+      </h1>
 
-      <section className={styles.aboutSection}>
+      {/* About Section */}
+      <section className="bg-black/30 p-6 rounded-xl leading-relaxed backdrop-blur-md">
         <p>
           <strong>Magic Chess Go Go</strong> is a strategic auto-battler game
           that combines synergies, heroes, equipment, and tactical planning.
@@ -16,25 +19,27 @@ export default function AboutPage() {
           strategy.
         </p>
 
-        <p>
+        <p className="mt-4">
           This website is developed and maintained by{" "}
-          <strong>Khoceng Orenzzz</strong> and <strong>Brms</strong>.
+          <strong>Khoceng Orenzzz</strong>.
         </p>
-        <br />
-        <p>
+
+        <p className="mt-4">
           Big Thanks to <strong>Klinik KB 24 Jam</strong>.
         </p>
-        <p className={styles.disclaimer}>
-          <em>
-            Disclaimer: This is a fan-made website and is not affiliated with
-            Moonton or the official Magic Chess Go Go team.
-          </em>
+
+        <p className="mt-6 text-sm text-gray-400 italic">
+          Disclaimer: This is a fan-made website and is not affiliated with
+          Moonton or the official Magic Chess Go Go team.
         </p>
       </section>
 
-      <section className={styles.roadmapSection}>
-        <h2 className={styles.roadmapTitle}>What’s Coming</h2>
-        <ul className={styles.roadmapList}>
+      {/* Roadmap Section */}
+      <section className="mt-12 bg-black/30 p-6 rounded-xl backdrop-blur-md">
+        <h2 className="text-2xl font-semibold mb-4 text-white">
+          What’s Coming
+        </h2>
+        <ul className="list-disc list-inside space-y-2 text-gray-300">
           <li>🔥 Weekly recommended compositions (meta highlights)</li>
           <li>📆 Upcoming MCNC Tournament info & schedule</li>
           <li>🧭 Season patch notes & analysis</li>
@@ -42,8 +47,14 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <div className={styles.backLink}>
-        <Link href="/">← Back to Home</Link>
+      {/* Back Link */}
+      <div className="text-center mt-12 text-sm">
+        <Link
+          href="/"
+          className="text-yellow-400 font-semibold hover:underline"
+        >
+          ← Back to Home
+        </Link>
       </div>
     </main>
   );

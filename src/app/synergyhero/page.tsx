@@ -1,29 +1,33 @@
+"use client";
 import React from "react";
 import HeroSynergyGrid from "../components/synergyhero/HeroSynergyGrid";
-import styles from "./page.module.css";
 
 const SynergyHeroPage = () => {
   return (
-    <main className={styles.aboutPage}>
-      <h1
-        style={{ textAlign: "center", marginTop: "1rem", marginBottom: "2rem" }}
-      >
+    <main className="mx-auto text-gray-100">
+      <h1 className="text-center mt-4 mb-8 text-3xl font-bold">
         Synergy Overview
       </h1>
-      <div className={styles.aboutSection}>
-        <strong>Blessing of Embers is here!</strong>
-        <br />
-        <p>The war between the divine and demonic is about to ignite!</p>
+
+      {/* About Section */}
+      <div className="text-center max-w-5xl mx-auto bg-black/30 p-6 rounded-xl leading-relaxed">
+        <strong className="block mb-2">
+          The Cosmic Trader has opened the gates!
+        </strong>
         <p>
-          For a thousand years, the balance between the divine and demonic held
-          fast
+          Beyond the stars, a market of endless possibilities emerges. New
+          alliances awaken, but the echoes of the old still remain.
         </p>
-
-        <p>until now</p>
-
-        <p>The final battle has begun</p>
+        <p className="mt-2">
+          No more simple choices… now, power is won through the Auction. The
+          weaker bid first, but the boldest claim it all.
+        </p>
+        <p className="mt-2">
+          The future belongs to those who dare to trade with the cosmos.
+        </p>
       </div>
 
+      {/* Grid / Table */}
       <HeroSynergyGrid />
     </main>
   );

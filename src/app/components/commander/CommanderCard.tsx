@@ -1,29 +1,45 @@
 import { Commander } from "../../data/commanders";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./CommanderCard.module.css";
 
 export default function CommanderCard({ commander }: { commander: Commander }) {
   return (
-    <div className={`group ${styles.card}`}>
-      <Link href={`/commander/${commander.slug}`}>
-        <div className={styles.imageContainer}>
+    <div
+      className="
+        group w-[210px] aspect-[3/4] relative overflow-hidden rounded-xl 
+        bg-white shadow-md transition-transform duration-300 
+        hover:scale-105 hover:shadow-xl
+      "
+    >
+      <Link
+        href={`/commander/${commander.slug}`}
+        className="block w-full h-full relative"
+      >
+        {/* Image */}
+        <div className="w-[210px] aspect-[3/4] relative rounded-xl overflow-hidden">
           <Image
             src={commander.image}
             alt={commander.name}
-            loading="lazy"
             fill
-            style={{ objectFit: "fill", borderRadius: "12px" }}
+            className="object-fill rounded-xl"
           />
         </div>
 
-        <div className={styles.overlayContainer}>
-          <h3 className={styles.overlayName}>{commander.name}</h3>
-          <p className={styles.overlayType}>{commander.type}</p>
-          <p className={styles.overlayDesc}>"{commander.sdescription}"</p>
+        {/* Overlay */}
+        <div
+          className="
+            absolute bottom-0 left-0 right-0 p-2 
+            bg-black/60 text-white text-center flex flex-col items-center 
+            transition-all duration-300 h-16 
+            group-hover:h-full group-hover:justify-center
+          "
+        >
+          <h3 className="text-base font-bold">{commander.name}</h3>
+          <p className="text-xs opacity-80">{commander.type}</p>
+          <p className="text-sm mt-2 px-2 hidden group-hover:block">
+            "{commander.sdescription}"
+          </p>
         </div>
-
-        {/* Bisa tambahkan tombol di sini jika mau */}
       </Link>
     </div>
   );

@@ -1,5 +1,5 @@
+"use client";
 import React, { useEffect, useRef, useCallback } from "react";
-import styles from "./HeroCardModal.module.css";
 import { Hero } from "../../data/s3/hero";
 import Image from "next/image";
 
@@ -26,46 +26,61 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
   }, [handleClickOutside]);
 
   return (
-    <div className={styles.overlay}>
-      <div className={styles.modal} ref={modalRef}>
-        <button className={styles.closeButton} onClick={onClose}>
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[1000] p-4">
+      <div
+        ref={modalRef}
+        className="relative bg-black/75 text-white rounded-xl max-w-[720px] w-full p-6 flex gap-8 shadow-2xl backdrop-blur-md 
+        max-sm:flex-col max-sm:items-center max-sm:text-center max-sm:gap-4"
+      >
+        {/* Close Button */}
+        <button
+          className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300"
+          onClick={onClose}
+        >
           ×
         </button>
 
-        <div className={styles.left}>
+        {/* Left: Hero Image */}
+        <div className="flex-shrink-0">
           <Image
             src={hero.image}
             alt={hero.name}
-            width={180}
-            height={240}
-            className={styles.heroImage}
-            // className={styles.skillIcon}
+            width={220}
+            height={330}
+            className="rounded-md object-cover w-[220px] h-[330px] max-sm:w-[72px] max-sm:h-[72px] max-sm:object-top"
           />
         </div>
 
-        <div className={styles.right}>
-          <h2 className={styles.heroName}>{hero.name}</h2>
+        {/* Right: Info */}
+        <div className="flex flex-col gap-4 flex-1 max-sm:w-full">
+          <h2 className="text-2xl font-bold mb-1 max-sm:text-xl">
+            {hero.name}
+          </h2>
 
-          <div className={styles.stats}>
+          {/* Stats */}
+          <div className="text-sm text-gray-300 max-sm:text-center">
             <p>
               <strong>Cost :</strong> {hero.cost}🟡
             </p>
           </div>
 
-          <div className={styles.skillSection}>
-            <h3>Skill</h3>
-            <div className={styles.skill}>
+          {/* Skill */}
+          <div>
+            <h3 className="text-lg mb-2 text-yellow-400">Skill</h3>
+            <div className="flex items-start gap-4 max-sm:flex-col max-sm:items-center">
               <Image
                 src={hero.skill.icon}
                 alt={hero.skill.name}
                 title={hero.skill.name}
                 width={64}
                 height={64}
-                // className={styles.skillIcon}
+                className="rounded-md w-12 h-12"
               />
               <div>
                 <strong>{hero.skill.name}</strong>
-                <p className={styles.skillDesc}>{hero.skill.description}</p>
+                <p className="text-sm text-gray-200 leading-relaxed max-sm:text-left">
+                  {hero.skill.description}
+                </p>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import styles from "../../page.module.css";
+import Image from "next/image";
 
 const features = [
   {
@@ -40,9 +40,10 @@ const features = [
 
 export default function FeatureSection() {
   return (
-    <section className={styles.section}>
+    <section className="py-16 px-4">
+      {/* Quote */}
       <motion.h2
-        className={styles.sectionQuote}
+        className="text-center text-2xl md:text-3xl font-semibold mb-12 text-gray-800 dark:text-gray-100"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -51,11 +52,11 @@ export default function FeatureSection() {
         “Explore MCGG features. Master your journey.”
       </motion.h2>
 
+      {/* Grid */}
       <motion.div
-        className={styles.featureGrid}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
         initial="hidden"
         whileInView="visible"
-        transition={{ staggerChildren: 0.1 }}
         variants={{
           visible: { transition: { staggerChildren: 0.15 } },
           hidden: {},
@@ -65,21 +66,34 @@ export default function FeatureSection() {
         {features.map((feature) => (
           <motion.div
             key={feature.title}
-            className={styles.featureCard}
             variants={{
-              hidden: { opacity: 0, y: 20 },
+              hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0 },
             }}
           >
-            <Link href={feature.href} className={styles.featureCardInner}>
-              {/* <Image
-                src={feature.icon}
-                alt={feature.title}
-                width={48}
-                height={48}
-              /> */}
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+            <Link href={feature.href} className="block h-full">
+              <motion.div
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col items-center text-center h-full transition"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {/* Icon
+                <Image
+                  src={feature.icon}
+                  alt={feature.title}
+                  width={64}
+                  height={64}
+                  className="mb-4"
+                /> */}
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+                  {feature.title}
+                </h3>
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-300">
+                  {feature.description}
+                </p>
+              </motion.div>
             </Link>
           </motion.div>
         ))}

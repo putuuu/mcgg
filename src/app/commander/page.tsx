@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { commanders } from "../data/commanders";
 import CommanderCard from "../components/commander/CommanderCard";
-import type { CSSProperties } from "react";
 
 const CommanderPage = () => {
   const [selectedType, setSelectedType] = useState("All");
@@ -20,27 +19,33 @@ const CommanderPage = () => {
   });
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1 style={titleStyle}>All Commanders</h1>
+    <main className="px-4 py-10 max-w-7xl mx-auto">
+      <h1 className="text-center text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+        All Commanders
+      </h1>
 
       {/* Search Bar */}
-      <div style={searchContainer}>
+      <div className="flex justify-center mb-6">
         <input
           type="text"
           placeholder="Search commander..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          style={searchInput}
+          className="w-full max-w-md px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white/60 dark:bg-gray-800/60 backdrop-blur-md text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         />
       </div>
 
       {/* Filter Buttons */}
-      <div className="filter-bar">
+      <div className="flex flex-wrap justify-center gap-2 mb-8">
         {types.map((type) => (
           <button
             key={type}
             onClick={() => setSelectedType(type)}
-            className={`filter-chip ${selectedType === type ? "active" : ""}`}
+            className={`px-4 py-2 rounded-full border transition ${
+              selectedType === type
+                ? "bg-yellow-400 text-black font-semibold border-yellow-400"
+                : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 border-gray-300 dark:border-gray-600"
+            }`}
           >
             {type}
           </button>
@@ -48,43 +53,13 @@ const CommanderPage = () => {
       </div>
 
       {/* Commander Grid */}
-      <div style={gridStyle}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredCommanders.map((commander) => (
           <CommanderCard key={commander.id} commander={commander} />
         ))}
       </div>
     </main>
   );
-};
-
-// === Styling ===
-const titleStyle: CSSProperties = {
-  textAlign: "center",
-  fontSize: "2rem",
-  marginBottom: "1rem",
-};
-
-const gridStyle: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-  gap: "1.5rem",
-  justifyItems: "center",
-};
-
-const searchContainer: CSSProperties = {
-  textAlign: "center",
-  marginBottom: "1rem",
-};
-
-const searchInput: CSSProperties = {
-  padding: "0.5rem 1rem",
-  borderRadius: "9999px",
-  border: "1px solid rgba(255,255,255,0.3)",
-  background: "rgba(255,255,255,0.1)",
-  color: "white",
-  width: "100%",
-  maxWidth: "400px",
-  backdropFilter: "blur(8px)",
 };
 
 export default CommanderPage;
