@@ -156,7 +156,7 @@ export default function GuidePage() {
         </div>
 
         {/* Credit (opsional, bisa diganti nanti) */}
-        <div className="mt-8 text-sm text-gray-400">Credit: -</div>
+        <div className="mt-8 text-sm text-gray-400">Credit:</div>
       </div>
     </div>
   );
