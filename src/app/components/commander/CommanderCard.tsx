@@ -18,7 +18,7 @@ export default function CommanderCard({ commander }: { commander: Commander }) {
         {/* Image */}
         <div className="w-[210px] aspect-[3/4] relative rounded-xl overflow-hidden">
           <Image
-            src={commander.image}
+            src={commander.icon}
             alt={commander.name}
             fill
             className="object-fill rounded-xl"

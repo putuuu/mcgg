@@ -105,17 +105,38 @@ export default function SynergyBuilder() {
     if (!data?.hero) return;
 
     const next = [...board];
+
+    // === Drop ke dalam board cell ===
     if (over?.id.toString().startsWith("cell-")) {
       const idx = parseInt(over.id.toString().replace("cell-", ""), 10);
       if (!Number.isNaN(idx)) {
-        if (data.source === "pool") next[idx] = { ...data.hero };
-        else if (data.source === "board" && data.index !== undefined) {
-          next[data.index] = null;
-          next[idx] = data.hero;
+        if (data.source === "pool") {
+          // dari pool → masuk, replace kalau ada
+          next[idx] = { ...data.hero };
+        } else if (data.source === "board" && data.index !== undefined) {
+          if (idx === data.index) {
+            // drag ke cell sama → tidak berubah
+            return;
+          }
+          const fromHero = next[data.index];
+          const toHero = next[idx];
+
+          if (toHero) {
+            // ada hero di target → swap
+            next[data.index] = toHero;
+            next[idx] = fromHero;
+          } else {
+            // target kosong → pindah
+            next[data.index] = null;
+            next[idx] = fromHero;
+          }
         }
         setBoard(next);
       }
-    } else if (!over && data.source === "board" && data.index !== undefined) {
+    }
+
+    // === Drop keluar board ===
+    else if (!over && data.source === "board" && data.index !== undefined) {
       next[data.index] = null;
       setBoard(next);
     }
@@ -165,6 +186,12 @@ export default function SynergyBuilder() {
                 setRoleFilter={setRoleFilter}
                 synergies={synergies}
               />
+              <button
+                onClick={() => setBoard(Array(21).fill(null))}
+                className="px-3 py-1 text-sm font-bold text-white bg-red-600 hover:bg-red-700 rounded"
+              >
+                Clear Board
+              </button>
             </div>
             <ActiveSynergyList activeSynergies={activeSynergies} />
           </div>

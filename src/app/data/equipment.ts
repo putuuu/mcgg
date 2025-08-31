@@ -12,7 +12,7 @@ export const equipments: Equipment[] = [
   {
     id: 1,
     name: "Demon Hunter Sword",
-    icon: "/images/equipment/demonhuntersword.png",
+    icon: "/images/equipment/small/demonhuntersword.webp",
     category: "Physical",
     special: "Tank Killer",
     attribute: ["+10% Attack Speed"],
@@ -23,7 +23,7 @@ export const equipments: Equipment[] = [
   {
     id: 2,
     name: "Golden Staff",
-    icon: "/images/equipment/goldenstaff.png",
+    icon: "/images/equipment/small/goldenstaff.webp",
     category: "Physical",
     special: "Extremely high Attack Speed",
     attribute: ["+15% Attack Speed"],
@@ -34,7 +34,7 @@ export const equipments: Equipment[] = [
   {
     id: 3,
     name: "War Axe",
-    icon: "/images/equipment/waraxe.png",
+    icon: "/images/equipment/small/waraxe.webp",
     category: "Physical",
     special: "Spell Vamp",
     attribute: ["+10% Physical ATK", "+20% Spell Vamp"],
@@ -45,7 +45,7 @@ export const equipments: Equipment[] = [
   {
     id: 4,
     name: "Sea Halberd",
-    icon: "/images/equipment/seahalberd.png",
+    icon: "/images/equipment/small/seahalberd.webp",
     category: "Physical",
     special: "Counter Lifesteal",
     attribute: ["+15% Physical ATK", "Unique: +40% Physical Penetration"],
@@ -55,7 +55,7 @@ export const equipments: Equipment[] = [
   {
     id: 5,
     name: "Berseker's Fury",
-    icon: "/images/equipment/bersekerfury.png",
+    icon: "/images/equipment/small/bersekerfury.webp",
     category: "Physical",
     special: "Increase Crit",
     attribute: ["+15% Physical ATK", "+25% Crit Chance", "+40% Crit DMG"],
@@ -65,7 +65,7 @@ export const equipments: Equipment[] = [
   {
     id: 6,
     name: "Blade of Despair",
-    icon: "/images/equipment/bladeofdespair.png",
+    icon: "/images/equipment/small/bladeofdespair.webp",
     category: "Physical",
     special: "Highest Physical Attack",
     attribute: ["+30% Physical ATK"],
@@ -76,7 +76,7 @@ export const equipments: Equipment[] = [
   {
     id: 7,
     name: "Haas' Claws",
-    icon: "/images/equipment/haasclaws.png",
+    icon: "/images/equipment/small/haasclaws.webp",
     category: "Physical",
     special: "Lifesteal",
     attribute: [
@@ -90,7 +90,7 @@ export const equipments: Equipment[] = [
   {
     id: 8,
     name: "Enchanted Talisman",
-    icon: "/images/equipment/enchantedtalisman.png",
+    icon: "/images/equipment/small/enchantedtalisman.webp",
     category: "Magic",
     special: "Rapid Skill Cast",
     attribute: ["+30% Magic ATK"],
@@ -100,7 +100,7 @@ export const equipments: Equipment[] = [
   {
     id: 9,
     name: "Feather of Heaven",
-    icon: "/images/equipment/featherofheaven.png",
+    icon: "/images/equipment/small/featherofheaven.webp",
     category: "Magic",
     special: "Enhance Basic ATK",
     attribute: ["+10% Magic ATK", "+20% Lifesteal", "+15% Attack Speed"],
@@ -110,7 +110,7 @@ export const equipments: Equipment[] = [
   {
     id: 10,
     name: "Winter Crown",
-    icon: "/images/equipment/wintercrown.png",
+    icon: "/images/equipment/small/wintercrown.webp",
     category: "Magic",
     special: "Invincible at low HP",
     attribute: ["+15% Hybrid ATK", "+15% Max HP"],
@@ -121,7 +121,7 @@ export const equipments: Equipment[] = [
   {
     id: 11,
     name: "Glowing Wand",
-    icon: "/images/equipment/glowingwand.png",
+    icon: "/images/equipment/small/glowingwand.webp",
     category: "Magic",
     special: "Skill burn",
     attribute: ["+25% Magic ATK"],
@@ -132,7 +132,7 @@ export const equipments: Equipment[] = [
   {
     id: 12,
     name: "Ice Queen Wand",
-    icon: "/images/equipment/icequeenwand.png",
+    icon: "/images/equipment/small/icequeenwand.webp",
     category: "Magic",
     special: "Spell Vamp",
     attribute: ["+20% Magic ATK", "+20% Spell Vamp"],
@@ -142,7 +142,7 @@ export const equipments: Equipment[] = [
   {
     id: 13,
     name: "Holy Crystal",
-    icon: "/images/equipment/holycrystal.png",
+    icon: "/images/equipment/small/holycrystal.webp",
     category: "Magic",
     special: "Highest Magic damage",
     attribute: ["+25% Magic ATK"],
@@ -152,7 +152,7 @@ export const equipments: Equipment[] = [
   {
     id: 14,
     name: "Feline Blade",
-    icon: "/images/equipment/felineblade.png",
+    icon: "/images/equipment/small/felineblade.webp",
     category: "Magic",
     special: "Single Control",
     attribute: ["+10% Hybrid ATK", "+10% Max HP"],
@@ -163,7 +163,7 @@ export const equipments: Equipment[] = [
   {
     id: 15,
     name: "Purple Buff",
-    icon: "/images/equipment/purplebuff.png",
+    icon: "/images/equipment/small/purplebuff.webp",
     category: "Magic",
     special: "Additional Mana Regen",
     attribute: ["+15% Hybrid ATK"],
@@ -173,7 +173,7 @@ export const equipments: Equipment[] = [
   {
     id: 16,
     name: "Blade Armor",
-    icon: "/images/equipment/bladearmor.png",
+    icon: "/images/equipment/small/bladearmor.webp",
     category: "Defense",
     special: "Physical DMG Bounce",
     attribute: ["+60 Physical DEF"],
@@ -184,7 +184,7 @@ export const equipments: Equipment[] = [
   {
     id: 17,
     name: "Guardian Helmet",
-    icon: "/images/equipment/guardianhelmet.png",
+    icon: "/images/equipment/small/guardianhelmet.webp",
     category: "Defense",
     special: "High base HP",
     attribute: ["+20% Max HP"],
@@ -194,7 +194,7 @@ export const equipments: Equipment[] = [
   {
     id: 18,
     name: "Antique Cuirass",
-    icon: "/images/equipment/antiquecuirass.png",
+    icon: "/images/equipment/small/antiquecuirass.webp",
     category: "Defense",
     special: "Reduce target's Hybrid ATK",
     attribute: ["+15% Max HP", "+10% Damage Reduction"],
@@ -205,7 +205,7 @@ export const equipments: Equipment[] = [
   {
     id: 19,
     name: "Immortality",
-    icon: "/images/equipment/immortality.png",
+    icon: "/images/equipment/small/immortality.webp",
     category: "Defense",
     special: "Ressurection",
     attribute: ["+30 Hybrid DEF"],
@@ -215,7 +215,7 @@ export const equipments: Equipment[] = [
   {
     id: 20,
     name: "Brute Force Breastplate",
-    icon: "/images/equipment/bruteforce.png",
+    icon: "/images/equipment/small/bruteforce.webp",
     category: "Defense",
     special: "Control Resistance",
     attribute: ["+25 Hybrid DEF"],
@@ -226,7 +226,7 @@ export const equipments: Equipment[] = [
   {
     id: 21,
     name: "Oracle",
-    icon: "/images/equipment/oracle.png",
+    icon: "/images/equipment/small/oracle.webp",
     category: "Defense",
     special: "Group Defense",
     attribute: ["+25 Hybrid DEF"],
@@ -237,7 +237,7 @@ export const equipments: Equipment[] = [
   {
     id: 22,
     name: "Dominance Ice",
-    icon: "/images/equipment/dominanceice.png",
+    icon: "/images/equipment/small/dominanceice.webp",
     category: "Defense",
     special: "Tank Mana Regeneration",
     attribute: ["+60 Magic DEF", "+15% Max HP"],
@@ -248,7 +248,7 @@ export const equipments: Equipment[] = [
   {
     id: 23,
     name: "Bruiser Crystal",
-    icon: "/images/equipment/bruiser.png",
+    icon: "/images/equipment/small/bruiser.webp",
     category: "Crystal",
     special: "Obtain Bruiser Synergy",
     attribute: [],
@@ -258,7 +258,7 @@ export const equipments: Equipment[] = [
   {
     id: 24,
     name: "Dauntless Crystal",
-    icon: "/images/equipment/dauntless.png",
+    icon: "/images/equipment/small/dauntless.webp",
     category: "Crystal",
     special: "Obtain Dauntless Synergy",
     attribute: [],
@@ -268,7 +268,7 @@ export const equipments: Equipment[] = [
   {
     id: 25,
     name: "Defender Crystal",
-    icon: "/images/equipment/defender.png",
+    icon: "/images/equipment/small/defender.webp",
     category: "Crystal",
     special: "Obtain Defender Synergy",
     attribute: [],
@@ -278,7 +278,7 @@ export const equipments: Equipment[] = [
   {
     id: 26,
     name: "Weapon Master Crystal",
-    icon: "/images/equipment/weaponmaster.png",
+    icon: "/images/equipment/small/weaponmaster.webp",
     category: "Crystal",
     special: "Obtain Weapon Master Synergy",
     attribute: [],
@@ -288,7 +288,7 @@ export const equipments: Equipment[] = [
   {
     id: 27,
     name: "Marksman Crystal",
-    icon: "/images/equipment/marksman.png",
+    icon: "/images/equipment/small/marksman.webp",
     category: "Crystal",
     special: "Obtain Marksman Synergy",
     attribute: [],
@@ -298,7 +298,7 @@ export const equipments: Equipment[] = [
   {
     id: 28,
     name: "Mage Crystal",
-    icon: "/images/equipment/mage.png",
+    icon: "/images/equipment/small/mage.webp",
     category: "Crystal",
     special: "Obtain Mage Synergy",
     attribute: [],
@@ -308,7 +308,7 @@ export const equipments: Equipment[] = [
   {
     id: 29,
     name: "Stargazer Crystal",
-    icon: "/images/equipment/stargazer.png",
+    icon: "/images/equipment/small/stargazer.webp",
     category: "Crystal",
     special: "Obtain Stargazer Synergy",
     attribute: [],
@@ -318,7 +318,7 @@ export const equipments: Equipment[] = [
   {
     id: 30,
     name: "Swordsman Crystal",
-    icon: "/images/equipment/swordsman.png",
+    icon: "/images/equipment/small/swordsman.webp",
     category: "Crystal",
     special: "Obtain Swordsman Synergy",
     attribute: [],
@@ -328,7 +328,7 @@ export const equipments: Equipment[] = [
   {
     id: 31,
     name: "Doomsworn Crystal",
-    icon: "/images/equipment/doomsworn.png",
+    icon: "/images/equipment/small/doomsworn.webp",
     category: "Crystal",
     special: "Obtain Doomsworn Synergy",
     attribute: [],
@@ -338,7 +338,7 @@ export const equipments: Equipment[] = [
   // {
   //   id: 32,
   //   name: "Northern Vale Crystal",
-  //   icon: "/images/equipment/northernvale.png",
+  //   icon: "/images/small/equipment/northernvale.webp",
   //   category: "Crystal",
   //   special: "Obtain Northern Vale Synergy",
   //   attribute: [],
@@ -348,7 +348,7 @@ export const equipments: Equipment[] = [
   {
     id: 32,
     name: "Shadowcell Crystal",
-    icon: "/images/equipment/shadowcell.png",
+    icon: "/images/equipment/small/shadowcell.webp",
     category: "Crystal",
     special: "Obtain Shadowcell Synergy",
     attribute: [],
@@ -358,7 +358,7 @@ export const equipments: Equipment[] = [
   // {
   //   id: 33,
   //   name: "Dragon Altar Crystal",
-  //   icon: "/images/equipment/dragonaltar.png",
+  //   icon: "/images/small/equipment/dragonaltar.webp",
   //   category: "Crystal",
   //   special: "Obtain Dragon Altar Synergy",
   //   attribute: [],
@@ -368,7 +368,7 @@ export const equipments: Equipment[] = [
   {
     id: 33,
     name: "Starwing Crystal",
-    icon: "/images/equipment/starwing.png",
+    icon: "/images/equipment/small/starwing.webp",
     category: "Crystal",
     special: "Obtain Starwing Synergy",
     attribute: [],
@@ -378,7 +378,7 @@ export const equipments: Equipment[] = [
   {
     id: 34,
     name: "Emberlord Crystal",
-    icon: "/images/equipment/emberlord.png",
+    icon: "/images/equipment/small/emberlord.webp",
     category: "Crystal",
     special: "Obtain Emberlord Synergy",
     attribute: [],
@@ -388,7 +388,7 @@ export const equipments: Equipment[] = [
   // {
   //   id: 35,
   //   name: "Astro Power Crystal",
-  //   icon: "/images/equipment/astropower.png",
+  //   icon: "/images/small/equipment/astropower.webp",
   //   category: "Crystal",
   //   special: "Obtain Astro Power Synergy",
   //   attribute: [],
@@ -398,7 +398,7 @@ export const equipments: Equipment[] = [
   {
     id: 35,
     name: "Luminexus Crystal",
-    icon: "/images/equipment/luminexus.png",
+    icon: "/images/equipment/small/luminexus.webp",
     category: "Crystal",
     special: "Obtain Luminexus Synergy",
     attribute: [],
@@ -408,7 +408,7 @@ export const equipments: Equipment[] = [
   // {
   //   id: 36,
   //   name: "Eruditio Crystal",
-  //   icon: "/images/equipment/eruditio.png",
+  //   icon: "/images/small/equipment/eruditio.webp",
   //   category: "Crystal",
   //   special: "Obtain Eruditio Synergy",
   //   attribute: [],
@@ -418,7 +418,7 @@ export const equipments: Equipment[] = [
   {
     id: 36,
     name: "Aspirants Crystal",
-    icon: "/images/equipment/aspirants.png",
+    icon: "/images/equipment/small/aspirants.webp",
     category: "Crystal",
     special: "Obtain Aspirants Synergy",
     attribute: [],
@@ -428,7 +428,7 @@ export const equipments: Equipment[] = [
   {
     id: 37,
     name: "Dawnbringer Crystal",
-    icon: "/images/equipment/dawnbringer.png",
+    icon: "/images/equipment/small/dawnbringer.webp",
     category: "Crystal",
     special: "Obtain Dawnbringer Synergy",
     attribute: [],
@@ -438,7 +438,7 @@ export const equipments: Equipment[] = [
   {
     id: 38,
     name: "Go Go Magic Crystal",
-    icon: "/images/equipment/gogocrystal.png",
+    icon: "/images/equipment/small/gogocrystal.webp",
     category: "Crystal",
     special: "Capacity +1",
     attribute: [],
@@ -448,7 +448,7 @@ export const equipments: Equipment[] = [
   {
     id: 39,
     name: "Mirror Device",
-    icon: "/images/equipment/mirrordevice.png",
+    icon: "/images/equipment/small/mirrordevice.webp",
     category: "Special",
     special: "Copy Hero",
     attribute: [],
@@ -458,7 +458,7 @@ export const equipments: Equipment[] = [
   {
     id: 40,
     name: "Claude's Theft Device",
-    icon: "/images/equipment/ctd.png",
+    icon: "/images/equipment/small/ctd.webp",
     category: "Special",
     special: "Copy Equipment",
     attribute: [],
@@ -469,7 +469,7 @@ export const equipments: Equipment[] = [
   {
     id: 41,
     name: "Inspire",
-    icon: "/images/equipment/inspire.png",
+    icon: "/images/equipment/small/inspire.webp",
     category: "First",
     special: "Increase ATK Speed",
     attribute: [],
@@ -480,7 +480,7 @@ export const equipments: Equipment[] = [
   {
     id: 42,
     name: "Revitalize",
-    icon: "/images/equipment/revitalize.png",
+    icon: "/images/equipment/small/revitalize.webp",
     category: "First",
     special: "Restore HP at Low HP",
     attribute: [],
@@ -491,7 +491,7 @@ export const equipments: Equipment[] = [
   {
     id: 43,
     name: "Purify",
-    icon: "/images/equipment/purify.png",
+    icon: "/images/equipment/small/purify.webp",
     category: "First",
     special: "Control Immunity",
     attribute: ["+15% Attack Speed"],
@@ -502,7 +502,7 @@ export const equipments: Equipment[] = [
   {
     id: 44,
     name: "Aegis",
-    icon: "/images/equipment/aegis.png",
+    icon: "/images/equipment/small/aegis.webp",
     category: "First",
     special: "Provide shields to allies",
     attribute: [],
@@ -513,7 +513,7 @@ export const equipments: Equipment[] = [
   {
     id: 45,
     name: "Retribution",
-    icon: "/images/equipment/retribution.png",
+    icon: "/images/equipment/small/retribution.webp",
     category: "First",
     special: "Damage Increase",
     attribute: [],
@@ -524,7 +524,7 @@ export const equipments: Equipment[] = [
   // {
   //   id: 46,
   //   name: "Knowledge Crystal",
-  //   icon: "/images/equipment/knowledgecrystal.png",
+  //   icon: "/images/small/equipment/knowledgecrystal.webp",
   //   category: "Synergy",
   //   special: "Exclusive for Eruditio Synergy",
   //   attribute: ["+10% Hybrid ATK"],
@@ -535,7 +535,7 @@ export const equipments: Equipment[] = [
   {
     id: 47,
     name: "Skywrath Spear",
-    icon: "/images/equipment/skywrathspear.png",
+    icon: "/images/equipment/small/skywrathspear.webp",
     category: "Synergy",
     special: "Dawnbringer Exclusive",
     attribute: ["+15% Hybrid ATK"],
@@ -546,7 +546,7 @@ export const equipments: Equipment[] = [
   {
     id: 48,
     name: "Horn of Prosperity",
-    icon: "/images/equipment/hornofprosperity.png",
+    icon: "/images/equipment/small/hornofprosperity.webp",
     category: "Synergy",
     special: "Dawnbringer Exclusive",
     attribute: ["+15% Attack Speed"],
@@ -557,7 +557,7 @@ export const equipments: Equipment[] = [
   {
     id: 49,
     name: "Direwolf's Devastator",
-    icon: "/images/equipment/direwolfsdevastator.png",
+    icon: "/images/equipment/small/direwolfsdevastator.webp",
     category: "Synergy",
     special: "Dawnbringer Exclusive",
     attribute: ["+15% Hybrid ATK"],
@@ -568,7 +568,7 @@ export const equipments: Equipment[] = [
   {
     id: 50,
     name: "Exorcist's Seal (Basic)",
-    icon: "/images/equipment/exorcistbasic.png",
+    icon: "/images/equipment/small/exorcistbasic.webp",
     category: "Synergy",
     special: "Exorcist Exclusive",
     attribute: ["+25% Hybrid ATK"],
@@ -579,7 +579,7 @@ export const equipments: Equipment[] = [
   {
     id: 51,
     name: "Exorcist's Seal (Advanced)",
-    icon: "/images/equipment/exorcistadvanced.png",
+    icon: "/images/equipment/small/exorcistadvanced.webp",
     category: "Synergy",
     special: "Exorcist Exclusive",
     attribute: ["+50% Hybrid ATK"],
@@ -590,7 +590,7 @@ export const equipments: Equipment[] = [
   {
     id: 52,
     name: "Supreme Crown",
-    icon: "/images/equipment/supremecrown.png",
+    icon: "/images/equipment/small/supremecrown.webp",
     category: "Synergy",
     special: "Dawnbringer Exclusive",
     attribute: ["+100% Hybrid ATK", "+250% Max HP"],
@@ -600,7 +600,7 @@ export const equipments: Equipment[] = [
   {
     id: 53,
     name: "Inspire - Burning Will",
-    icon: "/images/equipment/inspirered.png",
+    icon: "/images/equipment/small/inspirered.webp",
     category: "First",
     special: "Extra ATK Speed",
     attribute: [],
@@ -611,7 +611,7 @@ export const equipments: Equipment[] = [
   {
     id: 54,
     name: "Purify - Dragonblood Ritual",
-    icon: "/images/equipment/purifyred.png",
+    icon: "/images/equipment/small/purifyred.webp",
     category: "First",
     special: "Control Immunity",
     attribute: ["+20% Attack Speed"],
@@ -622,7 +622,7 @@ export const equipments: Equipment[] = [
   {
     id: 55,
     name: "Retribution - Crimson Hunt",
-    icon: "/images/equipment/retributionred.png",
+    icon: "/images/equipment/small/retributionred.webp",
     category: "First",
     special: "DMG Increase",
     attribute: [],
@@ -633,7 +633,7 @@ export const equipments: Equipment[] = [
   {
     id: 56,
     name: "Revitalize - Sacred Offering",
-    icon: "/images/equipment/revitalizered.png",
+    icon: "/images/equipment/small/revitalizered.webp",
     category: "First",
     special: "HP Regen",
     attribute: [],
@@ -643,7 +643,7 @@ export const equipments: Equipment[] = [
   {
     id: 57,
     name: "Aegis - Ember Fortress",
-    icon: "/images/equipment/aegisred.png",
+    icon: "/images/equipment/small/aegisred.webp",
     category: "First",
     special: "High Shield",
     attribute: [],
@@ -653,7 +653,7 @@ export const equipments: Equipment[] = [
   {
     id: 58,
     name: "Inspire - Thunderous Will",
-    icon: "/images/equipment/inspireblue.png",
+    icon: "/images/equipment/small/inspireblue.webp",
     category: "First",
     special: "Allied ATK Speed Boost",
     attribute: [],
@@ -664,7 +664,7 @@ export const equipments: Equipment[] = [
   {
     id: 59,
     name: "Purify - Frost Immune",
-    icon: "/images/equipment/purifyblue.png",
+    icon: "/images/equipment/small/purifyblue.webp",
     category: "First",
     special: "Allied Control Immunity",
     attribute: [],
@@ -675,7 +675,7 @@ export const equipments: Equipment[] = [
   {
     id: 60,
     name: "Retribution - Azure Hunt",
-    icon: "/images/equipment/retributionblue.png",
+    icon: "/images/equipment/small/retributionblue.webp",
     category: "First",
     special: "Allied Extra DMG",
     attribute: [],
@@ -686,7 +686,7 @@ export const equipments: Equipment[] = [
   {
     id: 61,
     name: "Revitalize - Sacred Tide",
-    icon: "/images/equipment/revitalizeblue.png",
+    icon: "/images/equipment/small/revitalizeblue.webp",
     category: "First",
     special: "Allied HP Restore",
     attribute: [],
@@ -697,7 +697,7 @@ export const equipments: Equipment[] = [
   {
     id: 62,
     name: "Aegis - Azure Guardian",
-    icon: "/images/equipment/aegisblue.png",
+    icon: "/images/equipment/small/aegisblue.webp",
     category: "First",
     special: "Allied Shield",
     attribute: [],
@@ -708,7 +708,7 @@ export const equipments: Equipment[] = [
   {
     id: 63,
     name: "Great Dragon Spear",
-    icon: "/images/equipment/gds.png",
+    icon: "/images/equipment/small/gds.webp",
     category: "Commander",
     special: "Enhanceable Heavenly Artifact",
     attribute: [],
@@ -719,7 +719,7 @@ export const equipments: Equipment[] = [
   {
     id: 64,
     name: "Fluffy's Rage",
-    icon: "/images/equipment/fluffyrage.png",
+    icon: "/images/equipment/small/fluffyrage.webp",
     category: "Commander",
     special: "Summon Explosive Fluffy",
     attribute: [],
@@ -730,7 +730,7 @@ export const equipments: Equipment[] = [
   {
     id: 65,
     name: "Shadow Twinblades",
-    icon: "/images/equipment/karina1.png",
+    icon: "/images/equipment/small/karina1.webp",
     category: "Commander",
     special: "Gift of 1-Star Karina",
     attribute: ["+35% Hybrid ATK", "+25% Max HP"],
@@ -741,7 +741,7 @@ export const equipments: Equipment[] = [
   {
     id: 66,
     name: "Supreme Blades",
-    icon: "/images/equipment/karina2.png",
+    icon: "/images/equipment/small/karina2.webp",
     category: "Commander",
     special: "Gift of 2-Star Karina",
     attribute: ["+35% Hybrid ATK", "+25% Max HP"],
@@ -752,7 +752,7 @@ export const equipments: Equipment[] = [
   {
     id: 67,
     name: "Blessing Shifter",
-    icon: "/images/equipment/blessing.png",
+    icon: "/images/equipment/small/blessing.webp",
     category: "Special",
     special: "Shift Blessing",
     attribute: [],
