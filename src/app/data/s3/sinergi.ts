@@ -103,16 +103,16 @@ export const synergies: Synergy[] = [
       },
       {
         units: 4,
-        effect: "Share 20% HP, 45% Hybrid ATK.",
+        effect: "Share 20% HP, 50% Hybrid ATK.",
       },
       {
         units: 6,
-        effect: "Share 20% HP, 65% Hybrid ATK.",
+        effect: "Share 20% HP, 70% Hybrid ATK.",
       },
       {
         units: 10,
         effect:
-          "Share 30% HP, 110% Hybrid ATK. When an Emberlord Hero dies, they will resurrect and restore 30% HP.",
+          "Share 30% HP, 100% Hybrid ATK. When an Emberlord Hero dies, they will resurrect and restore 30% HP.",
       },
     ],
   },
@@ -128,17 +128,17 @@ export const synergies: Synergy[] = [
       {
         units: 2,
         effect:
-          "Link up to 3 Heroes together and reduce their Hybrid DEF by 15.",
+          "Link up to 3 Heroes together and reduce their Hybrid DEF by 20.",
       },
       {
         units: 4,
         effect:
-          "Link up to 6 Heroes together and reduce their Hybrid DEF by 25.",
+          "Link up to 6 Heroes together and reduce their Hybrid DEF by 30.",
       },
       {
         units: 6,
         effect:
-          "No limit to the number of linked Heroes. Linked Heroes have their Hybrid DEF reduced by 60.",
+          "No limit to the number of linked Heroes. Linked Heroes have their Hybrid DEF reduced by 65.",
       },
       {
         units: 10,
@@ -239,7 +239,7 @@ export const synergies: Synergy[] = [
       {
         units: 2,
         effect:
-          "Each activated Synergy increases Hybrid ATK by 2%. Gain 8% DMG Reduction upon activating 8 Synergies. Gain 10% Hybrid Lifesteal upon activating 10 Synergies.",
+          "Each activated Synergy increases Hybrid ATK by 2%. Gain 5% DMG Reduction upon activating 8 Synergies. Gain 5% Hybrid Lifesteal upon activating 10 Synergies.",
       },
     ],
   },
@@ -279,11 +279,11 @@ export const synergies: Synergy[] = [
       },
       {
         units: 4,
-        effect: "Gain 25% extra Basic ATK DMG. 25% chance to hit twice.",
+        effect: "Gain 30% extra Basic ATK DMG. 30% chance to hit twice.",
       },
       {
         units: 6,
-        effect: "Gain 45% extra Basic ATK DMG. 45% chance to hit twice.",
+        effect: "Gain 50% extra Basic ATK DMG. 50% chance to hit twice.",
       },
     ],
   },

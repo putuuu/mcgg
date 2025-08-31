@@ -35,7 +35,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/lancelot1.png",
         name: "Golden Legacy",
         description:
-          "No longer earns Interest. Starting from I/II/III and subsequently stages, gain 2/2/3 bonus Gold each round. At the end of each round, all Gold is consumed to upgrade Lancelot.",
+          "No longer earns Interest. Starting from I/II/III and subsequently stages, gain 2/3/3 bonus Gold each round. At the end of each round, all Gold is consumed to upgrade Lancelot.",
       },
       {
         level: 2,
@@ -43,7 +43,7 @@ export const commanders: Commander[] = [
         type: "Passive",
         name: "Golden Blade",
         description:
-          "From Stage I/II/III onward, bonus Gold is increased to 3/3/4.",
+          "From Stage I/II/III onward, bonus Gold is increased to 3/4/4.",
       },
     ],
   },
@@ -182,7 +182,7 @@ export const commanders: Commander[] = [
         type: "Passive",
         name: "Molina's Gift",
         description:
-          "Receive 2 Equipment Chest(s) and 3 Gold upon taking DMG for the first time.",
+          "Receive 2 Equipment Chest(s) and 4 Gold upon taking DMG for the first time.",
       },
     ],
   },
@@ -290,7 +290,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/zilong1.png",
         name: "Great Dragon Spear",
         description:
-          "Obtain the Great Dragon Spear at the start of the match: Each Basic ATK has 16% chance to attack 2 additional time(s). You can purchase up to 1 effects from the Shop to enhance the Great Dragon Spear. Trait include: Draco Serenity: Become immune to control for 25s and recover 12% HP based on damage dealt. Gold Bandit: Each Basic ATK has 5% chance to grant 1 Gold. Great Dragon Guard: When HP drops below 30% gain a Shield equal to 40% of Max HP. (If this hasn't been triggered and fatal damage is taken, the Shield will be granted).",
+          "Obtain the Great Dragon Spear at the start of the match: Each Basic ATK has 22% chance to attack 2 additional time(s). You can purchase up to 1 effects from the Shop to enhance the Great Dragon Spear. Trait include: Draco Serenity: Become immune to control for 25s and recover 12% HP based on damage dealt. Gold Bandit: Each Basic ATK has 5% chance to grant 1 Gold. Great Dragon Guard: When HP drops below 30% gain a Shield equal to 40% of Max HP. (If this hasn't been triggered and fatal damage is taken, the Shield will be granted).",
       },
       {
         level: 2,
@@ -319,7 +319,7 @@ export const commanders: Commander[] = [
         icon: "/images/commanderSkill/fanny1.png",
         name: "Blade Dancer",
         description:
-          "Fanny construct a Hero Launcher outside the battlefield. It takes 13 round(s) to complete and grants 6 Gold upon completion. Then, you can drag a Hero onto the Launcher, and the Hero will join the fight when battle starts.",
+          "Fanny construct a Hero Launcher outside the battlefield. It takes 13 round(s) to complete and grants 4 Gold upon completion. Then, you can drag a Hero onto the Launcher, and the Hero will join the fight when battle starts.",
       },
       {
         level: 2,
@@ -763,10 +763,8 @@ export const commanders: Commander[] = [
     slug: "alice",
     type: "Strategy",
     image: "/images/commander/Hero45105.png",
-    description:
-      "Starting from Round II-4, Harley can refresh the Shop once, replacing it with three random 5-Gold Heroes. The number of 5-Gold Heroes shown increases to 5 with skill upgrades — allowing massive late-game potential and instant access to high-impact units. Harley is a mid-to-late game commander that enables powerful transitions. The strength lies not just in acquiring top-tier Heroes, but also in how well the player can adapt their comp based on what they get. Harley favors players who are flexible and comfortable shifting strategies on the fly. Whether stabilizing at Level 8 or chasing a perfect synergy finish at Level 9, Harley can single-handedly define your win condition.",
-    sdescription:
-      "Replaces Shop with 5-cost Heroes. Enables powerful late-game transitions for adaptive players.",
+    description: "",
+    sdescription: "",
     skills: [
       {
         level: 1,
@@ -793,7 +791,7 @@ export const commanders: Commander[] = [
     type: "Strategy",
     image: "/images/commander/Hero45125.png",
     description:
-      "Starting from Round II-4, Harley can refresh the Shop once, replacing it with three random 5-Gold Heroes. The number of 5-Gold Heroes shown increases to 5 with skill upgrades — allowing massive late-game potential and instant access to high-impact units. Harley is a mid-to-late game commander that enables powerful transitions. The strength lies not just in acquiring top-tier Heroes, but also in how well the player can adapt their comp based on what they get. Harley favors players who are flexible and comfortable shifting strategies on the fly. Whether stabilizing at Level 8 or chasing a perfect synergy finish at Level 9, Harley can single-handedly define your win condition.",
+      "Starting from Round II-6, Harley can refresh the Shop once, replacing it with three random 5-Gold Heroes. The number of 5-Gold Heroes shown increases to 5 with skill upgrades — allowing massive late-game potential and instant access to high-impact units. Harley is a mid-to-late game commander that enables powerful transitions. The strength lies not just in acquiring top-tier Heroes, but also in how well the player can adapt their comp based on what they get. Harley favors players who are flexible and comfortable shifting strategies on the fly. Whether stabilizing at Level 8 or chasing a perfect synergy finish at Level 9, Harley can single-handedly define your win condition.",
     sdescription:
       "Replaces Shop with 5-cost Heroes. Enables powerful late-game transitions for adaptive players.",
     skills: [

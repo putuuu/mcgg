@@ -593,7 +593,7 @@ export const equipments: Equipment[] = [
     icon: "/images/equipment/supremecrown.png",
     category: "Synergy",
     special: "Dawnbringer Exclusive",
-    attribute: ["+100% Hybrid ATK", "+100% Max HP"],
+    attribute: ["+100% Hybrid ATK", "+250% Max HP"],
     passive: "Supreme",
     pdesc: "Increase DMG by 150%.",
   },
@@ -733,7 +733,7 @@ export const equipments: Equipment[] = [
     icon: "/images/equipment/karina1.png",
     category: "Commander",
     special: "Gift of 1-Star Karina",
-    attribute: ["+40% Hybrid ATK", "+25% Max HP"],
+    attribute: ["+35% Hybrid ATK", "+25% Max HP"],
     passive: "Execute",
     pdesc:
       "Karina executes adjacent enemy Heroes when their HP falls below 15%.",
@@ -744,7 +744,7 @@ export const equipments: Equipment[] = [
     icon: "/images/equipment/karina2.png",
     category: "Commander",
     special: "Gift of 2-Star Karina",
-    attribute: ["+40% Hybrid ATK", "+25% Max HP"],
+    attribute: ["+35% Hybrid ATK", "+25% Max HP"],
     passive: "Gift",
     pdesc:
       "When adjacent enemy Hero's falls below 15%, Karina will execute them. After execution, the carrier's DMG is increased by 1%, up to 35%.",

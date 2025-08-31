@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 
 const features = [
   {
+    title: "New Patch",
+    href: "/patches",
+    description: "Learn buff and nerf to .",
+    icon: "/icons/commander.png",
+  },
+  {
     title: "Commander",
     href: "/commander",
     description: "Lead your army with powerful and strategic commanders.",

@@ -8,9 +8,16 @@ export interface Guide {
 export const guides: Guide[] = [
   {
     slug: "metrogazer",
-    title: "Beginner Guide: Metro Zero + Stargazer 4",
+    title: "Beginner Guide: Metro Zero + 4 Stargazer",
     description:
-      "Learn how to build a solid foundation with Metro Zero and Stargazer.",
-    image: "/guides/guide1.png", // contoh path image
+      "A beginner-friendly strategy focusing on Metro Zero’s economy power combined with 4 Stargazers for consistent scaling into mid game.",
+    image: "/guides/guide1.png",
+  },
+  {
+    slug: "metrostarwing",
+    title: "Beginner Guide: Metro Zero + 6 Starwing",
+    description:
+      "Learn how to push for a strong late-game composition with Metro Zero and 6 Starwings, turning your team into a powerful carry squad.",
+    image: "/guides/guide1.png",
   },
 ];
