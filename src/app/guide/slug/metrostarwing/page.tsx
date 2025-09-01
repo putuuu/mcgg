@@ -1,11 +1,19 @@
-import { useMemo } from "react";
+// GuidePage.tsx
+"use client";
+
 import { guideData } from "./data";
-import { synergies, Synergy } from "@/app/data/s3/sinergi";
-import { Board } from "@/app/components/builder/Board";
-import { ActiveSynergyList } from "@/app/components/builder/ActiveSynergyList";
+import { Board } from "../../../components/builder/Board";
+import { ActiveSynergyList } from "../../../components/builder/ActiveSynergyList";
+import { synergies, Synergy } from "../../../data/s3/sinergi";
+import { useMemo } from "react";
+import { BoardHero } from "../../../components/builder/Board";
 
 export default function GuidePage() {
-  const board = guideData.fixedBoard ?? Array(21).fill(null);
+  // Konversi Hero menjadi BoardHero
+  const board: (BoardHero | null)[] =
+    guideData.fixedBoard?.map((hero) =>
+      hero ? { ...hero, equipments: [] } : null
+    ) ?? Array(21).fill(null);
 
   const activeSynergies = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -71,7 +79,7 @@ export default function GuidePage() {
 
         {/* Board dan Active Synergies */}
         <div className="flex gap-6 w-full max-w-6xl mb-8">
-          <Board board={board} />
+          <Board board={board} onEquip={() => {}} onUnequip={() => {}} />
           <ActiveSynergyList activeSynergies={activeSynergies} />
         </div>
 
