@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Equipment } from "../../data/equipment";
 
 interface DraggableEquipmentProps {
@@ -19,9 +20,13 @@ export function DraggableEquipment({ equipment }: DraggableEquipmentProps) {
     let left = rect.right + 8;
     let top = rect.top;
 
-    // jika melebihi viewport, munculkan di kiri
+    // Jika hover panel melebihi viewport, munculkan di kiri
     if (left + 260 > window.innerWidth) {
       left = rect.left - 260 - 8;
+    }
+    // Jika panel terlalu bawah
+    if (top + 200 > window.innerHeight) {
+      top = window.innerHeight - 200 - 8;
     }
 
     setPanelPos({ top, left });
@@ -43,10 +48,12 @@ export function DraggableEquipment({ equipment }: DraggableEquipmentProps) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <img
+        <Image
           src={equipment.icon}
           alt={equipment.name}
-          className="w-16 h-16 object-contain rounded-md"
+          width={64}
+          height={64}
+          className="rounded-md object-contain"
         />
       </div>
 

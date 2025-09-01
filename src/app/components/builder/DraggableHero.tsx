@@ -55,11 +55,14 @@ export function DraggableHero({ id, hero, source, index }: DraggableHeroProps) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <img
-          src={hero.image}
-          alt={hero.name}
-          className="w-16 h-16 object-cover rounded-md object-top"
-        />
+        <div className="relative w-16 h-16">
+          <Image
+            src={hero.image}
+            alt={hero.name}
+            fill
+            className="object-cover rounded-md object-top"
+          />
+        </div>
       </div>
 
       {hovered && !isDragging && (

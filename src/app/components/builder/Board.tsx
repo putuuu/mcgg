@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Hero } from "../../data/s3/hero";
 import { Equipment } from "../../data/equipment";
 import { DroppableCell } from "./DroppableCell";
@@ -45,13 +46,15 @@ export function Board({ board, onEquip, onUnequip }: BoardProps) {
                       {cell.equipments.map((eq) => (
                         <div
                           key={eq.id}
-                          className="w-6 h-6 bg-black/50 rounded cursor-pointer"
+                          className="w-6 h-6 bg-black/50 rounded cursor-pointer relative"
                           onClick={() => onUnequip(idx, eq.id)}
                         >
-                          <img
+                          <Image
                             src={eq.icon}
                             alt={eq.name}
-                            className="w-6 h-6"
+                            width={24}
+                            height={24}
+                            className="rounded"
                           />
                         </div>
                       ))}
