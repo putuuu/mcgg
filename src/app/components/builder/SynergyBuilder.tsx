@@ -1,85 +1,67 @@
+// SynergyBuilder.tsx
 "use client";
 
 import React, { useState, useMemo } from "react";
-import {
-  DndContext,
-  DragEndEvent,
-  useDraggable,
-  useDroppable,
-  DraggableAttributes,
-  DraggableSyntheticListeners,
-} from "@dnd-kit/core";
+import { DndContext, DragEndEvent } from "@dnd-kit/core";
 import { heroes, Hero } from "../../data/s3/hero";
 import { synergies, Synergy } from "../../data/s3/sinergi";
-import { Board } from "./Board";
+import { equipments, Equipment } from "../../data/equipment";
+import { Board, BoardHero } from "./Board";
 import { ActiveSynergyList } from "./ActiveSynergyList";
 import { Filters } from "./Filters";
-import { HeroPool } from "./HeroPool";
+import { DraggableHero } from "./DraggableHero";
+import { DraggableEquipment } from "./DraggableEquipment";
 
-// ===== Draggable Data Type =====
-interface HeroDraggableData {
-  hero: Hero;
-  source: "board" | "pool";
-  index?: number;
-}
-
-// ===== Draggable Component =====
-interface DraggableChildrenProps {
-  attributes: DraggableAttributes;
-  listeners: DraggableSyntheticListeners;
-  setNodeRef: (node: HTMLElement | null) => void;
-  transform: { x: number; y: number } | null;
-  isDragging: boolean;
-}
-
-interface DraggableProps {
-  id: string;
-  data: HeroDraggableData;
-  children: (props: DraggableChildrenProps) => React.ReactNode;
-}
-
-export function Draggable({ id, data, children }: DraggableProps) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({ id, data });
-
-  return (
-    <>
-      {children({ attributes, listeners, setNodeRef, transform, isDragging })}
-    </>
-  );
-}
-
-// ===== Droppable Component =====
-interface DroppableProps {
-  id: string;
-  children: (props: {
-    setNodeRef: (node: HTMLElement | null) => void;
-    isOver: boolean;
-  }) => React.ReactNode;
-}
-
-export function Droppable({ id, children }: DroppableProps) {
-  const { setNodeRef, isOver } = useDroppable({ id });
-  return <>{children({ setNodeRef, isOver })}</>;
-}
-
-// ===== Main SynergyBuilder =====
 export default function SynergyBuilder() {
-  const [board, setBoard] = useState<(Hero | null)[]>(Array(21).fill(null));
+  const [board, setBoard] = useState<(BoardHero | null)[]>(
+    Array(21).fill(null)
+  );
 
-  // Compute active synergies client-side
+  // Hero filters
+  const [search, setSearch] = useState("");
+  const [costFilter, setCostFilter] = useState<number | null>(null);
+  const [factionFilter, setFactionFilter] = useState<string | null>(null);
+  const [roleFilter, setRoleFilter] = useState<string | null>(null);
+
+  // Equipment filter
+  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+
+  const filteredHeroes = useMemo(
+    () =>
+      heroes.filter((h) => {
+        if (costFilter !== null && h.cost !== costFilter) return false;
+        if (search && !h.name.toLowerCase().includes(search.toLowerCase()))
+          return false;
+        if (factionFilter && h.synergies.faction !== factionFilter)
+          return false;
+        if (roleFilter && !h.synergies.roles.includes(roleFilter)) return false;
+        return true;
+      }),
+    [search, costFilter, factionFilter, roleFilter]
+  );
+
+  const filteredEquipments = useMemo(
+    () =>
+      equipments.filter((eq) => {
+        if (categoryFilter && eq.category !== categoryFilter) return false;
+        return true;
+      }),
+    [categoryFilter]
+  );
+
+  // Active synergies
   const activeSynergies = useMemo(() => {
     const counts: Record<string, number> = {};
     const uniqueHeroes = new Set<number>();
 
-    board.forEach((hero) => {
-      if (!hero || uniqueHeroes.has(hero.id)) return;
-      uniqueHeroes.add(hero.id);
+    board.forEach((cell) => {
+      if (!cell || uniqueHeroes.has(cell.id)) return;
+      uniqueHeroes.add(cell.id);
 
-      if (hero.synergies.faction)
-        counts[hero.synergies.faction] =
-          (counts[hero.synergies.faction] || 0) + 1;
-      hero.synergies.roles.forEach(
+      if (cell.synergies.faction)
+        counts[cell.synergies.faction] =
+          (counts[cell.synergies.faction] || 0) + 1;
+      cell.synergies.roles.forEach(
         (role) => (counts[role] = (counts[role] || 0) + 1)
       );
     });
@@ -99,67 +81,61 @@ export default function SynergyBuilder() {
       .filter(Boolean) as (Synergy & { count: number; nextRequired: number })[];
   }, [board]);
 
+  // Drag end handler for heroes
   const handleDragEnd = (event: DragEndEvent) => {
     const { over, active } = event;
-    const data = active.data.current as HeroDraggableData;
+    const data = active.data.current as {
+      hero: Hero;
+      source: "pool" | "board";
+      index?: number;
+    };
     if (!data?.hero) return;
 
     const next = [...board];
 
-    // === Drop ke dalam board cell ===
     if (over?.id.toString().startsWith("cell-")) {
       const idx = parseInt(over.id.toString().replace("cell-", ""), 10);
       if (!Number.isNaN(idx)) {
         if (data.source === "pool") {
-          // dari pool → masuk, replace kalau ada
-          next[idx] = { ...data.hero };
+          next[idx] = { ...data.hero, equipments: [] };
         } else if (data.source === "board" && data.index !== undefined) {
-          if (idx === data.index) {
-            // drag ke cell sama → tidak berubah
-            return;
-          }
+          if (idx === data.index) return;
           const fromHero = next[data.index];
           const toHero = next[idx];
-
-          if (toHero) {
-            // ada hero di target → swap
-            next[data.index] = toHero;
-            next[idx] = fromHero;
-          } else {
-            // target kosong → pindah
-            next[data.index] = null;
-            next[idx] = fromHero;
-          }
+          next[idx] = fromHero;
+          next[data.index] = toHero ?? null;
         }
         setBoard(next);
       }
-    }
-
-    // === Drop keluar board ===
-    else if (!over && data.source === "board" && data.index !== undefined) {
+    } else if (!over && data.source === "board" && data.index !== undefined) {
       next[data.index] = null;
       setBoard(next);
     }
   };
 
-  const [search, setSearch] = useState("");
-  const [costFilter, setCostFilter] = useState<number | null>(null);
-  const [factionFilter, setFactionFilter] = useState<string | null>(null);
-  const [roleFilter, setRoleFilter] = useState<string | null>(null);
+  // Equip / Unequip handlers
+  const handleEquip = (heroIndex: number, equipment: Equipment) => {
+    setBoard((prev) =>
+      prev.map((cell, idx) => {
+        if (idx !== heroIndex || !cell) return cell;
+        if (cell.equipments.find((x) => x.id === equipment.id)) return cell;
+        if (cell.equipments.length >= 3) return cell;
+        return { ...cell, equipments: [...cell.equipments, equipment] };
+      })
+    );
+  };
 
-  const filteredHeroes = useMemo(
-    () =>
-      heroes.filter((h) => {
-        if (costFilter !== null && h.cost !== costFilter) return false;
-        if (search && !h.name.toLowerCase().includes(search.toLowerCase()))
-          return false;
-        if (factionFilter && h.synergies.faction !== factionFilter)
-          return false;
-        if (roleFilter && !h.synergies.roles.includes(roleFilter)) return false;
-        return true;
-      }),
-    [search, costFilter, factionFilter, roleFilter]
-  );
+  const handleUnequip = (heroIndex: number, eqId: number) => {
+    setBoard((prev) =>
+      prev.map((cell, idx) => {
+        if (idx !== heroIndex || !cell) return cell;
+        return {
+          ...cell,
+          equipments: cell.equipments.filter((eq) => eq.id !== eqId),
+        };
+      })
+    );
+  };
 
   return (
     <div className="flex flex-col items-center p-6 min-h-screen">
@@ -168,35 +144,79 @@ export default function SynergyBuilder() {
           ⚡ Build Your Perfect Synergy
         </h1>
         <p className="text-sm text-gray-300 italic mb-6 text-center">
-          “Drag, drop, and discover the strongest combos.”
+          Drag, drop, and discover the strongest combos.
         </p>
 
         <DndContext onDragEnd={handleDragEnd}>
-          <div className="mt-6 flex flex-wrap gap-2 justify-center">
-            <div>
-              <Board board={board} />
-              <Filters
-                search={search}
-                setSearch={setSearch}
-                costFilter={costFilter}
-                setCostFilter={setCostFilter}
-                factionFilter={factionFilter}
-                setFactionFilter={setFactionFilter}
-                roleFilter={roleFilter}
-                setRoleFilter={setRoleFilter}
-                synergies={synergies}
-              />
-              <button
-                onClick={() => setBoard(Array(21).fill(null))}
-                className="px-3 py-1 text-sm font-bold text-white bg-red-600 hover:bg-red-700 rounded"
-              >
-                Clear Board
-              </button>
-            </div>
+          {/* Board + Active Synergy */}
+          <div className="flex flex-row gap-4">
+            <Board
+              board={board}
+              onEquip={handleEquip}
+              onUnequip={handleUnequip}
+            />
             <ActiveSynergyList activeSynergies={activeSynergies} />
           </div>
 
-          <HeroPool heroes={filteredHeroes} />
+          {/* Clear Board */}
+          <button
+            onClick={() => setBoard(Array(21).fill(null))}
+            className="px-3 py-1 text-sm font-bold text-white bg-red-600 hover:bg-red-700 rounded mt-4"
+          >
+            Clear Board
+          </button>
+
+          {/* Filters */}
+          <Filters
+            search={search}
+            setSearch={setSearch}
+            costFilter={costFilter}
+            setCostFilter={setCostFilter}
+            factionFilter={factionFilter}
+            setFactionFilter={setFactionFilter}
+            roleFilter={roleFilter}
+            setRoleFilter={setRoleFilter}
+            synergies={synergies}
+            categoryFilter={categoryFilter}
+            setCategoryFilter={setCategoryFilter}
+            equipments={equipments}
+          />
+
+          {/* Pools */}
+          <div className="mt-6 flex gap-4 overflow-x-auto">
+            {/* Hero Pool */}
+            <div className="flex-1 min-w-[300px] bg-gray-900/80 p-4 rounded-md">
+              <h2 className="text-lg font-bold text-yellow-300 mb-2">
+                Hero Pool
+              </h2>
+              <div className="grid grid-cols-8 gap-2">
+                {filteredHeroes.map((hero) => (
+                  <DraggableHero
+                    key={hero.id}
+                    id={`pool-${hero.id}`}
+                    hero={hero}
+                    source="pool"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Equipment Pool */}
+            <div className="flex-1 min-w-[300px] bg-gray-900/80 p-4 rounded-md">
+              <h2 className="text-lg font-bold text-green-300 mb-2">
+                Equipment Pool
+              </h2>
+              <div className="grid grid-cols-8 gap-2">
+                {filteredEquipments.map((eq) => (
+                  <DraggableEquipment
+                    key={eq.id}
+                    id={`eq-${eq.id}`}
+                    equipment={eq}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </DndContext>
       </div>
     </div>

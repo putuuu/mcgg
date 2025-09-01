@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useDraggable } from "@dnd-kit/core";
 import Image from "next/image";
 import { Hero } from "../../data/s3/hero";
@@ -18,31 +18,55 @@ export function DraggableHero({ id, hero, source, index }: DraggableHeroProps) {
       data: { hero, source, index },
     });
 
+  const [hovered, setHovered] = useState(false);
+  const [panelPos, setPanelPos] = useState<{ top: number; left: number }>({
+    top: 0,
+    left: 0,
+  });
+
+  const handleMouseEnter = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    let left = rect.right + 8;
+    let top = rect.top;
+
+    if (left + 260 > window.innerWidth) {
+      left = rect.left - 260 - 8;
+    }
+
+    setPanelPos({ top, left });
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => setHovered(false);
+
   return (
-    <div
-      ref={setNodeRef}
-      {...listeners}
-      {...attributes}
-      className="relative group w-16 h-16 bg-gray-700 rounded-md flex items-center justify-center m-2"
-      style={{
-        transform: transform
-          ? `translate(${transform.x}px, ${transform.y}px)`
-          : "none",
-        opacity: isDragging ? 0.5 : 1,
-      }}
-    >
-      <div className="relative w-16 h-16">
-        <Image
+    <>
+      <div
+        ref={setNodeRef}
+        {...listeners}
+        {...attributes}
+        className="relative w-16 h-16 bg-gray-700 rounded-md flex items-center justify-center"
+        style={{
+          transform: transform
+            ? `translate(${transform.x}px, ${transform.y}px)`
+            : "none",
+          opacity: isDragging ? 0.5 : 1,
+        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <img
           src={hero.image}
           alt={hero.name}
-          fill
-          className="object-cover object-top rounded"
+          className="w-16 h-16 object-cover rounded-md object-top"
         />
       </div>
 
-      {/* Hover panel */}
-      {!isDragging && (
-        <div className="absolute z-50 hidden group-hover:block left-20 top-0 w-64 bg-gray-900/95 text-white rounded-md shadow-lg p-3">
+      {hovered && !isDragging && (
+        <div
+          className="fixed z-50 w-64 bg-black/80 text-white rounded-xl shadow-lg p-4 pointer-events-none"
+          style={{ top: panelPos.top, left: panelPos.left }}
+        >
           <div className="flex items-center gap-2 mb-2">
             <Image
               src={hero.skill.icon}
@@ -73,6 +97,6 @@ export function DraggableHero({ id, hero, source, index }: DraggableHeroProps) {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

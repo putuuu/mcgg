@@ -2,7 +2,7 @@ export interface Equipment {
   id: number;
   name: string;
   icon: string;
-  category: "Physical" | "Magic" | "Defense" | "Support" | string;
+  category: string;
   special?: string; // seperti "Tank Killer"
   attribute: string[]; // bonus stats
   passive?: string; // nama efek pasif
