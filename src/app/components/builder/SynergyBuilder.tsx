@@ -208,11 +208,7 @@ export default function SynergyBuilder() {
               </h2>
               <div className="grid grid-cols-8 gap-2">
                 {filteredEquipments.map((eq) => (
-                  <DraggableEquipment
-                    key={eq.id}
-                    id={`eq-${eq.id}`}
-                    equipment={eq}
-                  />
+                  <DraggableEquipment key={eq.id} equipment={eq} />
                 ))}
               </div>
             </div>
