@@ -33,7 +33,7 @@ export function DraggableEquipment({ equipment }: DraggableEquipmentProps) {
   const handleMouseEnter = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     let left = rect.right + 8;
-    let top = rect.top;
+    const top = rect.top;
 
     if (left + 260 > window.innerWidth) {
       left = rect.left - 260 - 8;
