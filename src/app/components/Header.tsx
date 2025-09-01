@@ -24,14 +24,14 @@ export default function Header() {
         </Link>
 
         <ul className="flex gap-6 font-medium items-center">
-          <li>
+          {/* <li>
             <Link
               href="/patches"
               className="hover:text-yellow-400 transition-colors"
             >
               New Update
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               href="/guide"

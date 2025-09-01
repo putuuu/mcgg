@@ -17,6 +17,11 @@ export default function GogoCardPage() {
       .includes(searchQuery.toLowerCase());
     return matchFilter && matchSearch;
   });
+  const categoryBorderColor: Record<string, string> = {
+    Orange: "border-orange-400",
+    Purple: "border-purple-500",
+    Blue: "border-blue-400",
+  };
 
   return (
     <main className="p-8 min-h-screen ">
@@ -64,24 +69,28 @@ export default function GogoCardPage() {
 
       {/* Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-        {filteredCards.map((card) => (
-          <div
-            key={card.id}
-            className={`gogo-card rounded-2xl p-4 text-center text-white shadow-lg flex flex-col gap-2 
-             bg-black/50  backdrop-blur-md border border-white/10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${card.category.toLowerCase()}`}
-          >
-            <Image
-              src={card.image}
-              alt={card.name}
-              width={120}
-              height={120}
-              loading="lazy"
-              className="mx-auto mb-2 rounded-lg"
-            />
-            <h3 className="font-semibold text-white mb-1">{card.name}</h3>
-            <p className="text-sm text-gray-300">{card.description}</p>
-          </div>
-        ))}
+        {filteredCards.map((card) => {
+          const borderColorClass =
+            categoryBorderColor[card.category] || "border-white/10";
+          return (
+            <div
+              key={card.id}
+              className={`gogo-card rounded-2xl p-4 text-center text-white shadow-lg flex flex-col gap-2 
+         bg-black/50 backdrop-blur-md border ${borderColorClass} hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
+            >
+              <Image
+                src={card.image}
+                alt={card.name}
+                width={120}
+                height={120}
+                loading="lazy"
+                className="mx-auto mb-2 rounded-lg"
+              />
+              <h3 className="font-semibold text-white mb-1">{card.name}</h3>
+              <p className="text-sm text-gray-300">{card.description}</p>
+            </div>
+          );
+        })}
       </div>
 
       {/* Empty state */}

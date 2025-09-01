@@ -4,11 +4,25 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const features = [
+  // {
+  //   title: "New Patch",
+  //   href: "/patches",
+  //   description: "Learn buff and nerf to .",
+  //   icon: "/icons/commander.png",
+  // },
+
   {
-    title: "New Patch",
-    href: "/patches",
-    description: "Learn buff and nerf to .",
-    icon: "/icons/commander.png",
+    title: "Guide",
+    href: "/guide",
+    description:
+      "Learn tips, tricks, and meta insights to improve your gameplay.",
+    icon: "/icons/guide.png",
+  },
+  {
+    title: "Synergy Builder",
+    href: "/builder",
+    description: "Build your best lineup to destroy your enemy.",
+    icon: "/icons/guide.png",
   },
   {
     title: "Commander",
@@ -33,13 +47,6 @@ const features = [
     href: "/gogo-card",
     description: "Equip game-changing Gogo Cards to gain the upper hand.",
     icon: "/icons/gogo.png",
-  },
-  {
-    title: "Guide",
-    href: "/guide",
-    description:
-      "Learn tips, tricks, and meta insights to improve your gameplay.",
-    icon: "/icons/guide.png",
   },
 ];
 
