@@ -73,7 +73,7 @@ export default function GuidePage() {
             to reach 6 Starwing from only 5 base heroes. Using Commander{" "}
             <span className="text-yellow-300 font-semibold">Fanny</span> is
             highly recommended for extra capacity at level 9, enabling 10
-            synergies.
+            capacity.
           </p>
         </div>
 
