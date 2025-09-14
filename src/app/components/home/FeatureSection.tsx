@@ -1,16 +1,8 @@
 "use client";
-
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const features = [
-  // {
-  //   title: "New Patch",
-  //   href: "/patches",
-  //   description: "Learn buff and nerf to .",
-  //   icon: "/icons/commander.png",
-  // },
-
   {
     title: "Guide",
     href: "/guide",
@@ -52,21 +44,19 @@ const features = [
 
 export default function FeatureSection() {
   return (
-    <section className="py-16 px-4">
-      {/* Quote */}
+    <section className="py-20 px-4 bg-black/20 backdrop-blur-sm">
       <motion.h2
-        className="text-center text-2xl md:text-3xl font-semibold mb-12 text-gray-800 dark:text-gray-100"
+        className="text-center text-3xl md:text-4xl font-bold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        “Explore MCGG features. Master your journey.”
+        Explore MCGG Features
       </motion.h2>
 
-      {/* Grid */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
         initial="hidden"
         whileInView="visible"
         variants={{
@@ -85,24 +75,20 @@ export default function FeatureSection() {
           >
             <Link href={feature.href} className="block h-full">
               <motion.div
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col items-center text-center h-full transition"
-                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-6 h-full transition-all hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20"
+                whileHover={{ scale: 1.03, y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                {/* Icon
-                <Image
-                  src={feature.icon}
-                  alt={feature.title}
-                  width={64}
-                  height={64}
-                  className="mb-4"
-                /> */}
-                {/* Title */}
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+                <div className="w-16 h-16 mx-auto mb-4 bg-cyan-900/30 rounded-full flex items-center justify-center">
+                  {/* Ikon placeholder */}
+                  <div className="w-8 h-8 bg-cyan-500 rounded-full"></div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-3 text-cyan-300 text-center">
                   {feature.title}
                 </h3>
-                {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300">
+
+                <p className="text-gray-300 text-center">
                   {feature.description}
                 </p>
               </motion.div>

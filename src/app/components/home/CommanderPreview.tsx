@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { commanders } from "../../data/commanders";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,18 +20,17 @@ export default function CommanderCarousel() {
   const current = commanders[index];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-20 px-4">
       <motion.h2
-        className="text-center text-2xl md:text-3xl font-semibold mb-12 text-gray-100"
+        className="text-center text-3xl md:text-4xl font-bold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        “Discover the power behind every Commander.”
+        Discover the Power Behind Every Commander
       </motion.h2>
 
-      {/* Carousel Card */}
       <div className="relative w-full max-w-4xl mx-auto">
         <AnimatePresence mode="wait">
           <motion.div
@@ -41,47 +39,40 @@ export default function CommanderCarousel() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.6 }}
-            className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center md:items-start gap-6 shadow-xl"
+            className="bg-gradient-to-br from-gray-900/60 to-black/70 backdrop-blur-lg border border-purple-500/30 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center md:items-start gap-8 shadow-xl"
           >
+            {/* Efek cahaya */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-2xl blur-sm opacity-50"></div>
+
             {/* Commander Image */}
-            <div className="relative w-40 h-40 md:w-48 md:h-72 flex-shrink-0">
+            <div className="relative w-48 h-64 flex-shrink-0 z-10">
+              <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-cyan-500/20 rounded-xl blur-md"></div>
               <Image
                 src={current.image}
                 alt={current.name}
                 fill
-                className="object-fill rounded-xl"
+                className="object-fill rounded-xl relative z-10"
               />
             </div>
 
             {/* Commander Info */}
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 text-center md:text-left z-10">
               <Link href={`/commander/${current.slug}`}>
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-3xl font-bold text-white mb-3 hover:text-cyan-300 transition-colors">
                   {current.name}
                 </h3>
               </Link>
-              <p className="text-indigo-300 font-semibold mb-3">
+
+              <p className="text-purple-400 font-semibold mb-4 text-lg">
                 {current.type}
               </p>
-              <p className="text-gray-200 leading-relaxed">
+
+              <p className="text-gray-300 leading-relaxed text-lg">
                 {current.sdescription}
               </p>
             </div>
           </motion.div>
         </AnimatePresence>
-
-        {/* Navigation Dots */}
-        {/* <div className="flex justify-center mt-4 gap-2">
-          {commanders.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full transition ${
-                i === index ? "bg-indigo-500" : "bg-gray-400/50"
-              }`}
-            />
-          ))}
-        </div> */}
       </div>
     </section>
   );
