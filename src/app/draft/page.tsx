@@ -82,22 +82,18 @@ export default function DraftPage() {
       return;
     }
 
-    if (limit === 1) {
-      setDraft((prev) => ({ ...prev, temp: [id] }));
-      return;
-    }
+    if (limit === 1) return setDraft((prev) => ({ ...prev, temp: [id] }));
 
     if (limit === 2) {
-      if (draft.temp.length === 0) {
-        setDraft((prev) => ({ ...prev, temp: [id] }));
-        return;
-      }
-      if (draft.temp.length === 1) {
-        setDraft((prev) => ({ ...prev, temp: [...prev.temp, id] }));
-        return;
-      }
-      // replace last
-      setDraft((prev) => ({ ...prev, temp: [prev.temp[0], id] }));
+      if (draft.temp.length === 0)
+        return setDraft((prev) => ({ ...prev, temp: [id] }));
+      if (draft.temp.length === 1)
+        return setDraft((prev) => ({ ...prev, temp: [...prev.temp, id] }));
+
+      return setDraft((prev) => ({
+        ...prev,
+        temp: [prev.temp[0], id],
+      }));
     }
   };
 
@@ -118,12 +114,8 @@ export default function DraftPage() {
       }
 
       next.temp = [];
-
-      if (prev.step + 1 >= steps.length) {
-        setFinished(true);
-      } else {
-        next.step = prev.step + 1;
-      }
+      if (prev.step + 1 >= steps.length) setFinished(true);
+      else next.step = prev.step + 1;
 
       return next;
     });
@@ -134,25 +126,20 @@ export default function DraftPage() {
   const autoFillPartial = () => {
     const pool = getPool();
     const need = tempRequired - draft.temp.length;
-
     const random = pool
       .sort(() => Math.random() - 0.5)
       .slice(0, need)
       .map((c) => c.id);
-
     const final = [...draft.temp, ...random];
 
     setDraft((prev) => {
       const next = structuredClone(prev);
       const step = steps[prev.step];
 
-      // FINAL INSERT langsung ke picks
       if (step.team === "HOME") next.home.picks.push(...final);
       else next.away.picks.push(...final);
 
       next.temp = [];
-
-      // lanjut step / selesai draft
       if (prev.step + 1 >= steps.length) setFinished(true);
       else next.step = prev.step + 1;
 
@@ -170,7 +157,6 @@ export default function DraftPage() {
     setDraft((prev) => {
       const next = structuredClone(prev);
       const step = steps[prev.step];
-
       if (step.team === "HOME") next.home.picks.push(...random);
       else next.away.picks.push(...random);
 
@@ -188,14 +174,10 @@ export default function DraftPage() {
       const next = structuredClone(prev);
       if (step.team === "HOME") next.home.bans.push(null);
       else next.away.bans.push(null);
+
       next.temp = [];
-
-      if (prev.step + 1 >= steps.length) {
-        setFinished(true);
-      } else {
-        next.step = prev.step + 1;
-      }
-
+      if (prev.step + 1 >= steps.length) setFinished(true);
+      else next.step = prev.step + 1;
       return next;
     });
   };
@@ -216,11 +198,12 @@ export default function DraftPage() {
     if (timer > 0) return;
 
     const step = steps[draft.step];
-
     if (draft.temp.length === step.count) return confirm();
     if (draft.temp.length > 0) return autoFillPartial();
     if (step.action === "BAN") return autoSkipBan();
     return autoPickRandom();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer]);
 
   /* ===== UI ===== */
@@ -277,7 +260,12 @@ export default function DraftPage() {
 
 /* ===== COMPONENTS ===== */
 
-function Status({ step, timer, finished }: any) {
+interface StatusProps {
+  step: number;
+  timer: number;
+  finished: boolean;
+}
+function Status({ step, timer, finished }: StatusProps) {
   return (
     <div className="flex flex-col items-center gap-1">
       <span className="text-sm uppercase tracking-[0.3em] text-slate-400">
@@ -297,7 +285,12 @@ function Status({ step, timer, finished }: any) {
   );
 }
 
-function BanBar({ title, ids, reverse }: any) {
+interface BanBarProps {
+  title: string;
+  ids: (number | null)[];
+  reverse?: boolean;
+}
+function BanBar({ title, ids, reverse }: BanBarProps) {
   return (
     <div
       className={`flex items-center gap-3 bg-white/5 rounded-full px-4 py-2 min-w-[260px] ${
@@ -333,7 +326,10 @@ function BanBar({ title, ids, reverse }: any) {
   );
 }
 
-function SidePanel({ ids }: any) {
+interface SidePanelProps {
+  ids: number[];
+}
+function SidePanel({ ids }: SidePanelProps) {
   return (
     <div className="w-40 bg-[#05070d] rounded-3xl border border-white/5 flex flex-col items-center py-4 gap-3">
       <Slot id={ids[0]} big />
@@ -344,7 +340,11 @@ function SidePanel({ ids }: any) {
   );
 }
 
-function Slot({ id, big }: any) {
+interface SlotProps {
+  id?: number | null;
+  big?: boolean;
+}
+function Slot({ id, big }: SlotProps) {
   const cls = big ? "w-16 h-16" : "w-14 h-14";
   const src = id ? findImage(id) || findIcon(id) : "";
   return (
@@ -362,7 +362,11 @@ function Slot({ id, big }: any) {
   );
 }
 
-function CommanderPool({ draft, onSelect }: any) {
+interface CommanderPoolProps {
+  draft: DraftState;
+  onSelect: (id: number) => void;
+}
+function CommanderPool({ draft, onSelect }: CommanderPoolProps) {
   const used = new Set([
     ...(draft.home.bans.filter(Boolean) as number[]),
     ...(draft.away.bans.filter(Boolean) as number[]),
@@ -421,7 +425,10 @@ function CommanderPool({ draft, onSelect }: any) {
   );
 }
 
-function TempSlot({ id }: any) {
+interface TempSlotProps {
+  id?: number | null;
+}
+function TempSlot({ id }: TempSlotProps) {
   const src = id ? findIcon(id) : "";
   return (
     <div className="w-12 h-12 rounded-full border-dashed border border-slate-500 overflow-hidden flex items-center justify-center">
