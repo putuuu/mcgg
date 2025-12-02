@@ -55,7 +55,7 @@ export default function DraftScreen({
   const isBroadcast = broadcast && !isDrafter;
 
   // hero yang sedang di-shadow / terakhir dipick (untuk viewer/broadcast)
-  const showcaseIds: number[] = useMemo(() => {
+  const showcaseIds = useMemo<(number | null)[]>(() => {
     if (!started || selesai || current.action !== "PICK") return [];
     if (draft.temp.length > 0) return draft.temp.slice(0, current.count);
 
