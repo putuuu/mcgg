@@ -58,7 +58,7 @@ function pickRandomIds(pool: number[], count: number): number[] {
 export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
   const [deviceId, setDeviceId] = useState<string | null>(null);
   const [draft, setDraft] = useState<DraftState>(EMPTY_DRAFT);
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(45);
   const [started, setStarted] = useState(false);
   const [selesai, setSelesai] = useState(false);
   const [roles, setRoles] = useState<DraftRoles>({

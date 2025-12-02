@@ -178,7 +178,7 @@ export default function DraftScreen({
           {/* RIGHT PICK COLUMN */}
           <PickColumn
             label={teamAwayLabel}
-            ids={draft.picks.home.filter((x): x is number => x !== null)}
+            ids={draft.picks.away.filter((x): x is number => x !== null)}
             active={
               isAwayTurn && current.action === "PICK" && started && !selesai
             }
