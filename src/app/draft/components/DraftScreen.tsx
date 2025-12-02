@@ -134,7 +134,7 @@ export default function DraftScreen({
           {/* LEFT PICK COLUMN */}
           <PickColumn
             label={teamHomeLabel}
-            ids={draft.picks.home}
+            ids={draft.picks.home.filter((x): x is number => x !== null)}
             active={
               isHomeTurn && current.action === "PICK" && started && !selesai
             }
@@ -178,7 +178,7 @@ export default function DraftScreen({
           {/* RIGHT PICK COLUMN */}
           <PickColumn
             label={teamAwayLabel}
-            ids={draft.picks.away}
+            ids={draft.picks.home.filter((x): x is number => x !== null)}
             active={
               isAwayTurn && current.action === "PICK" && started && !selesai
             }
