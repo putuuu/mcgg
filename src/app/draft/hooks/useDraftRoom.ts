@@ -7,8 +7,6 @@ import { commanders } from "../../data/commanders";
 import { draftSteps } from "../../data/test/draftSteps";
 import type { DraftTeam } from "../../data/test/draftSteps";
 
-/* ================== TYPES ================== */
-
 export interface DraftSlots {
   home: (number | null)[];
   away: (number | null)[];
@@ -44,7 +42,6 @@ const EMPTY_DRAFT: DraftState = {
 
 type InitialRole = "host" | "home" | "away" | "spec";
 
-/* ========== RNG tanpa duplikat (lebih stabil dari sort random) ========== */
 function pickRandomIds(pool: number[], count: number): number[] {
   const src = [...pool];
   const result: number[] = [];
@@ -56,8 +53,6 @@ function pickRandomIds(pool: number[], count: number): number[] {
   }
   return result;
 }
-
-/* ================== MAIN HOOK ================== */
 
 export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
   const [deviceId, setDeviceId] = useState<string | null>(null);
@@ -74,7 +69,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
 
   const [lastAutoStep, setLastAutoStep] = useState<number | null>(null);
 
-  /* DEVICE ID */
   useEffect(() => {
     if (typeof window === "undefined") return;
     let id = window.localStorage.getItem("mcgg-device-id");
@@ -85,12 +79,12 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     setDeviceId(id);
   }, []);
 
-  /* SUBSCRIBE RTDB */
   useEffect(() => {
     const roomRef = ref(rtdb, `draftRooms/${roomId}`);
     const unsub = onValue(roomRef, (snap) => {
       const data = snap.val() as DraftRoom | null;
       if (!data) return;
+
       setRoles(data.roles);
       setStarted(data.started);
       setSelesai(data.selesai);
@@ -109,11 +103,9 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
         },
       });
     });
-
     return () => unsub();
   }, [roomId]);
 
-  /* TEAM & TURN */
   const myTeam: DraftTeam | null = useMemo(() => {
     if (!deviceId) return null;
     if (roles.home === deviceId) return "HOME";
@@ -126,7 +118,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
   const isMyTurn = started && !selesai && myTeam === current.team;
   const canStartDraft = !!roles.home && !!roles.away;
 
-  /* SYNC SAFE */
   const sync = useCallback(
     (patch: Partial<DraftRoom>) => {
       if (!isHost && !isMyTurn) return;
@@ -138,20 +129,15 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     [isHost, isMyTurn, roomId]
   );
 
-  /* SELECT SHADOW */
   const selectCommander = (id: number) => {
     if (!isMyTurn || !started || selesai) return;
 
-    const usedIds = useMemo(
-      () =>
-        new Set<number>([
-          ...draft.bans.home.filter((x): x is number => x !== null),
-          ...draft.bans.away.filter((x): x is number => x !== null),
-          ...draft.picks.home,
-          ...draft.picks.away,
-        ]),
-      [draft]
-    );
+    const used = new Set<number>([
+      ...draft.bans.home.filter((x): x is number => x !== null),
+      ...draft.bans.away.filter((x): x is number => x !== null),
+      ...draft.picks.home,
+      ...draft.picks.away,
+    ]);
 
     if (used.has(id)) return;
 
@@ -172,7 +158,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     update(ref(rtdb, `draftRooms/${roomId}/draft`), { temp: nextTemp });
   };
 
-  /* CONFIRM MANUAL */
   const confirmStep = () => {
     if (!isMyTurn || !started || selesai) return;
     if (draft.temp.length !== current.count) return;
@@ -211,7 +196,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     });
   };
 
-  /* START BY HOST */
   const startDraft = () => {
     if (!isHost || !roles.home || !roles.away) return;
 
@@ -234,7 +218,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     });
   };
 
-  /* TIMER HOST */
   useEffect(() => {
     if (!isHost || !started || selesai) return;
 
@@ -250,7 +233,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     return () => clearInterval(interval);
   }, [isHost, started, selesai, sync]);
 
-  /* AUTO-ACTION */
   useEffect(() => {
     if (!isHost || !started || selesai) return;
     if (timer !== 0) return;
@@ -272,34 +254,27 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
       .filter((c) => !used.has(c.id) && !draft.temp.includes(c.id))
       .map((c) => c.id);
 
-    /* ========== BAN TIMEOUT: SELALU EMPTY (null) ========== */
     if (stepCfg.action === "BAN") {
       if (stepCfg.team === "HOME") nextDraft.bans.home.push(null);
       else nextDraft.bans.away.push(null);
     } else {
-      /* ========== PICK TIMEOUT ========== */
       if (draft.temp.length === limit) {
-        // full shadow
         if (stepCfg.team === "HOME") nextDraft.picks.home.push(...draft.temp);
         else nextDraft.picks.away.push(...draft.temp);
       } else if (draft.temp.length > 0) {
-        // partial shadow → shadow + random
         let result = draft.temp.slice(0, limit);
         const need = limit - result.length;
         const rand = pickRandomIds(availableIds, need);
         result = [...result, ...rand].slice(0, limit);
-
         if (stepCfg.team === "HOME") nextDraft.picks.home.push(...result);
         else nextDraft.picks.away.push(...result);
       } else {
-        // full random
         const rand = pickRandomIds(availableIds, limit);
         if (stepCfg.team === "HOME") nextDraft.picks.home.push(...rand);
         else nextDraft.picks.away.push(...rand);
       }
     }
 
-    /* STEP FORWARD */
     nextDraft.temp = [];
     const nextStepIdx = draft.step + 1;
     nextDraft.step = Math.min(nextStepIdx, draftSteps.length - 1);
@@ -321,7 +296,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     });
   }, [timer, isHost, started, selesai, draft, current, lastAutoStep, sync]);
 
-  /* CLAIM ROLES */
   const claimHost = useCallback(async () => {
     if (!deviceId) return;
     const roleRef = ref(rtdb, `draftRooms/${roomId}/roles`);
@@ -344,7 +318,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     [deviceId, roomId]
   );
 
-  /* AUTO-CLAIM dari ?role */
   useEffect(() => {
     if (!deviceId) return;
     if (!initialRole || initialRole === "spec") return;
@@ -362,7 +335,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     })();
   }, [deviceId, initialRole, roles, claimHost, claimTeam]);
 
-  /* RETURN */
   return {
     draft,
     timer,
