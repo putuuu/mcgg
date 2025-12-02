@@ -56,7 +56,6 @@ function pickRandomIds(pool: number[], count: number): number[] {
 
 export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
   const [deviceId, setDeviceId] = useState<string | null>(null);
-
   const [draft, setDraft] = useState<DraftState>(EMPTY_DRAFT);
   const [timer, setTimer] = useState(10);
   const [started, setStarted] = useState(false);
@@ -66,9 +65,9 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     home: null,
     away: null,
   });
-
   const [lastAutoStep, setLastAutoStep] = useState<number | null>(null);
 
+  /* DEVICE ID */
   useEffect(() => {
     if (typeof window === "undefined") return;
     let id = window.localStorage.getItem("mcgg-device-id");
@@ -79,6 +78,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     setDeviceId(id);
   }, []);
 
+  /* SUBSCRIBE REALTIME DB */
   useEffect(() => {
     const roomRef = ref(rtdb, `draftRooms/${roomId}`);
     const unsub = onValue(roomRef, (snap) => {
@@ -103,9 +103,11 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
         },
       });
     });
+
     return () => unsub();
   }, [roomId]);
 
+  /* TEAM & TURN */
   const myTeam: DraftTeam | null = useMemo(() => {
     if (!deviceId) return null;
     if (roles.home === deviceId) return "HOME";
@@ -118,6 +120,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
   const isMyTurn = started && !selesai && myTeam === current.team;
   const canStartDraft = !!roles.home && !!roles.away;
 
+  /* SAFE SYNC */
   const sync = useCallback(
     (patch: Partial<DraftRoom>) => {
       if (!isHost && !isMyTurn) return;
@@ -129,6 +132,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     [isHost, isMyTurn, roomId]
   );
 
+  /* COMMANDER SELECT */
   const selectCommander = (id: number) => {
     if (!isMyTurn || !started || selesai) return;
 
@@ -138,7 +142,6 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
       ...draft.picks.home,
       ...draft.picks.away,
     ]);
-
     if (used.has(id)) return;
 
     const limit = current.count;
@@ -158,6 +161,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     update(ref(rtdb, `draftRooms/${roomId}/draft`), { temp: nextTemp });
   };
 
+  /* CONFIRM STEP */
   const confirmStep = () => {
     if (!isMyTurn || !started || selesai) return;
     if (draft.temp.length !== current.count) return;
@@ -196,6 +200,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     });
   };
 
+  /* START DRAFT */
   const startDraft = () => {
     if (!isHost || !roles.home || !roles.away) return;
 
@@ -218,6 +223,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     });
   };
 
+  /* TIMER TICK (HOST ONLY) */
   useEffect(() => {
     if (!isHost || !started || selesai) return;
 
@@ -233,6 +239,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     return () => clearInterval(interval);
   }, [isHost, started, selesai, sync]);
 
+  /* AUTO ACTION WHEN TIMEOUT */
   useEffect(() => {
     if (!isHost || !started || selesai) return;
     if (timer !== 0) return;
@@ -254,6 +261,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
       .filter((c) => !used.has(c.id) && !draft.temp.includes(c.id))
       .map((c) => c.id);
 
+    /* IF TIMEOUT */
     if (stepCfg.action === "BAN") {
       if (stepCfg.team === "HOME") nextDraft.bans.home.push(null);
       else nextDraft.bans.away.push(null);
@@ -296,6 +304,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     });
   }, [timer, isHost, started, selesai, draft, current, lastAutoStep, sync]);
 
+  /* CLAIM ROLES */
   const claimHost = useCallback(async () => {
     if (!deviceId) return;
     const roleRef = ref(rtdb, `draftRooms/${roomId}/roles`);
@@ -309,7 +318,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     async (team: DraftTeam) => {
       if (!deviceId) return;
       const key = team === "HOME" ? "home" : "away";
-      const roleRef = ref(rtdb, `draftRooms/${roomId}/roles`);
+      const roleRef = ref(rtddb, `draftRooms/${roomId}/roles`);
       const snap = await get(roleRef);
       const data = snap.val() as DraftRoles | null;
       if (data?.[key] && data[key] !== deviceId) return;
@@ -318,6 +327,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     [deviceId, roomId]
   );
 
+  /* AUTO CLAIM FROM ?role QUERY */
   useEffect(() => {
     if (!deviceId) return;
     if (!initialRole || initialRole === "spec") return;
