@@ -158,15 +158,15 @@ export default function DraftScreen({
             ) : showFinal ? (
               // HOST / SPECTATOR / BROADCAST: selesai → final lineup (VS)
               <FinalLineup
-                home={draft.picks.home}
-                away={draft.picks.away}
+                home={draft.picks.home.filter((x): x is number => x !== null)}
+                away={draft.picks.away.filter((x): x is number => x !== null)}
                 homeLabel={teamHomeLabel}
                 awayLabel={teamAwayLabel}
               />
             ) : started && isPickPhase && showcaseIds.length > 0 ? (
               // HOST / SPECTATOR / BROADCAST: pick phase → display pick 3:4 kecil
               <ShowcasePanelSmall
-                ids={showcaseIds}
+                ids={showcaseIds.filter((x): x is number => x !== null)}
                 team={current.team}
                 label={current.team === "HOME" ? teamHomeLabel : teamAwayLabel}
               />
