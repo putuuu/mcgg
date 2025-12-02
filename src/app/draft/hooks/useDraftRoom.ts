@@ -6,6 +6,7 @@ import { rtdb } from "../../../lib/firebase";
 import { commanders } from "../../data/commanders";
 import { draftSteps } from "../../data/test/draftSteps";
 import type { DraftTeam } from "../../data/test/draftSteps";
+import { usedFromDraft } from "@/utils/filterNums";
 
 export interface DraftSlots {
   home: (number | null)[];
@@ -136,12 +137,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
   const selectCommander = (id: number) => {
     if (!isMyTurn || !started || selesai) return;
 
-    const used = new Set<number>([
-      ...draft.bans.home.filter((x): x is number => x !== null),
-      ...draft.bans.away.filter((x): x is number => x !== null),
-      ...draft.picks.home,
-      ...draft.picks.away,
-    ]);
+    const used = usedFromDraft(draft);
     if (used.has(id)) return;
 
     const limit = current.count;
