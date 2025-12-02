@@ -246,12 +246,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     const limit = stepCfg.count;
     const nextDraft = structuredClone(draft);
 
-    const used = new Set<number>([
-      ...draft.bans.home.filter((x): x is number => x !== null),
-      ...draft.bans.away.filter((x): x is number => x !== null),
-      ...draft.picks.home,
-      ...draft.picks.away,
-    ]);
+    const used = usedFromDraft(draft);
 
     const availableIds = commanders
       .filter((c) => !used.has(c.id) && !draft.temp.includes(c.id))
@@ -314,7 +309,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     async (team: DraftTeam) => {
       if (!deviceId) return;
       const key = team === "HOME" ? "home" : "away";
-      const roleRef = ref(rtddb, `draftRooms/${roomId}/roles`);
+      const roleRef = ref(rtdb, `draftRooms/${roomId}/roles`);
       const snap = await get(roleRef);
       const data = snap.val() as DraftRoles | null;
       if (data?.[key] && data[key] !== deviceId) return;
