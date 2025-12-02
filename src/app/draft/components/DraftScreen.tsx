@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useMemo } from "react";
+import { usedFromDraft } from "../../../utils/filterNums";
 import CommanderPool from "./CommanderPool";
 import OrientationGuard from "./OrientationGuard";
 import { useDraftRoom } from "../hooks/useDraftRoom";
@@ -39,16 +40,7 @@ export default function DraftScreen({
     startDraft,
   } = useDraftRoom(roomId, initialRole);
 
-  const usedIds = useMemo(
-    () =>
-      new Set<number>([
-        ...draft.bans.home.filter((x): x is number => x !== null),
-        ...draft.bans.away.filter((x): x is number => x !== null),
-        ...draft.picks.home,
-        ...draft.picks.away,
-      ]),
-    [draft]
-  );
+  const usedIds = usedFromDraft(draft);
 
   const teamHomeLabel = homeName?.trim() || "HOME";
   const teamAwayLabel = awayName?.trim() || "AWAY";
