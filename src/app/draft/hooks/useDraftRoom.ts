@@ -130,7 +130,10 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
   const sync = useCallback(
     (patch: Partial<DraftRoom>) => {
       if (!isHost && !isMyTurn) return;
-      update(ref(rtdb, `draftRooms/${roomId}`), patch as any);
+      update(
+        ref(rtdb, `draftRooms/${roomId}`),
+        patch as Record<string, unknown>
+      );
     },
     [isHost, isMyTurn, roomId]
   );
