@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { commanders } from "../../../data/commanders";
+import { commanders } from "../../../data/test/commanders";
 
 interface CommanderPoolProps {
   usedIds?: Set<number>;

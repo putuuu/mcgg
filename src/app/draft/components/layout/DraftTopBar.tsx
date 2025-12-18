@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { commanders } from "../../../data/commanders";
+import { commanders } from "../../../data/test/commanders";
 
 interface DraftTopBarProps {
   homeLabel: string;
