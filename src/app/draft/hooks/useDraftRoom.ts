@@ -180,7 +180,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     nextDraft.temp = [];
 
     setDraft(nextDraft);
-    setTimer(10);
+    setTimer(45);
     setLastAutoStep(null);
 
     sync({
@@ -190,7 +190,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
         bans: nextDraft.bans,
         picks: nextDraft.picks,
       },
-      timer: 10,
+      timer: 45,
       started: true,
       selesai: finish,
     });
@@ -201,7 +201,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     if (!isHost || !roles.home || !roles.away) return;
 
     setDraft(EMPTY_DRAFT);
-    setTimer(10);
+    setTimer(45);
     setSelesai(false);
     setStarted(true);
     setLastAutoStep(null);
@@ -213,7 +213,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
         bans: { home: [], away: [] },
         picks: { home: [], away: [] },
       },
-      timer: 10,
+      timer: 45,
       started: true,
       selesai: false,
     });
@@ -280,7 +280,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
     const finish = nextStepIdx >= draftSteps.length;
 
     setDraft(nextDraft);
-    setTimer(10);
+    setTimer(45);
 
     sync({
       draft: {
@@ -289,7 +289,7 @@ export function useDraftRoom(roomId: string, initialRole?: InitialRole) {
         bans: nextDraft.bans,
         picks: nextDraft.picks,
       },
-      timer: 10,
+      timer: 45,
       started: true,
       selesai: finish,
     });
