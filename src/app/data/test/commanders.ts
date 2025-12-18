@@ -23,7 +23,7 @@ export const commanders: Commander[] = [
     id: 1,
     name: "Lancelot",
     slug: "lancelot",
-    type: "Economy",
+    type: "Resource",
     icon: "/images/commander/Texture2D/Hero45057.png",
     image: "/images/commander/Texture2D/Hero45057.png",
     description:
@@ -52,7 +52,7 @@ export const commanders: Commander[] = [
     id: 2,
     name: "Harley",
     slug: "harley",
-    type: "High Roll",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero45125.png",
     image: "/images/commander/Texture2D/Hero45125.png",
     description:
@@ -81,7 +81,7 @@ export const commanders: Commander[] = [
     id: 3,
     name: "Popol and Kupa",
     slug: "popol-and-kupa",
-    type: "Utility",
+    type: "Resource",
     icon: "/images/commander/Texture2D/Hero45148.png",
     image: "/images/commander/Texture2D/Hero45148.png",
     description:
@@ -110,7 +110,7 @@ export const commanders: Commander[] = [
     id: 4,
     name: "Yu Zhong",
     slug: "yu-zhong",
-    type: "Treasure",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero45151.png",
     image: "/images/commander/Texture2D/Hero45151.png",
     description:
@@ -139,7 +139,7 @@ export const commanders: Commander[] = [
     id: 5,
     name: "Minotaur",
     slug: "minotaur",
-    type: "Equipment",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero45191.png",
     image: "/images/commander/Texture2D/Hero45191.png",
     description:
@@ -168,7 +168,7 @@ export const commanders: Commander[] = [
     id: 6,
     name: "Kagura",
     slug: "kagura",
-    type: "Support",
+    type: "Survival",
     icon: "/images/commander/Texture2D/Hero45206.png",
     image: "/images/commander/Texture2D/Hero45206.png",
     description:
@@ -196,7 +196,7 @@ export const commanders: Commander[] = [
     id: 7,
     name: "Johnson",
     slug: "johnson",
-    type: "Synergy",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero45216.png",
     image: "/images/commander/Texture2D/Hero45216.png",
     description:
@@ -225,7 +225,7 @@ export const commanders: Commander[] = [
     id: 8,
     name: "Lunox",
     slug: "lunox",
-    type: "Blessing",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero45226.png",
     image: "/images/commander/Texture2D/Hero45226.png",
     description:
@@ -254,7 +254,7 @@ export const commanders: Commander[] = [
     id: 9,
     name: "Lylia",
     slug: "lylia",
-    type: "High Cost",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero45236.png",
     image: "/images/commander/Texture2D/Hero45236.png",
     description:
@@ -283,7 +283,7 @@ export const commanders: Commander[] = [
     id: 10,
     name: "Aamon",
     slug: "aamon",
-    type: "Economy",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero45246.png",
     image: "/images/commander/Texture2D/Hero45246.png",
     description:
@@ -311,7 +311,7 @@ export const commanders: Commander[] = [
     id: 11,
     name: "Cyclops",
     slug: "cyclops",
-    type: "Comeback",
+    type: "Resource",
     icon: "/images/commander/Texture2D/Hero45261.png",
     image: "/images/commander/Texture2D/Hero45261.png",
     description:
@@ -340,7 +340,7 @@ export const commanders: Commander[] = [
     id: 12,
     name: "Zilong",
     slug: "zilong",
-    type: "Carry",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero46081.png",
     image: "/images/commander/Texture2D/Hero46081.png",
     description:
@@ -369,7 +369,7 @@ export const commanders: Commander[] = [
     id: 13,
     name: "Chou",
     slug: "chou",
-    type: "Economy",
+    type: "Resource",
     icon: "/images/commander/Texture2D/Hero47011.png",
     image: "/images/commander/Texture2D/Hero47011.png",
     description:
@@ -396,7 +396,7 @@ export const commanders: Commander[] = [
     id: 14,
     name: "Wanwan",
     slug: "wanwan",
-    type: "Carry",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero47021.png",
     image: "/images/commander/Texture2D/Hero47021.png",
     description:
@@ -452,7 +452,7 @@ export const commanders: Commander[] = [
     id: 16,
     name: "Ling",
     slug: "ling",
-    type: "Duelist",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero47041.png",
     image: "/images/commander/Texture2D/Hero47041.png",
     description:
@@ -481,7 +481,7 @@ export const commanders: Commander[] = [
     id: 17,
     name: "Layla",
     slug: "layla",
-    type: "Carry",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero47051.png",
     image: "/images/commander/Texture2D/Hero47051.png",
     description:
@@ -510,7 +510,7 @@ export const commanders: Commander[] = [
     id: 18,
     name: "Vale",
     slug: "vale",
-    type: "Shop Control",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero47061.png",
     image: "/images/commander/Texture2D/Hero47061.png",
     description:
@@ -539,7 +539,7 @@ export const commanders: Commander[] = [
     id: 19,
     name: "Fanny",
     slug: "fanny",
-    type: "Tempo",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero47081.png",
     image: "/images/commander/Texture2D/Hero47081.png",
     description:
@@ -568,7 +568,7 @@ export const commanders: Commander[] = [
     id: 20,
     name: "Angela",
     slug: "angela",
-    type: "Support",
+    type: "Survival",
     icon: "/images/commander/Texture2D/Hero47091.png",
     image: "/images/commander/Texture2D/Hero47091.png",
     description:
@@ -597,7 +597,7 @@ export const commanders: Commander[] = [
     id: 21,
     name: "Moskov",
     slug: "moskov",
-    type: "Damage",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero47111.png",
     image: "/images/commander/Texture2D/Hero47111.png",
     description:
@@ -626,7 +626,7 @@ export const commanders: Commander[] = [
     id: 22,
     name: "Guinevere",
     slug: "guinevere",
-    type: "Economy",
+    type: "Resource",
     icon: "/images/commander/Texture2D/Hero47121.png",
     image: "/images/commander/Texture2D/Hero47121.png",
     description:
@@ -654,7 +654,7 @@ export const commanders: Commander[] = [
     id: 23,
     name: "Lukas",
     slug: "lukas",
-    type: "Control",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero47131.png",
     image: "/images/commander/Texture2D/Hero47131.png",
     description:
@@ -683,7 +683,7 @@ export const commanders: Commander[] = [
     id: 24,
     name: "Miya",
     slug: "miya",
-    type: "Damage",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero47141.png",
     image: "/images/commander/Texture2D/Hero47141.png",
     description:
@@ -712,7 +712,7 @@ export const commanders: Commander[] = [
     id: 25,
     name: "Aurora",
     slug: "aurora",
-    type: "Economy",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero47151.png",
     image: "/images/commander/Texture2D/Hero47151.png",
     description:
@@ -741,7 +741,7 @@ export const commanders: Commander[] = [
     id: 26,
     name: "Karina",
     slug: "karina",
-    type: "Assassin",
+    type: "Combat",
     icon: "/images/commander/Texture2D/Hero47161.png",
     image: "/images/commander/Texture2D/Hero47161.png",
     description:
@@ -770,7 +770,7 @@ export const commanders: Commander[] = [
     id: 27,
     name: "Valir",
     slug: "valir",
-    type: "Mage",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero47171.png",
     image: "/images/commander/Texture2D/Hero47171.png",
     description:
@@ -799,7 +799,7 @@ export const commanders: Commander[] = [
     id: 28,
     name: "Dyrroth",
     slug: "dyrroth",
-    type: "Fighter",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero47181.png",
     image: "/images/commander/Texture2D/Hero47181.png",
     description:
@@ -828,7 +828,7 @@ export const commanders: Commander[] = [
     id: 29,
     name: "Paquito",
     slug: "paquito",
-    type: "Fighter",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero47191.png",
     image: "/images/commander/Texture2D/Hero47191.png",
     description:
@@ -857,7 +857,7 @@ export const commanders: Commander[] = [
     id: 30,
     name: "Gusion",
     slug: "gusion",
-    type: "Assassin",
+    type: "Strategy",
     icon: "/images/commander/Texture2D/Hero47201.png",
     image: "/images/commander/Texture2D/Hero47201.png",
     description:
