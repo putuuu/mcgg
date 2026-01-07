@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useDraggable } from "@dnd-kit/core";
 import Image from "next/image";
-import { Hero } from "../../data/s3/hero";
+import { Hero } from "../../data/s5/hero";
 
 interface DraggableHeroProps {
   id: string;
@@ -65,7 +65,7 @@ export function DraggableHero({ id, hero, source, index }: DraggableHeroProps) {
         </div>
       </div>
 
-      {hovered && !isDragging && (
+      {/* {hovered && !isDragging && (
         <div
           className="fixed z-50 w-64 bg-black/80 text-white rounded-xl shadow-lg p-4 pointer-events-none"
           style={{ top: panelPos.top, left: panelPos.left }}
@@ -99,7 +99,7 @@ export function DraggableHero({ id, hero, source, index }: DraggableHeroProps) {
             ))}
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 }

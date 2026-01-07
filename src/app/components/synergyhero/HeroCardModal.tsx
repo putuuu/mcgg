@@ -1,12 +1,29 @@
 "use client";
+
 import React, { useEffect, useRef, useCallback } from "react";
-import { Hero } from "../../data/s3/hero";
+import { Hero } from "../../data/s5/hero";
 import Image from "next/image";
 
 interface Props {
   hero: Hero;
   onClose: () => void;
 }
+
+const costColorMap: Record<number, string> = {
+  1: "text-white",
+  2: "text-green-400",
+  3: "text-blue-400",
+  4: "text-purple-400",
+  5: "text-yellow-400",
+};
+
+const costBorderMap: Record<number, string> = {
+  1: "border-white",
+  2: "border-green-500",
+  3: "border-blue-500",
+  4: "border-purple-500",
+  5: "border-yellow-400",
+};
 
 const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -26,64 +43,129 @@ const HeroCardModal: React.FC<Props> = ({ hero, onClose }) => {
   }, [handleClickOutside]);
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[1000] p-4">
+    <div className="fixed inset-0 z-[1000] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
       <div
         ref={modalRef}
-        className="relative bg-black/75 text-white rounded-xl max-w-[720px] w-full p-6 flex gap-8 shadow-2xl backdrop-blur-md 
-        max-sm:flex-col max-sm:items-center max-sm:text-center max-sm:gap-4"
+        className="relative bg-black/80 text-white rounded-xl
+                   max-w-[640px] w-full
+                   p-5 md:p-6
+                   shadow-2xl backdrop-blur-md
+                   flex gap-6
+                   max-sm:flex-col max-sm:items-center"
       >
-        {/* Close Button */}
+        {/* CLOSE */}
         <button
-          className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300"
           onClick={onClose}
+          className="absolute top-3 right-3 text-white/70 text-xl hover:text-white"
         >
           ×
         </button>
 
-        {/* Left: Hero Image */}
+        {/* LEFT – HERO IMAGE */}
         <div className="flex-shrink-0">
-          <Image
-            src={hero.image}
-            alt={hero.name}
-            width={220}
-            height={330}
-            className="rounded-md object-cover w-[220px] h-[330px] max-sm:w-[72px] max-sm:h-[72px] max-sm:object-top"
-          />
+          <div
+            className={`rounded-lg overflow-hidden border-2
+                        ${costBorderMap[hero.cost]}
+                        bg-black/40`}
+          >
+            <Image
+              src={hero.image}
+              alt={hero.name}
+              width={180}
+              height={260}
+              className="w-[180px] h-[260px] object-cover
+                         max-sm:w-[96px] max-sm:h-[96px]
+                         max-sm:object-top"
+            />
+          </div>
         </div>
 
-        {/* Right: Info */}
-        <div className="flex flex-col gap-4 flex-1 max-sm:w-full">
-          <h2 className="text-2xl font-bold mb-1 max-sm:text-xl">
-            {hero.name}
-          </h2>
-
-          {/* Stats */}
-          <div className="text-sm text-gray-300 max-sm:text-center">
-            <p>
-              <strong>Cost :</strong> {hero.cost}🟡
-            </p>
+        {/* RIGHT – INFO */}
+        <div className="flex flex-col gap-4 flex-1 max-sm:w-full max-sm:items-center max-sm:text-center">
+          {/* NAME & COST */}
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold leading-tight">
+              {hero.name}
+            </h2>
+            <div
+              className={`text-sm font-medium mt-1 ${costColorMap[hero.cost]}`}
+            >
+              Cost {hero.cost}
+            </div>
           </div>
 
-          {/* Skill */}
-          <div>
-            <h3 className="text-lg mb-2 text-yellow-400">Skill</h3>
-            <div className="flex items-start gap-4 max-sm:flex-col max-sm:items-center">
-              <Image
+          {/* SYNERGIES */}
+          <div className="text-sm text-gray-300">
+            <span className="opacity-70">Synergies:</span>{" "}
+            {hero.synergies.faction.join(", ")} •{" "}
+            {hero.synergies.roles.join(", ")}
+          </div>
+
+          {/* SKILL */}
+          <div className="pt-2 w-full">
+            <h3 className="text-sm uppercase tracking-wide text-yellow-400 mb-2">
+              Skill
+            </h3>
+
+            <div className="flex items-start gap-3 max-sm:flex-col max-sm:items-center">
+              {/* <Image
                 src={hero.skill.icon}
                 alt={hero.skill.name}
-                title={hero.skill.name}
-                width={64}
-                height={64}
-                className="rounded-md w-12 h-12"
-              />
-              <div>
-                <strong>{hero.skill.name}</strong>
-                <p className="text-sm text-gray-200 leading-relaxed max-sm:text-left">
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-md"
+              /> */}
+              <div className="max-sm:text-left">
+                <p className="font-medium">{hero.skill.name}</p>
+                <p className="text-sm text-gray-200 leading-relaxed">
                   {hero.skill.description}
                 </p>
               </div>
             </div>
           </div>
+
+          {/* RECOMMENDED EQUIPMENT */}
+          {/* {hero.recommendedEquipment &&
+            hero.recommendedEquipment.length > 0 && (
+              <div className="pt-2 w-full">
+                <h3 className="text-sm uppercase tracking-wide text-yellow-400 mb-2">
+                  Recommended Equipment
+                </h3>
+                <div className="flex flex-wrap gap-2 justify-start max-sm:justify-center">
+                  {hero.recommendedEquipment.map((item, index) => (
+                    <div
+                      key={index}
+                      className="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-sm"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )} */}
+
+          {/* ATTRIBUTES (OPTIONAL, COMPACT) */}
+          {hero.attributes && (
+            <div className="pt-2 w-full">
+              <h3 className="text-sm uppercase tracking-wide text-yellow-400 mb-2">
+                Attributes
+              </h3>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-gray-300">
+                {"hp" in hero.attributes && (
+                  <div>HP: {hero.attributes.hp.join(" / ")}</div>
+                )}
+                {"physicalAtk" in hero.attributes && (
+                  <div>ATK: {hero.attributes.physicalAtk.join(" / ")}</div>
+                )}
+                {"atkSpeed" in hero.attributes && (
+                  <div>ATK SPD: {hero.attributes.atkSpeed.join(" / ")}</div>
+                )}
+                {"manaCap" in hero.attributes && (
+                  <div>Mana: {hero.attributes.manaCap.join(" / ")}</div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Hero } from "../../data/s3/hero";
+import { Hero } from "../../data/s5/hero";
 import { Equipment } from "../../data/equipment";
 import { DroppableCell } from "./DroppableCell";
 import { DraggableHero } from "./DraggableHero";

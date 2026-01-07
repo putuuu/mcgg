@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Hero } from "../../data/s3/hero";
+import { Hero } from "../../data/s5/hero";
 import { DraggableHero } from "./DraggableHero";
 
 interface HeroPoolProps {

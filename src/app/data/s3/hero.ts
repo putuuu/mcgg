@@ -10,7 +10,7 @@ export interface Hero {
     icon: string;
   };
   synergies: {
-    faction: string;
+    faction: string[];
     roles: string[];
   };
 }

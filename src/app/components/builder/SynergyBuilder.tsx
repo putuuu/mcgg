@@ -3,8 +3,8 @@
 
 import React, { useState, useMemo } from "react";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
-import { heroes, Hero } from "../../data/s3/hero";
-import { synergies, Synergy } from "../../data/s3/sinergi";
+import { heroes, Hero } from "../../data/s5/hero";
+import { synergies, Synergy } from "../../data/s5/sinergi";
 import { equipments, Equipment } from "../../data/equipment";
 import { Board, BoardHero } from "./Board";
 import { ActiveSynergyList } from "./ActiveSynergyList";
@@ -32,7 +32,7 @@ export default function SynergyBuilder() {
         if (costFilter !== null && h.cost !== costFilter) return false;
         if (search && !h.name.toLowerCase().includes(search.toLowerCase()))
           return false;
-        if (factionFilter && h.synergies.faction !== factionFilter)
+        if (factionFilter && !h.synergies.faction.includes(factionFilter))
           return false;
         if (roleFilter && !h.synergies.roles.includes(roleFilter)) return false;
         return true;
@@ -59,8 +59,9 @@ export default function SynergyBuilder() {
       uniqueHeroes.add(cell.id);
 
       if (cell.synergies.faction)
-        counts[cell.synergies.faction] =
-          (counts[cell.synergies.faction] || 0) + 1;
+        cell.synergies.faction.forEach(
+          (faction) => (counts[faction] = (counts[faction] || 0) + 1)
+        );
       cell.synergies.roles.forEach(
         (role) => (counts[role] = (counts[role] || 0) + 1)
       );
@@ -202,7 +203,7 @@ export default function SynergyBuilder() {
             </div>
 
             {/* Equipment Pool */}
-            <div className="flex-1 min-w-[300px] bg-gray-900/80 p-4 rounded-md">
+            {/* <div className="flex-1 min-w-[300px] bg-gray-900/80 p-4 rounded-md">
               <h2 className="text-lg font-bold text-green-300 mb-2">
                 Equipment Pool
               </h2>
@@ -211,7 +212,7 @@ export default function SynergyBuilder() {
                   <DraggableEquipment key={eq.id} equipment={eq} />
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </DndContext>
       </div>

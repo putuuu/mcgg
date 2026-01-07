@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Synergy } from "../../data/s3/sinergi";
+import { Synergy } from "../../data/s5/sinergi";
 import { Equipment } from "../../data/equipment";
 
 interface FiltersProps {

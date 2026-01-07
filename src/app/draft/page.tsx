@@ -98,11 +98,11 @@ export default function DraftLobbyPage() {
                 url={`${origin}/draft/${room.id}?role=host`}
               />
               <LinkRow
-                label="🏠 Home Team"
+                label={`🏠 ${room.homeTeam} (Home Team)`}
                 url={`${origin}/draft/${room.id}?role=home`}
               />
               <LinkRow
-                label="🚗 Away Team"
+                label={`🚗 ${room.awayTeam} (Away Team)`}
                 url={`${origin}/draft/${room.id}?role=away`}
               />
 

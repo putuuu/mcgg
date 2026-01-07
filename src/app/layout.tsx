@@ -13,28 +13,65 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="relative min-h-screen text-white font-sans">
-        {/* Background dengan efek parallax */}
-        <div
-          className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-10"
-          style={{
-            backgroundImage: "url('/Atlas_Common_Bg4_MC.png')",
-            backgroundAttachment: "fixed",
-          }}
-        />
+      <body
+        className="
+          relative min-h-screen font-sans text-white
+          bg-[var(--bg-base)]
+        "
+        data-theme="neon"
+      >
+        {/* === Global Background Layer (optional & theme-driven) === */}
+        <div className="pointer-events-none fixed inset-0 -z-10">
+          {/* Background image (can be changed per season) */}
+          <div
+            className="
+              absolute inset-0 bg-cover bg-center bg-no-repeat
+              opacity-[var(--bg-image-opacity)]
+            "
+            style={{
+              backgroundImage: "var(--bg-image)",
+              backgroundAttachment: "fixed",
+            }}
+          />
 
-        {/* Overlay futuristik dengan efek neon */}
-        <div className="fixed inset-0 bg-gradient-to-b from-black/80 via-cyan-900/10 to-black/80 -z-5" />
-        <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-cyan-900/5 to-transparent -z-5" />
+          {/* Gradient overlay */}
+          <div
+            className="
+              absolute inset-0
+              bg-gradient-to-b
+              from-[var(--overlay-from)]
+              via-[var(--overlay-via)]
+              to-[var(--overlay-to)]
+            "
+          />
+
+          {/* Subtle neon radial */}
+          <div
+            className="
+              absolute inset-0
+              bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+              from-transparent
+              via-[var(--neon-glow)]
+              to-transparent
+            "
+          />
+        </div>
 
         {/* Header */}
         <Header />
 
-        {/* Halaman */}
+        {/* Page Content */}
         <main className="relative z-10">{children}</main>
 
         {/* Footer */}
-        <footer className="mt-12 py-6 text-center text-gray-400 bg-black/40 backdrop-blur-md relative z-10 border-t border-cyan-500/20">
+        <footer
+          className="
+            relative z-10 mt-16 py-6 text-center text-sm
+            text-white/50
+            border-t border-white/10
+            bg-black/30 backdrop-blur-md
+          "
+        >
           © {new Date().getFullYear()} MCGG Guide
         </footer>
       </body>

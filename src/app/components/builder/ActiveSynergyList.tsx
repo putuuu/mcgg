@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Synergy } from "../../data/s3/sinergi";
+import { Synergy } from "../../data/s5/sinergi";
 
 interface ActiveSynergyListProps {
   activeSynergies: (Synergy & { count: number; nextRequired: number })[];
@@ -9,15 +9,15 @@ interface ActiveSynergyListProps {
 
 export function ActiveSynergyList({ activeSynergies }: ActiveSynergyListProps) {
   const sorted = [...activeSynergies].sort((a, b) => {
-    if (a.name === "Metro Zero") return -1;
-    if (b.name === "Metro Zero") return 1;
+    if (a.name === "Mystic Meow") return -1;
+    if (b.name === "Mystic Meow") return 1;
     if (b.count !== a.count) return b.count - a.count;
     return a.name.localeCompare(b.name);
   });
 
   // hitung synergies aktif (count > 1, exclude Metro Zero sendiri)
   const activeCount = activeSynergies.filter(
-    (s) => s.name !== "Metro Zero" && s.count > 1
+    (s) => s.name !== "Mystic Meow" && s.count > 1
   ).length;
 
   return (
@@ -51,7 +51,7 @@ export function ActiveSynergyList({ activeSynergies }: ActiveSynergyListProps) {
                 </span>
 
                 {/* Kalau Metro Zero, tampilkan info tambahan */}
-                {syn.name === "Metro Zero" ? (
+                {syn.name === "Mystic Meow" ? (
                   <span
                     className={`ml-auto ${
                       isDimmed ? "text-gray-400" : "text-green-400"
@@ -73,7 +73,7 @@ export function ActiveSynergyList({ activeSynergies }: ActiveSynergyListProps) {
                 )}
 
                 {/* Hover card */}
-                <div className="absolute hidden group-hover:block z-50 left-10 top-0 w-72 bg-gray-900/95 text-white rounded-md shadow-lg p-3">
+                {/* <div className="absolute hidden group-hover:block z-50 left-10 top-0 w-72 bg-gray-900/95 text-white rounded-md shadow-lg p-3">
                   <h3 className="font-bold text-yellow-300">{syn.name}</h3>
                   <p className="text-sm text-gray-300 mb-2">
                     {syn.description}
@@ -91,7 +91,7 @@ export function ActiveSynergyList({ activeSynergies }: ActiveSynergyListProps) {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
               </li>
             );
           })}
