@@ -115,7 +115,6 @@ export default function BuilderClient() {
           <HeroFilter
             synergies={synergies}
             active={filter}
-            activeSynergies={activeSynergies}
             onChange={setFilter}
           />
 
