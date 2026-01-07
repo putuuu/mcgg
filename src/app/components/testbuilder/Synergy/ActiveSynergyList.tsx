@@ -6,7 +6,7 @@ export default function ActiveSynergyList({
 }: {
   synergies: ActiveSynergy[];
 }) {
-  const list = synergies.filter((s) => s.count > 0);
+  // const list = synergies.filter((s) => s.count > 0);
 
   return (
     <div className="panel p-5">
