@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Hero, heroes } from "../../data/s5/hero";
 import { synergies } from "../../data/s5/sinergi";
 import { calculateSynergies } from "./logic/synergyCalculator";
@@ -18,13 +18,105 @@ export default function BuilderClient() {
     roles: [],
     factions: [],
   });
+  const [blessing, setBlessing] = useState<string | null>(null);
 
   const activeSynergies = useMemo(
-    () => calculateSynergies(board.filter(Boolean) as Hero[], synergies),
-    [board]
+    () =>
+      calculateSynergies(
+        board.filter(Boolean) as Hero[],
+        synergies,
+        blessing ? { [blessing]: 1 } : {}
+      ),
+    [board, synergies, blessing]
   );
 
   const filteredHeroes = useMemo(() => filterHeroes(heroes, filter), [filter]);
+  const DIJIANG_HERO: Hero = {
+    id: 1,
+    name: "Iori Yagami",
+    cost: 0,
+    image: "/images/heroes/HeroHead179.png",
+
+    skill: {
+      name: "",
+      description: "",
+      sdescription: "",
+      icon: "/images/skills/S2630_Skin01.png",
+
+      attributes: {},
+    },
+
+    synergies: {
+      faction: [],
+      roles: [],
+    },
+
+    isSummon: true,
+    summonSource: "soul-vessels",
+  };
+
+  const soulVesselActive = activeSynergies.some(
+    (s) => s.synergy.slug === "soul-vessels" && s.activeEffect
+  );
+  useEffect(() => {
+    const soulVesselActive = activeSynergies.some(
+      (s) => s.synergy.slug === "soul-vessels" && s.activeEffect
+    );
+
+    const hasDijiang = board.some(
+      (h) => h?.isSummon && h.summonSource === "soul-vessels"
+    );
+
+    // ➕ AUTO ADD
+    if (soulVesselActive && !hasDijiang) {
+      setBoard((prev) => {
+        const next = [...prev];
+
+        // cari slot kosong
+        const emptyIndex = next.findIndex((v) => v === null);
+        if (emptyIndex === -1) return prev; // board penuh → jangan tambah
+
+        next[emptyIndex] = {
+          id: 1,
+          name: "Iori Yagami",
+          cost: 0,
+          image: "/images/heroes/HeroHead179.png",
+
+          skill: {
+            name: "",
+            description: "",
+            sdescription: "",
+            icon: "/images/skills/S2630_Skin01.png",
+
+            attributes: {},
+          },
+
+          synergies: {
+            faction: [],
+            roles: [],
+          },
+
+          isSummon: true,
+          summonSource: "soul-vessels",
+        };
+
+        return next;
+      });
+    }
+
+    // ➖ AUTO REMOVE
+    if (!soulVesselActive && hasDijiang) {
+      setBoard((prev) =>
+        prev.map((h) =>
+          h?.isSummon && h.summonSource === "soul-vessels" ? null : h
+        )
+      );
+    }
+  }, [activeSynergies, board, setBoard]);
+
+  const toggleBlessing = (slug: string) => {
+    setBlessing((prev) => (prev === slug ? null : slug));
+  };
 
   return (
     <>
@@ -37,7 +129,11 @@ export default function BuilderClient() {
         {/* TOP */}
         <div className="grid grid-cols-[1fr_360px] gap-2 items-stretch">
           <Board board={board} onChange={setBoard} />
-          <ActiveSynergyList synergies={activeSynergies} />
+          <ActiveSynergyList
+            synergies={activeSynergies}
+            blessing={blessing}
+            onToggleBlessing={toggleBlessing}
+          />
         </div>
 
         {/* BOTTOM */}
@@ -45,8 +141,10 @@ export default function BuilderClient() {
           <HeroFilter
             synergies={synergies}
             active={filter}
+            activeSynergies={activeSynergies}
             onChange={setFilter}
           />
+
           <HeroPool heroes={filteredHeroes} board={board} onChange={setBoard} />
         </div>
       </div>

@@ -20,6 +20,9 @@ export interface Hero {
 
   recommendedEquipment?: string[];
 
+  isSummon?: boolean;
+  summonSource?: "soul-vessels";
+
   attributes?: {
     hp: number[];
     physicalAtk: number[];

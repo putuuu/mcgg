@@ -27,31 +27,31 @@ export default function Board({
     if (!over) return;
 
     const hero: Hero | undefined = active.data.current?.hero;
-
-    const from =
-      typeof active.id === "string" && active.id.startsWith("slot-")
-        ? Number(active.id.replace("slot-", ""))
-        : -1;
+    const fromSlot: number | undefined =
+      typeof active.data.current?.fromSlot === "number"
+        ? active.data.current.fromSlot
+        : undefined;
 
     const to =
       typeof over.id === "string" && over.id.startsWith("slot-")
         ? Number(over.id.replace("slot-", ""))
         : -1;
 
-    if (to < 0) return;
+    if (to < 0 || !hero) return;
 
     const next = [...board];
 
-    // FROM POOL → BOARD
-    if (hero && from === -1) {
+    // ✅ FROM POOL → BOARD
+    if (fromSlot === undefined) {
+      // kalau slot tujuan sudah ada hero, overwrite
       next[to] = hero;
       onChange(next);
       return;
     }
 
-    // MOVE / SWITCH DI BOARD
-    if (from >= 0 && to >= 0 && from !== to) {
-      [next[from], next[to]] = [next[to], next[from]];
+    // ✅ MOVE / SWAP DI BOARD
+    if (fromSlot !== to) {
+      [next[fromSlot], next[to]] = [next[to], next[fromSlot]];
       onChange(next);
     }
   };

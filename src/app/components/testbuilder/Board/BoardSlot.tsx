@@ -2,18 +2,21 @@ import Image from "next/image";
 import { useDroppable, useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { Hero } from "../../../data/s5/hero";
+import clsx from "clsx";
 
 export default function BoardSlot({
   id,
   hero,
   onRemove,
 }: {
-  id: string;
+  id: string; // slot-0, slot-1, ...
   hero: Hero | null;
   onRemove: () => void;
 }) {
-  const { setNodeRef: dropRef } = useDroppable({ id });
+  // ✅ SLOT = DROPPABLE
+  const { setNodeRef, isOver } = useDroppable({ id });
 
+  // ✅ HERO = DRAGGABLE
   const {
     setNodeRef: dragRef,
     listeners,
@@ -22,22 +25,24 @@ export default function BoardSlot({
     isDragging,
   } = useDraggable({
     id,
-    data: { hero },
+    data: { hero, fromSlot: Number(id.replace("slot-", "")) },
     disabled: !hero,
   });
 
   return (
     <div
-      ref={dropRef}
-      className="board-slot w-[96px] h-[96px] rounded-lg relative"
+      ref={setNodeRef}
+      className={clsx(
+        "relative w-[96px] h-[96px] rounded-lg transition-all",
+        "border border-neutral-700",
+        // 🎯 HOVER INI SEKARANG PASTI NYALA
+        isOver && "ring-2 ring-yellow-400 bg-yellow-400/10"
+      )}
     >
       {hero && (
-        <div className="absolute inset-0 rounded-lg overflow-hidden">
-          {/* IMAGE (CLICK = REMOVE) */}
-          <div
-            onClick={onRemove}
-            className="absolute inset-0 cursor-pointer z-10"
-          >
+        <>
+          {/* IMAGE — ❗ TIDAK BOLEH TERIMA POINTER */}
+          <div className="absolute inset-0 pointer-events-none">
             <Image
               src={hero.image}
               alt={hero.name}
@@ -51,7 +56,14 @@ export default function BoardSlot({
             />
           </div>
 
-          {/* DRAG HANDLE */}
+          {/* REMOVE CLICK LAYER */}
+          <button
+            onClick={onRemove}
+            className="absolute inset-0 z-10"
+            title="Remove"
+          />
+
+          {/* DRAG HANDLE — SATU-SATUNYA YANG INTERACTIVE */}
           <div
             ref={dragRef}
             {...listeners}
@@ -72,7 +84,7 @@ export default function BoardSlot({
           >
             ⠿
           </div>
-        </div>
+        </>
       )}
     </div>
   );
