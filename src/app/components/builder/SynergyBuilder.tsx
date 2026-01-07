@@ -203,7 +203,7 @@ export default function SynergyBuilder() {
             </div>
 
             {/* Equipment Pool */}
-            {/* <div className="flex-1 min-w-[300px] bg-gray-900/80 p-4 rounded-md">
+            <div className="flex-1 min-w-[300px] bg-gray-900/80 p-4 rounded-md">
               <h2 className="text-lg font-bold text-green-300 mb-2">
                 Equipment Pool
               </h2>
@@ -212,7 +212,7 @@ export default function SynergyBuilder() {
                   <DraggableEquipment key={eq.id} equipment={eq} />
                 ))}
               </div>
-            </div> */}
+            </div>
           </div>
         </DndContext>
       </div>

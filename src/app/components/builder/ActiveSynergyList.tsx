@@ -73,7 +73,7 @@ export function ActiveSynergyList({ activeSynergies }: ActiveSynergyListProps) {
                 )}
 
                 {/* Hover card */}
-                {/* <div className="absolute hidden group-hover:block z-50 left-10 top-0 w-72 bg-gray-900/95 text-white rounded-md shadow-lg p-3">
+                <div className="absolute hidden group-hover:block z-50 left-10 top-0 w-72 bg-gray-900/95 text-white rounded-md shadow-lg p-3">
                   <h3 className="font-bold text-yellow-300">{syn.name}</h3>
                   <p className="text-sm text-gray-300 mb-2">
                     {syn.description}
@@ -91,7 +91,7 @@ export function ActiveSynergyList({ activeSynergies }: ActiveSynergyListProps) {
                       </li>
                     ))}
                   </ul>
-                </div> */}
+                </div>
               </li>
             );
           })}
