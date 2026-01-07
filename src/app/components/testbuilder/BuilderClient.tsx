@@ -27,7 +27,7 @@ export default function BuilderClient() {
         synergies,
         blessing ? { [blessing]: 1 } : {}
       ),
-    [board, synergies, blessing]
+    [board, blessing] // ⬅️ synergies DIHAPUS
   );
 
   const filteredHeroes = useMemo(() => filterHeroes(heroes, filter), [filter]);
@@ -51,8 +51,8 @@ export default function BuilderClient() {
         if (emptyIndex === -1) return prev; // board penuh → jangan tambah
 
         next[emptyIndex] = {
-          id: 1,
-          name: "Iori Yagami",
+          id: 0,
+          name: "Dijiang",
           cost: 0,
           image: "/images/heroes/HeroHead179.png",
 

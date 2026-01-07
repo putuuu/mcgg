@@ -20,7 +20,13 @@ export default function Board({
   board: (Hero | null)[];
   onChange: (b: (Hero | null)[]) => void;
 }) {
-  const sensors = useSensors(useSensor(PointerSensor, { distance: 6 }));
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 6,
+      },
+    })
+  );
 
   const onDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -41,15 +47,14 @@ export default function Board({
 
     const next = [...board];
 
-    // ✅ FROM POOL → BOARD
+    // FROM POOL → BOARD
     if (fromSlot === undefined) {
-      // kalau slot tujuan sudah ada hero, overwrite
       next[to] = hero;
       onChange(next);
       return;
     }
 
-    // ✅ MOVE / SWAP DI BOARD
+    // MOVE / SWAP
     if (fromSlot !== to) {
       [next[fromSlot], next[to]] = [next[to], next[fromSlot]];
       onChange(next);
