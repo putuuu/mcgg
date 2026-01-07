@@ -31,33 +31,7 @@ export default function BuilderClient() {
   );
 
   const filteredHeroes = useMemo(() => filterHeroes(heroes, filter), [filter]);
-  const DIJIANG_HERO: Hero = {
-    id: 1,
-    name: "Iori Yagami",
-    cost: 0,
-    image: "/images/heroes/HeroHead179.png",
 
-    skill: {
-      name: "",
-      description: "",
-      sdescription: "",
-      icon: "/images/skills/S2630_Skin01.png",
-
-      attributes: {},
-    },
-
-    synergies: {
-      faction: [],
-      roles: [],
-    },
-
-    isSummon: true,
-    summonSource: "soul-vessels",
-  };
-
-  const soulVesselActive = activeSynergies.some(
-    (s) => s.synergy.slug === "soul-vessels" && s.activeEffect
-  );
   useEffect(() => {
     const soulVesselActive = activeSynergies.some(
       (s) => s.synergy.slug === "soul-vessels" && s.activeEffect

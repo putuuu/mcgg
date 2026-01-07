@@ -1,5 +1,6 @@
 import { Hero } from "../../../data/s5/hero";
 import { Synergy, SynergyEffect } from "../../../data/s5/sinergi";
+import { BoardHero } from "../../builder/Board";
 
 export interface ActiveSynergy {
   synergy: Synergy;
@@ -20,7 +21,8 @@ export function calculateSynergies(
 
   // Count roles & factions (skip summon)
   selectedHeroes.forEach((hero) => {
-    if ((hero as any).isSummon) return;
+    const h = hero as BoardHero;
+    if (h.isSummon) return;
 
     hero.synergies.roles.forEach((role) => {
       counter[role] = (counter[role] ?? 0) + 1;
