@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ActiveSynergy } from "../logic/synergyCalculator";
 
 type Props = {
@@ -22,12 +23,15 @@ export default function SynergyItem({ data }: Props) {
         }`}
     >
       <div className="flex items-center gap-2">
-        <img
+        import Image from "next/image";
+        <Image
           src={synergy.icon}
           alt={synergy.name}
-          className={`w-8 h-8 ${isActive ? "" : "opacity-40"}`}
+          width={32}
+          height={32}
+          unoptimized
+          className={isActive ? "" : "opacity-40"}
         />
-
         <div className="flex-1">
           <p
             className={`text-sm font-medium ${
