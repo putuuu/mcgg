@@ -1,11 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef } from "react";
 
 export default function Header() {
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
   return (
     <header className="sticky top-0 z-50 bg-black/70 backdrop-blur-md">
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
@@ -14,22 +11,6 @@ export default function Header() {
         </Link>
 
         <ul className="flex gap-6 font-medium items-center">
-          {/* <li>
-            <Link
-              href="/patches"
-              className="hover:text-yellow-400 transition-colors"
-            >
-              New Update
-            </Link>
-          </li> */}
-          {/* <li>
-            <Link
-              href="/guide"
-              className="hover:text-yellow-400 transition-colors"
-            >
-              Guide
-            </Link>
-          </li> */}
           <li>
             <Link
               href="/tier-list"
@@ -38,6 +19,7 @@ export default function Header() {
               Tier List
             </Link>
           </li>
+
           <li>
             <Link
               href="/synergyhero"
@@ -46,48 +28,7 @@ export default function Header() {
               Synergy
             </Link>
           </li>
-          {/* Dropdown CSS-only */}
-          {/* <div
-            className="relative"
-            onMouseEnter={() => handleEnter("data")}
-            onMouseLeave={handleLeave}
-          >
-            <button className="hover:text-yellow-400">Data</button>
-            {open === "data" && (
-              <div
-                className="
-                absolute left-0 mt-2 w-48 bg-black/80 rounded-md shadow-lg 
-                text-sm text-white
-                before:absolute before:-top-2 before:left-0 before:w-full before:h-2 before:bg-transparent
-              "
-              >
-                <Link
-                  href="/commander"
-                  className="block px-4 py-2 hover:bg-white/10"
-                >
-                  Commander
-                </Link>
-                <Link
-                  href="/gogo-card"
-                  className="block px-4 py-2 hover:bg-white/10"
-                >
-                  Go Go Card
-                </Link>
-                <Link
-                  href="/synergyhero"
-                  className="block px-4 py-2 hover:bg-white/10"
-                >
-                  Synergy
-                </Link>
-                <Link
-                  href="/equipment"
-                  className="block px-4 py-2 hover:bg-white/10"
-                >
-                  Equipment
-                </Link>
-              </div>
-            )}
-          </div> */}
+
           <li>
             <Link
               href="/builder"
@@ -96,6 +37,7 @@ export default function Header() {
               Lineup Builder
             </Link>
           </li>
+
           <li>
             <Link
               href="/draft"
@@ -104,6 +46,7 @@ export default function Header() {
               Draft
             </Link>
           </li>
+
           <li>
             <Link
               href="/about"

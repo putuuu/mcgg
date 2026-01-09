@@ -1,14 +1,26 @@
 import { Tier } from "./tierData";
 import TierRow from "./TierRow";
+import { Hero } from "../data/s5/hero";
+import { Synergy } from "../data/s5/sinergi";
+
+interface HeroTierEntry {
+  heroName: string;
+  tier: Tier;
+}
+
+interface SynergyTierEntry {
+  synergyName: string;
+  tier: Tier;
+}
 
 interface Props {
   title: string;
   tiers: Tier[];
   type: "hero" | "synergy";
-  items: any[];
-  tierMap: any[];
-  heroes?: any[];
-  heroTiers?: any[];
+  items: Hero[] | Synergy[];
+  tierMap: HeroTierEntry[] | SynergyTierEntry[];
+  heroes?: Hero[];
+  heroTiers?: HeroTierEntry[];
 }
 
 export default function TierSection({
