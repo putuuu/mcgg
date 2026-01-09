@@ -7,9 +7,8 @@ import TierSection from "./TierSection";
 
 export default function TierListPage() {
   return (
-    <div className="min-h-screen  text-white">
+    <div className="min-h-screen bg-[#10151d] text-white">
       <div className="pt-10 w-full flex justify-center">
-        {/* MAIN CONTAINER */}
         <div
           className="
             w-full max-w-[1400px]
@@ -22,17 +21,14 @@ export default function TierListPage() {
         >
           {/* HEADER */}
           <header className="space-y-2">
-            {/* CREDIT */}
             <div className="text-xs text-white/50 uppercase tracking-wide">
               Credit: Frei &amp; NCM
             </div>
 
-            {/* TITLE */}
             <h1 className="text-2xl md:text-3xl font-bold">
               Season 5 Neon Guardian Tier List
             </h1>
 
-            {/* VERSION */}
             <div className="text-sm text-white/60">
               v1.21.42.352.1 · ADV · January 8, 2026
             </div>
@@ -45,8 +41,6 @@ export default function TierListPage() {
             type="synergy"
             items={synergies}
             tierMap={synergyTiers}
-            heroes={heroes}
-            heroTiers={heroTiers}
           />
 
           {/* HERO TIER LIST */}
