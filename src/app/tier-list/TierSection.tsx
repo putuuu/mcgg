@@ -19,8 +19,6 @@ interface Props {
   type: "hero" | "synergy";
   items: Hero[] | Synergy[];
   tierMap: HeroTierEntry[] | SynergyTierEntry[];
-  heroes?: Hero[];
-  heroTiers?: HeroTierEntry[];
 }
 
 export default function TierSection({
@@ -29,8 +27,6 @@ export default function TierSection({
   type,
   items,
   tierMap,
-  heroes,
-  heroTiers,
 }: Props) {
   return (
     <section className="space-y-3">
@@ -44,8 +40,6 @@ export default function TierSection({
             type={type}
             items={items}
             tierMap={tierMap}
-            heroes={heroes}
-            heroTiers={heroTiers}
           />
         ))}
       </div>
