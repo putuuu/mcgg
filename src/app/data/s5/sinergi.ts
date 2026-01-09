@@ -30,11 +30,11 @@ export const synergies: Synergy[] = [
         effect:
           "When only 1 Mortal Rival is deployed, gain 10% extra DMG and 5% DMG Reduction.",
       },
-      {
-        units: 11,
-        effect:
-          "Only activates when reaching 11-KOF. Both Mortal Rivals gain bonuses when deployed together. Gain 100% extra DMG, 50% DMG Reduction, and 10000 HP.",
-      },
+      // {
+      //   units: 11,
+      //   effect:
+      //     "Only activates when reaching 11-KOF. Both Mortal Rivals gain bonuses when deployed together. Gain 100% extra DMG, 50% DMG Reduction, and 10000 HP.",
+      // },
     ],
   },
 

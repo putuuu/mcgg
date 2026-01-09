@@ -13,23 +13,37 @@ export default function SynergyRow({
 }) {
   const { synergy, count, activeEffect, isDisabled, activeSynergyCount } = data;
 
+  const isMortalRival = synergy.slug === "mortal-rival";
+
   const firstEffect = synergy.effects
     .slice()
     .sort((a, b) => a.units - b.units)[0];
 
   const next = synergy.effects.find((e) => e.units > count);
 
-  const isActive = !!activeEffect && !isDisabled;
+  // === ACTIVE LOGIC ===
+  const isActive = isMortalRival
+    ? count === 1 && !isDisabled
+    : !!activeEffect && !isDisabled;
+
   const isPartial =
-    !isDisabled && !activeEffect && count < (firstEffect?.units ?? Infinity);
+    !isMortalRival &&
+    !isDisabled &&
+    !activeEffect &&
+    count < (firstEffect?.units ?? Infinity);
+
+  // === COUNT DISPLAY ===
+  const countDisplay = isMortalRival
+    ? `${count}`
+    : `${count}${next ? `/${next.units}` : ""}`;
 
   return (
     <div className="flex items-center gap-3 text-sm">
-      {/* === SYNERGY CORE (IKUT STATE) === */}
+      {/* === SYNERGY CORE === */}
       <div
         className={clsx(
           "flex items-center gap-3 flex-1 transition",
-          (isPartial || isDisabled) && "opacity-40"
+          (!isActive || isDisabled) && "opacity-40"
         )}
       >
         <Image
@@ -50,19 +64,17 @@ export default function SynergyRow({
         )}
       </div>
 
-      {/* === COUNT (IKUT STATE) === */}
+      {/* === COUNT === */}
       <span
         className={clsx(
           "w-[40px] text-right transition",
-          isActive ? "text-green-400 font-semibold" : "text-neutral-500",
-          (isPartial || isDisabled) && "opacity-40"
+          isActive ? "text-green-400 font-semibold" : "text-neutral-500"
         )}
       >
-        {count}
-        {next ? `/${next.units}` : ""}
+        {countDisplay}
       </span>
 
-      {/* === BLESSING (TERPISAH TOTAL) === */}
+      {/* === BLESSING === */}
       <button
         onClick={onToggleBlessing}
         className={clsx(
