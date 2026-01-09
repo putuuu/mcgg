@@ -19,26 +19,19 @@ interface Props {
   type: "hero" | "synergy";
   items: Hero[] | Synergy[];
   tierMap: HeroTierEntry[] | SynergyTierEntry[];
-  heroes?: Hero[];
-  heroTiers?: HeroTierEntry[];
 }
 
-export default function TierRow({
-  tier,
-  type,
-  items,
-  tierMap,
-  heroes,
-  heroTiers,
-}: Props) {
+export default function TierRow({ tier, type, items, tierMap }: Props) {
   const filtered = tierMap.filter((t) => t.tier === tier);
   if (filtered.length === 0) return null;
 
   return (
     <div className="w-full rounded-lg bg-white/5 border border-white/15 px-3 py-3">
       <div className="flex items-center gap-3">
+        {/* TIER LETTER */}
         <div className="w-7 text-center text-2xl font-bold">{tier}</div>
 
+        {/* ICON ROW */}
         <div className="flex gap-2 overflow-x-auto">
           {filtered.map((entry) => {
             if (type === "hero") {
@@ -51,13 +44,9 @@ export default function TierRow({
             const synergy = (items as Synergy[]).find(
               (s) => s.name === (entry as SynergyTierEntry).synergyName
             );
-            return synergy && heroes && heroTiers ? (
-              <SynergyTierCard
-                key={synergy.name}
-                synergy={synergy}
-                heroes={heroes}
-                heroTiers={heroTiers}
-              />
+
+            return synergy ? (
+              <SynergyTierCard key={synergy.name} synergy={synergy} />
             ) : null;
           })}
         </div>

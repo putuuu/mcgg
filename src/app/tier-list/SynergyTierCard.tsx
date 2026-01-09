@@ -1,21 +1,7 @@
 import Image from "next/image";
 import { Synergy } from "../data/s5/sinergi";
-import { Hero } from "../data/s5/hero";
 
-interface HeroTierEntry {
-  heroName: string;
-  tier: string;
-}
-
-export default function SynergyTierCard({
-  synergy,
-  heroes,
-  heroTiers,
-}: {
-  synergy: Synergy;
-  heroes: Hero[];
-  heroTiers: HeroTierEntry[];
-}) {
+export default function SynergyTierCard({ synergy }: { synergy: Synergy }) {
   return (
     <div className="relative w-12 h-12 rounded-md border border-white/20 bg-black/40">
       <Image
