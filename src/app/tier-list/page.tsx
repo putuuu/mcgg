@@ -7,7 +7,7 @@ import TierSection from "./TierSection";
 
 export default function TierListPage() {
   return (
-    <div className="min-h-screen bg-[#10151d] text-white">
+    <div className="min-h-screen text-white">
       <div className="pt-10 w-full flex justify-center">
         <div
           className="
