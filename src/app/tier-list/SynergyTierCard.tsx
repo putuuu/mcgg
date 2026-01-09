@@ -1,9 +1,11 @@
-"use client";
-
+import Image from "next/image";
 import { Synergy } from "../data/s5/sinergi";
 import { Hero } from "../data/s5/hero";
-import { useState } from "react";
-import SynergyModal from "./SynergyModal";
+
+interface HeroTierEntry {
+  heroName: string;
+  tier: string;
+}
 
 export default function SynergyTierCard({
   synergy,
@@ -12,27 +14,16 @@ export default function SynergyTierCard({
 }: {
   synergy: Synergy;
   heroes: Hero[];
-  heroTiers: any[];
+  heroTiers: HeroTierEntry[];
 }) {
-  const [open, setOpen] = useState(false);
-
   return (
-    <>
-      <div
-        onClick={() => setOpen(true)}
-        className="w-14 h-14 rounded border cursor-pointer flex items-center justify-center bg-background"
-      >
-        <img src={synergy.icon} alt={synergy.name} className="w-8 h-8" />
-      </div>
-
-      {open && (
-        <SynergyModal
-          synergy={synergy}
-          heroes={heroes}
-          heroTiers={heroTiers}
-          onClose={() => setOpen(false)}
-        />
-      )}
-    </>
+    <div className="relative w-12 h-12 rounded-md border border-white/20 bg-black/40">
+      <Image
+        src={synergy.icon}
+        alt={synergy.name}
+        fill
+        className="object-contain p-1"
+      />
+    </div>
   );
 }

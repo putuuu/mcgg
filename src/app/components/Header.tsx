@@ -4,17 +4,7 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 
 export default function Header() {
-  const [open, setOpen] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleEnter = (menu: string) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setOpen(menu);
-  };
-
-  const handleLeave = () => {
-    timeoutRef.current = setTimeout(() => setOpen(null), 200);
-  };
 
   return (
     <header className="sticky top-0 z-50 bg-black/70 backdrop-blur-md">
