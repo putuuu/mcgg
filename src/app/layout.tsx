@@ -17,12 +17,13 @@ export default function RootLayout({
         className="
           relative min-h-screen font-sans text-white
           bg-[var(--bg-base)]
+          overflow-x-hidden
         "
         data-theme="neon"
       >
-        {/* === Global Background Layer (optional & theme-driven) === */}
+        {/* === Global Background Layer === */}
         <div className="pointer-events-none fixed inset-0 -z-10">
-          {/* Background image (can be changed per season) */}
+          {/* Background image */}
           <div
             className="
               absolute inset-0 bg-cover bg-center bg-no-repeat
@@ -45,7 +46,7 @@ export default function RootLayout({
             "
           />
 
-          {/* Subtle neon radial */}
+          {/* Neon radial glow */}
           <div
             className="
               absolute inset-0
@@ -57,22 +58,43 @@ export default function RootLayout({
           />
         </div>
 
-        {/* Header */}
+        {/* Header (sticky, safe for mobile) */}
         <Header />
 
-        {/* Page Content */}
-        <main className="relative z-10">{children}</main>
+        {/* Main Content */}
+        <main
+          className="
+            relative z-10
+            mx-auto
+            w-full
+            max-w-7xl
+            px-4 sm:px-6 lg:px-8
+            pt-6 sm:pt-8
+          "
+        >
+          {children}
+        </main>
 
         {/* Footer */}
         <footer
           className="
-            relative z-10 mt-16 py-6 text-center text-sm
-            text-white/50
+            relative z-10 mt-16
             border-t border-white/10
             bg-black/30 backdrop-blur-md
           "
         >
-          © {new Date().getFullYear()} MCGG Guide
+          <div
+            className="
+              mx-auto max-w-7xl
+              px-4 sm:px-6 lg:px-8
+              py-6
+              text-center text-xs sm:text-sm
+              text-white/50
+            "
+          >
+            © {new Date().getFullYear()} MCGG Guide ·
+            <span className="ml-1">Synergy · Builder · Draft</span>
+          </div>
         </footer>
       </body>
     </html>

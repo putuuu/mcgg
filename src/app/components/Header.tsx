@@ -32,17 +32,32 @@ export default function Header() {
               New Update
             </Link>
           </li> */}
-          <li>
+          {/* <li>
             <Link
               href="/guide"
               className="hover:text-yellow-400 transition-colors"
             >
               Guide
             </Link>
+          </li> */}
+          <li>
+            <Link
+              href="/tier-list"
+              className="hover:text-yellow-400 transition-colors"
+            >
+              Tier List
+            </Link>
           </li>
-
+          <li>
+            <Link
+              href="/synergyhero"
+              className="hover:text-yellow-400 transition-colors"
+            >
+              Synergy
+            </Link>
+          </li>
           {/* Dropdown CSS-only */}
-          <div
+          {/* <div
             className="relative"
             onMouseEnter={() => handleEnter("data")}
             onMouseLeave={handleLeave}
@@ -82,17 +97,23 @@ export default function Header() {
                 </Link>
               </div>
             )}
-          </div>
-
+          </div> */}
           <li>
             <Link
               href="/builder"
               className="hover:text-yellow-400 transition-colors"
             >
-              Synergy Builder
+              Lineup Builder
             </Link>
           </li>
-
+          <li>
+            <Link
+              href="/draft"
+              className="hover:text-yellow-400 transition-colors"
+            >
+              Draft
+            </Link>
+          </li>
           <li>
             <Link
               href="/about"
