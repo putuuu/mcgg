@@ -97,7 +97,7 @@ export const synergyTiers: SynergyTier[] = [
   { synergyName: "Defender", tier: "B" },
   { synergyName: "Dauntless", tier: "B" },
 
-  { synergyName: "Beyond The Cloud", tier: "C" },
+  { synergyName: "Beyond the Clouds", tier: "C" },
   { synergyName: "Marksman", tier: "C" },
 
   { synergyName: "Mage", tier: "F" },
