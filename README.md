@@ -29,16 +29,3 @@ https://mcgg-khoceng.vercel.app
 ### 📊 Tier List
 
 ![Tier List Preview](./public/ss/tierlist.png)
-
----
-
-## ✨ Key Features
-
-- 🌍 Global-oriented content (English)
-- 📘 Beginner-friendly **4v4 & Solo guides**
-- 🧩 Curated synergy compositions (not full data dump)
-- 🧠 Clear role separation: **Support & Carry**
-- 🎨 Visual-first guide layout
-- ⚡ Easy to update for future patches
-
--
