@@ -93,16 +93,13 @@ export default function BuilderClient() {
   };
 
   return (
-    <>
-      {/* ROTATE HINT */}
-      <div className="rotate-hint hidden fixed inset-0 bg-black text-white items-center justify-center z-50">
-        Rotate device to landscape
-      </div>
-
-      <div className="builder-root flex flex-col gap-2 h-full px-3 pb-3">
-        {/* TOP */}
-        <div className="grid grid-cols-[1fr_360px] gap-2 items-stretch">
+    <div className="h-screen px-3 pb-3">
+      <div className="flex flex-col gap-2 h-full min-h-0">
+        {/* ================= TOP ================= */}
+        <div className="grid grid-cols-[1fr_360px] gap-2 h-[60%] min-h-0">
           <Board board={board} onChange={setBoard} />
+
+          {/* RIGHT PANEL */}
           <ActiveSynergyList
             synergies={activeSynergies}
             blessing={blessing}
@@ -110,8 +107,8 @@ export default function BuilderClient() {
           />
         </div>
 
-        {/* BOTTOM */}
-        <div className="grid grid-cols-[300px_1fr] gap-2">
+        {/* ================= BOTTOM ================= */}
+        <div className="grid grid-cols-[300px_1fr] gap-2 flex-1 min-h-0">
           <HeroFilter
             synergies={synergies}
             active={filter}
@@ -121,6 +118,6 @@ export default function BuilderClient() {
           <HeroPool heroes={filteredHeroes} board={board} onChange={setBoard} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

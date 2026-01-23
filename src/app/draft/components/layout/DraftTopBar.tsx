@@ -29,8 +29,8 @@ export default function DraftTopBar({
       className="
         relative z-20
         flex items-center justify-between
-        px-2 sm:px-3 md:px-4
-        py-2 sm:py-3
+        px-4 sm:px-6 lg:px-10
+        py-3 sm:py-4 lg:py-6
       "
     >
       {/* HOME BAN */}
@@ -40,32 +40,23 @@ export default function DraftTopBar({
       <div
         className="
           flex flex-col items-center
-          gap-0.5 sm:gap-1
-          px-3 sm:px-4 md:px-6
-          py-2 sm:py-2.5
+          gap-1.5
+          px-5 sm:px-7 lg:px-10
+          py-3 sm:py-3.5 lg:py-5
           rounded-full
-          bg-black/60
-          border border-white/10
+          bg-black/70
+          border border-white/15
         "
       >
-        <span
-          className="
-            text-[9px]
-            sm:text-[10px]
-            md:text-[11px]
-            uppercase tracking-widest
-            text-slate-400
-          "
-        >
+        <span className="text-[11px] sm:text-[12px] lg:text-[13px] uppercase tracking-widest text-slate-300">
           {phase}
         </span>
 
         <span
           className="
-            text-xl
-            sm:text-2xl
-            md:text-3xl
-            font-bold
+            text-3xl sm:text-4xl
+            lg:text-5xl xl:text-6xl 2xl:text-7xl
+            font-extrabold
             text-slate-100
             leading-none
           "
@@ -73,14 +64,7 @@ export default function DraftTopBar({
           {timer > 0 ? timer : "—"}
         </span>
 
-        <span
-          className="
-            text-[9px]
-            sm:text-[10px]
-            md:text-[11px]
-            text-slate-500
-          "
-        >
+        <span className="text-[10px] sm:text-[11px] lg:text-[12px] text-slate-400">
           STEP {step} / {totalSteps}
         </span>
       </div>
@@ -107,29 +91,28 @@ function BanPill({
   return (
     <div
       className={`
-        flex items-center gap-2
-        px-2 sm:px-3
-        py-1.5 sm:py-2
+        flex items-center gap-3 lg:gap-4
+        px-4 sm:px-5 lg:px-7
+        py-2.5 sm:py-3 lg:py-4
         rounded-full
-        bg-black/60
-        border border-white/10
+        bg-black/70
+        border border-white/15
         ${align === "right" ? "flex-row-reverse" : ""}
       `}
     >
       <span
         className="
-          text-[9px]
-          sm:text-[10px]
-          md:text-[11px]
+          text-[11px] sm:text-[12px]
+          lg:text-[13px] xl:text-[14px]
           uppercase tracking-widest
-          text-slate-400
+          text-slate-300
         "
       >
         {label}
       </span>
 
-      <div className="flex gap-1 sm:gap-1.5">
-        {Array(3)
+      <div className="flex gap-2 lg:gap-3">
+        {Array(4)
           .fill(0)
           .map((_, i) => {
             const id = bans[i];
@@ -140,13 +123,14 @@ function BanPill({
                 key={i}
                 className="
                   relative
-                  w-7 h-7
-                  sm:w-8 sm:h-8
-                  md:w-9 md:h-9
-                  lg:w-10 lg:h-10
+                  w-9 h-9
+                  sm:w-10 sm:h-10
+                  lg:w-12 lg:h-12
+                  xl:w-14 xl:h-14
+                  2xl:w-16 2xl:h-16
                   rounded-full
                   bg-slate-900
-                  border border-white/15
+                  border border-white/20
                   overflow-hidden
                   flex items-center justify-center
                 "
@@ -156,11 +140,11 @@ function BanPill({
                     src={commander.icon}
                     alt={commander.name}
                     fill
-                    sizes="36px"
+                    sizes="64px"
                     className="object-cover"
                   />
                 ) : (
-                  <span className="text-[10px] md:text-[11px] text-slate-600">
+                  <span className="text-[12px] lg:text-[14px] text-slate-500">
                     —
                   </span>
                 )}

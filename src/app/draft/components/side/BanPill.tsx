@@ -18,13 +18,14 @@ export default function BanPill({
   return (
     <div
       className={`
-        flex items-center gap-2
-        px-2 sm:px-3
-        py-1.5 sm:py-2
+        flex items-center
+        gap-1 sm:gap-1.5 lg:gap-3
+        px-2 sm:px-3 lg:px-5
+        py-1 sm:py-1.5 lg:py-3
         rounded-full
         bg-black/60
         border border-white/10
-        min-w-[130px] sm:min-w-[150px] md:min-w-[180px]
+        min-w-[120px] sm:min-w-[150px] lg:min-w-[220px]
         transition
         ${reverse ? "flex-row-reverse" : ""}
       `}
@@ -32,9 +33,9 @@ export default function BanPill({
       {/* LABEL */}
       <span
         className={`
-          text-[9px]
-          sm:text-[10px]
-          md:text-[11px]
+          text-[8px]
+          sm:text-[9px]
+          lg:text-[11px]
           uppercase
           tracking-[0.25em]
           ${color}
@@ -44,22 +45,24 @@ export default function BanPill({
       </span>
 
       {/* BAN SLOTS */}
-      <div className="flex gap-1 sm:gap-1.5">
-        {Array(3)
+      <div className="flex gap-1 sm:gap-1.5 lg:gap-2.5">
+        {Array(4)
           .fill(0)
           .map((_, i) => (
             <div
               key={i}
               className="
-                w-6 h-6                 /* 📱 mobile */
-                sm:w-7 sm:h-7
-                md:w-8 md:h-8
-                lg:w-9 lg:h-9           /* 💻 desktop */
+                w-5 h-5                 /* 📱 mobile */
+                sm:w-6 sm:h-6
+                md:w-7 md:h-7
+                lg:w-10 lg:h-10         /* 💻 desktop */
+                xl:w-11 xl:h-11
+                2xl:w-12 2xl:h-12
                 rounded-full
                 bg-slate-900/80
                 border border-white/15
                 flex items-center justify-center
-                text-[9px] md:text-[10px]
+                text-[8px] sm:text-[9px] lg:text-[11px]
                 text-slate-500
               "
             >
